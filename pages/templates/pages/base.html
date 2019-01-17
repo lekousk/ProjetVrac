@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+		<! -- En-tête de la page et de l'onglet -->
+        <meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="{% static 'pages/css/base.css' %}" />
+		<link href="https://fonts.googleapis.com/css?family=Sarabun|Thasadith" rel="stylesheet">
+		{% block extra_head %}{% endblock %}
+        <title>{% block title %}Bokalia - Drive Vrac & Bio{% endblock %}</title>
+    </head>
+
+    <body>
+
+    	<div class="body">
+			<header>
+				<div class="menu_haut">
+					<div class="logo_menu">
+						<div class="titre_principal">
+							<div id="logo bokalia">
+								<img src="{% static "pages/images/logo_bokalia.png" %}" alt="Logo Bokalia" />
+							</div>
+						</div>
+
+						<div class="rechercher">
+							<form class="search_form" action="#" method="POST" autocomplete="off">
+								{% csrf_token %}
+								<input id="search_text" type="text" size="30" placeholder="Lait, œuf, farine…"/>
+								<input type="image" id="submit_img" name="search_submit" src="{% static "pages/images/icon_search.png" %}" alt="icone rechercher">
+							</form>
+						</div>
+					</div>
+
+					<div class="login_basket">
+						<div id="login">
+							<!--<img src="{% static "pages/images/icon_login.png" %}" alt="Logo du LogIn" />-->
+							<a href="#" id="connexion">Me connecter</a>
+						</div>
+						<div id="basket">
+							<a href="#" id="panier"><img src="{% static "pages/images/icon_panier1.png" %}" alt="Logo du panier" /> (0,00€)</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="bandeau_fond">
+					<div class="bandeau_menu">
+						<nav id="navigation">
+							<ul>
+								<li><a href="#">Nos produits </a></li>
+								<li><a href="#">Fonctionnement</a></li>
+								<li><a href="#">La boutique</a></li>
+								<li><a href="#">Contact</a></li>
+							</ul>
+						</nav>
+
+						<!--<div class="reseaux_sociaux">
+							<a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
+							<a href="#" title="lien insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
+							<a href="#" title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
+						</div>-->
+					</div>
+				</div>
+			</header>
+
+			{% block content %}{% endblock %}
+
+		<footer>
+			<div id="corps_footer">
+				<div class="bloc_bas_page">
+					<h2>Bokalia</h2>
+					<p>Adresse ...</p>
+				</div>
+
+				<div class="bloc_bas_page">
+					<h2>Liens utiles</h2>
+
+					<div id="liste_bas">
+						<ul id="liens_bas">
+							<li><a href="#">Conditions Générales de vente</a></li>
+							<li><a href="#">Politique de Protection des Données Personnelles</a></li>
+							<li><a href="#">Mentions Légales</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="bloc_bas_page">
+					<h2>Retrouvez nous</h2>
+
+					<div class="reseaux_sociaux">
+						<a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
+						<a href="#" title="lien Insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
+						<a href="#" title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}Edition de produit - Bokalia{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/produit.css' %}" />{% endblock %}
+
+{% block content %}
+
+<div id="body_edition">
+
+    <p>{{ tout_produit }}</p>
+
+
+    {% for produit in tout_produit %}
+    <div class="article">
+        <h3>{{ produit.nom }}</h3>
+        <p>{{ produit.description|truncatewords_html:80 }}</p>
+        <p>{{ produit.id }}</p>
+    </div>
+
+    {% empty %}
+    <p>Aucun article.</p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

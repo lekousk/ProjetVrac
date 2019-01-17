@@ -1,0 +1,220 @@
+
+/* Ex de couleur:
+#57cfb0
+#abd0bf
+#5bc7ab ?1
+#00b68c ?2
+
+#6dbf81 avant
+*/
+
+/* En-tête */
+
+.body
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-family: 'Sarabun','Thasadith', sans-serif;
+	color: grey;
+}
+
+header
+{
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.menu_haut
+{
+	width: 1000px;
+	height: 50px;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+/* Recherche */
+
+
+.rechercher
+{
+	background-color: white;
+	margin: auto;
+	/*border:2px solid red;*/
+	height: 100%;
+	margin-left: 10px;
+}
+
+.search_form
+{
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border: 2px solid #d6d4d4;
+	border-radius: 15px;
+	background-color: #f8f8f8;
+}
+
+#search_text
+{
+	font-size: 0.8em;
+	font-style: italic;
+	color: #000000;
+	width: 700px;
+	height: 30px;
+	border: none;
+	border-radius: 20px;
+	padding-left: 10px;
+	background-color: #f8f8f8;
+}
+
+#submit_img
+{
+	/*border:2px solid red;*/
+	/*background-color: #000000;*/
+	height: 30px;
+}
+
+/* Logion et panier haut droite */
+
+.logo_menu
+{
+	display: flex;
+	align-items: flex-end;
+}
+
+.login_basket
+{
+	display: flex;
+	align-items: center;
+	margin-bottom: 2px;
+}
+
+#login a
+{
+	color: #181818;
+	text-decoration: none;
+}
+
+#connexion
+{
+	padding-right: 10px;
+	border-right: 1px solid black;
+	text-align: center;
+	font-size: 0.75em;
+		
+}
+
+#login a:hover
+{
+	color: #5bc7ab;
+}
+
+#basket a
+{
+	padding-left: 10px;
+	margin-right: 10px;
+	color: #181818;
+	text-decoration: none;
+}
+
+#basket a:hover
+{
+	color: #5bc7ab;
+}
+
+#panier
+{
+	font-size: 0.75em;
+}
+
+
+/* Navigation */
+
+.bandeau_fond
+{
+	background: #5bc7ab;
+	opacity: 1;
+	min-width: 1000px;
+}
+
+.bandeau_menu
+{
+	/*display: flex;
+	justify-content: space-between;*/
+	margin: auto;
+	width: 1000px;
+
+}
+
+#navigation
+{
+	
+}
+
+#navigation ul
+{
+	list-style-type: none;
+    display: inline-flex;
+    margin: 0;
+    height: 2.5em;
+    padding-left: 0;
+}
+
+#navigation li
+{
+	margin: auto;
+}
+
+#navigation li a
+{
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.85em 1em;
+}
+
+#navigation a:hover
+{
+    color: #5bc7ab;
+    background-color: #FFFFFF;
+}
+
+/* corps de la page*/
+
+/*#corps_page
+{
+	width: 900px;
+	margin: auto;
+	padding-top: 2px;
+	min-height: 500px;
+}*/
+
+/* Footer */
+
+footer
+{
+    background-color: #5bc7ab;
+    min-width: 1000px;
+}
+
+footer h2
+{
+	color: black;
+}
+
+#corps_footer
+{
+	width: 1000px;
+	margin: auto;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#liens_bas
+{
+	list-style-type: none;
+}

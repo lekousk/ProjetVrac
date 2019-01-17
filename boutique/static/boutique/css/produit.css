@@ -1,4 +1,4 @@
-h1
+h3
 {
 	color: red;
 }
@@ -12,15 +12,4 @@ h1
 #id_nom
 {
 	background-color: red;
-}
-
-form label [id="id_nom"]
-{
-	color: red;
-}
-
-
-.errorlist
-{
-	color: red;
 }

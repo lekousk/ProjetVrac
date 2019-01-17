@@ -1,76 +1,12 @@
+{% extends 'pages/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
 
-<html lang="fr">
-    <head>
-		<! -- En-tête de la page et de l'onglet -->
-        <meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="{% static 'pages/css/style_accueil.css' %}" />
-        <title>Bokalia - Drive Vrac & Bio</title>
-    </head>
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/style_accueil.css' %}" />{% endblock %}
 
-    <body>
+{% block content %}
+    	<div id="body_accueil">
 
-	<div id="bloc_page">
-
-		<header>
-
-		<div class="logo_menu">
-			<div class="titre_principal">
-				<div id="logo bokalia">
-					<img src="{% static "pages/images/logo_bokalia.png" %} alt="Logo Bokalia" />
-				</div>
-				<!-- <h2>- De bonnes habitudes, près de chez vous -</h2> -->
-			</div>
-			
-			<nav>
-				<ul>
-					<li><a href="adu">Nos produits </a></li>
-					<li><a href="adu">Comment ça marche ?</a></li>
-					<li><a href="adu">La boutique</a></li>
-					<li><a href="adu">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
-
-			<div class="login_basket">
-				<div id="login">
-					<img src="{% static "pages/images/icon_login.png" %}" alt="Logo du LogIn" />
-					<div id="connexion">Me connecter</div>
-				</div>
-
-				<div id="basket">
-					<img src="{% static "pages/images/icon_panier.png" %}" alt="Logo du panier" />
-					<div id="panier">Panier(0,00€)</div>
-				</div>
-			</div>
-		</header>
-
-			<div class="bandeau_couleur">
-            	<form class="search_form" action="/search" method="POST" autocomplete="off">
-            		<input type="hidden" name="_csrf" value="e51a2411-8e0e-41d4-acfb-148a9c8887e0"/>
-                	<label for="search-input" class="sr-only">Rechercher un produit</label>
-                	<input id="search_input" type="search" placeholder="Lait, œuf, farine…"/>
-               		<button class="icon_search_vocal" type="button">
-                    	<span class="sr_only">Lancer la recherche vocale</span>
-                	</button>
-                	<button class="icon_search_submit" type="button"></button>
-                	<button class="icon_close_search_clear" type="button"></button>
-            	</form>
-
-            	<a href="#" class="search_cancel">Annuler</a>
-            	<div class="search_suggest">
-                	<div class="search_overlay"></div>
-                	<div id="suggests" class="suggest_layer" data-area="search_suggestion" data-area-parent="false"></div>
-            	</div>
-
-            	<div class="reseaux_sociaux">
-            		<a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
-            		<a href="#" title="lien insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
-            		<a href="#" title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
-            	</div>
-            </div>
-	
 	<section class="partie_corps">
 		<article id="image_magasin">
 			<span>Corps image du magasin par ex</span>
@@ -96,42 +32,7 @@
 			
 		</aside>
 	</section>
-		
-	
 
-	<footer>
-		<div class="bloc_bas_page">
-			<h2>Bokalia</h2>
-			<p>
-				Adresse ...
-			</p>
-			
-		</div>
+    	</div>
 
-		<div class="bloc_bas_page">
-			<h2>Liens utiles</h2>
-			<div id="listes_amis">
-				<ul>
-					<li><a href="#">Conditions Générales de vente</a></li>
-					<li><a href="#">Politique de Protection des Données Personnelles</a></li>
-					<li><a href="#">Mentions Légales</a></li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="bloc_bas_page">
-			<h2>Retrouvez nous</h2>
-			<div class="reseaux_sociaux">
-            		<a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
-            		<a href="#" title="lien Insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
-            		<a href="#" title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
-            	</div>
-			
-		</div>
-		
-	</footer>
-
-	</div>
-
-    </body>
-</html>
+{% endblock %}

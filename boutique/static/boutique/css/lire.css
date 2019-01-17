@@ -1,0 +1,276 @@
+
+#body_edition
+{
+	width: 1000px;
+	margin: auto;
+	padding-top: 10px;
+	font-size: 0.8em;
+}
+
+#photo_titre
+{
+	display: flex;
+	justify-content: center;
+	/*flex-wrap: wrap;*/
+}
+
+#img_produit img
+{
+	max-width: 350px;
+}
+
+#part_droite
+{
+	text-align: left;
+	/*border: 1px solid red;*/
+	margin-left: 30px;
+	width: 600px;
+}
+
+#titre_c_k
+{
+	list-style-type: none;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+    padding-left: 0;
+}
+
+#titre_c_k li
+{
+	width: 30%;
+	text-align: center;
+	padding-top: 0.8%;
+}
+
+#li_cons
+{
+	border-bottom: 3px solid #5bc7ab;
+	font-weight: bold;
+}
+
+#li_kraft
+{
+	opacity: 0.6;
+}
+
+#consigne_kraft
+{
+	width: 100%;
+}
+
+#consigne_forme
+{
+	padding-top: 20px;
+	background-color: #f8f8f8;
+	min-height: 150px;
+}
+
+/*#consigne_titre h2
+{
+	font-size: 1.3em;
+	font-style: normal;
+	font-weight: normal;
+	text-align: center;
+}*/
+
+#titre_produit
+{
+	display: flex;
+	justify-content: space-between;
+}
+
+#prix_produit
+{
+	font-size: 1.1em;
+	margin-right: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#choix_qte
+{
+	;
+}
+
+#consigne_kraft
+{
+	display: flex;
+	justify-content: center;
+	/*border: 1px solid green;*/
+	padding-top: 10px;
+}
+
+#consigne_boco
+{
+	border: 2px solid #5bc7ab;
+	text-align: center;
+}
+
+legend
+{
+	margin: auto;
+}
+
+#ou
+{
+	margin: auto 20px;
+	text-align: center;
+}
+
+#kraft_sachet
+{
+	border: 2px solid #5bc7ab;
+	margin: 50% 0 auto;
+}
+
+#consigne_table
+{
+	text-align: center;
+	border-collapse: collapse;
+	margin: auto;
+}
+
+#consigne_table th
+{
+	vertical-align: bottom;
+	padding: 0px 30px;
+	/*border: 1px solid green;*/
+}
+
+#consigne_table td
+{
+	/*border: 1px solid green;*/
+}
+
+#qte_precis
+{
+	display: inline-block;
+	margin: 15px 0;
+}
+
+
+/*#contenant_img
+{
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid yellow;
+}
+
+.colonne_contenant
+{
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border: 1px solid grey;
+}
+
+#contenant_txt
+{
+	display: flex;
+	justify-content: normal;
+	border: 1px solid yellow;
+	text-align: center;
+}*/
+
+#img_s img
+{
+	width: 40px;
+}
+
+#img_m img
+{
+	width: 50px;
+}
+
+#img_l img
+{
+	width: 60px;
+}
+
+#img_xl img
+{
+	width: 70px;
+}
+
+/*#choix_qte input
+{
+	padding: 1px 1px;
+	border: 1px solid #CCC;
+	border-radius: 2px;
+	outline: none;
+}*/
+
+#precis
+{
+	text-align: center;
+}
+
+#qte_precis
+{
+	font-size: 1.2em;
+}
+
+#qte_precis input
+{
+	width: 50px;
+}
+
+#total_prix
+{
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5em;
+	color: grey;
+}
+
+#total_euro
+{
+	padding-top: 5px;
+}
+
+
+#total_prix span
+{
+	color: #5bc7ab;
+}
+
+#total_prix input
+{
+	background-color: #5bc7ab;
+	color: white;
+	border-radius: 3px;
+	height: 40px;
+	width: 180px;
+	border: none;
+}
+
+#total_prix input:hover
+{
+	opacity: 0.8;
+}
+
+h1
+{
+	font-size: 1.6em;
+	font-style: normal;
+	font-weight: bold;
+	/*color: #262624;*/
+	margin: 0;
+}
+
+h2
+{
+	font-size: 1em;
+	font-style: normal;
+	font-weight: normal;
+	color: #5bc7ab;
+}
+
+#desc label
+{
+	font-size: 1em;
+	font-style: normal;
+	font-weight: bold;
+	color: #262624;
+}

@@ -6,13 +6,29 @@ from django.utils import timezone
 class Produit(models.Model):
 	nom = models.CharField(max_length=40)
 	cat = models.ForeignKey('Categorie_produit', on_delete = models.CASCADE) #Catégorie
-	prix_p = models.FloatField()
+	prix_p = models.FloatField(blank = True)
 	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou litre ou qté
 	date_saisie = models.DateTimeField(default = timezone.now, verbose_name = "Date d'enregistrement du produit")
-	date_der_modif = models.DateTimeField(verbose_name = "date de modification", null = True) # pas obligatoire, en cas de modif
-	desc_p = models.ForeignKey('Description', on_delete = models.CASCADE)
+	date_der_modif = models.DateTimeField(verbose_name = "date de modification", null = True, blank = True)
+	# null autorise la valeur vide dans la BDD, blank autorise la saisie de vide dans la validation django ou formulaire
+
+	description = models.TextField(null = True, blank = True)
+	origine = models.CharField(max_length=30)
+	ingredient = models.TextField(default= 'à remplir')
+	conservation = models.TextField(null = True, blank = True)
+	conseil_prepa =  models.TextField(null = True, blank = True)
+
+	energie_kj = models.PositiveIntegerField(null = True, blank = True)
+	energie_kcal = models.PositiveIntegerField(null = True, blank = True)
+	matiere_grasse = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	acide_gras_sat = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	glucide = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	sucres = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	fibre_alim = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	proteine = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+	sel = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
+
 	producteur = models.ForeignKey('Producteur', on_delete = models.CASCADE)
-	valeurs_nutri = models.ForeignKey('Valeurs_nutritionnelles', on_delete = models.CASCADE)
 	image_p = models.ImageField(upload_to="image_produit/")
 
 	class Meta:
@@ -38,14 +54,14 @@ class Producteur(models.Model):
 	def __str__(self):
 		return self.nom
 
-class Description(models.Model):
+"""class Description(models.Model):
 	description = models.TextField()
 	origine = models.CharField(max_length=30)
 	ingredient = models.TextField()
 	conservation = models.TextField()
-	conseil_prepa =  models.TextField()
+	conseil_prepa =  models.TextField()"""
 
-class Valeurs_nutritionnelles(models.Model):
+"""class Valeurs_nutritionnelles(models.Model):
 	energie_kj = models.PositiveIntegerField()
 	energie_kcal = models.PositiveIntegerField()
 	matiere_grasse = models.PositiveIntegerField()
@@ -54,7 +70,7 @@ class Valeurs_nutritionnelles(models.Model):
 	sucres = models.PositiveIntegerField()
 	fibre_alim = models.PositiveIntegerField()
 	proteine = models.PositiveIntegerField()
-	sel = models.PositiveIntegerField()
+	sel = models.PositiveIntegerField()"""
 
 class Categorie_produit(models.Model):
 	nom = models.CharField(max_length=30)

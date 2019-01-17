@@ -1,0 +1,197 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}Edition de produit - Bokalia{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/lire.css' %}" />{% endblock %}
+
+{% block content %}
+
+<div id="body_edition">
+
+    <article id="photo_titre">
+    <div id="img_produit"><p><img src="{{ produit.image_p.url }}" /></p></div>
+
+    <div id="part_droite">
+        <div id="titre_produit">
+            <div>
+                <h1>{{ produit.nom }}</h1>
+            </div>
+            <div id="prix_produit">
+                {{ produit.prix_p|floatformat }} €/{{ produit.type_prix }}
+            </div>
+        </div>
+        <div>
+            <em>de {{ produit.producteur }}</em>
+        </div>
+
+        <form id="choix_qte" action="" method="post">
+            <div id="consigne_kraft">
+                <ul id="titre_c_k">
+                    <li id="li_cons">Bocaux consignés</li>
+                    <li id="li_kraft">Sachet kraft</li>
+                </ul>
+            </div>
+            <div id="consigne_forme">
+                    <table id="consigne_table">
+                        <tr>
+                            <th><a id="img_s" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal S" /></a></th>
+                            <th><a id="img_m" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal M" /></a></th>
+                            <th><a id="img_l" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal L" /></a></th>
+                            <th><a id="img_xl" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal XL" /></a></th>
+                        </tr>
+                        <tr>
+                            <td>< 260 g</td>
+                            <td>< 520 g</td>
+                            <td>< 780 g</td>
+                            <td>< 1040 g</td>
+                        </tr>
+                        <tr>
+                            <td>0,63 €</td>
+                            <td>1,26 €</td>
+                            <td>1,89 €</td>
+                            <td>2,52 €</td>
+                        </tr>
+                    </table>
+            </div>
+            <div id="qte_precis">
+                <label>Quantité :</label>
+                <input type="number" name="qte_commande">
+                <span>g</span>
+            </div>
+            <div id="total_prix">
+                <div id="total_euro">
+                    TOTAL :
+                    <span>0,00 €</span>
+                </div>
+                <div>
+                    <input type="submit" value="Ajouter au panier" />
+                </div>
+            </div>
+        </form>
+
+        <!--<form id="choix_qte" action="" method="post">
+            <div id="consigne_kraft">
+
+                <fieldset id="consigne_boco">
+                    <legend>Les bocaux consignés :</legend>
+                        <table id="consigne_table">
+                        <tr>
+                            <th><a id="img_s" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal S" /></a></th>
+                            <th><a id="img_m" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal M" /></a></th>
+                            <th><a id="img_l" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal L" /></a></th>
+                            <th><a id="img_xl" href=""><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal XL" /></a></th>
+                        </tr>
+                        <tr>
+                            <td>< 260 g</td>
+                            <td>< 520 g</td>
+                            <td>< 780 g</td>
+                            <td>< 1040 g</td>
+                        </tr>
+                        <tr>
+                            <td>0,63 €</td>
+                            <td>1,26 €</td>
+                            <td>1,89 €</td>
+                            <td>2,52 €</td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <div id="ou">
+                    <p>OU</p>
+                </div>
+
+                <div id="precis">
+                    <fieldset id="kraft_sachet">
+                        <legend>Sachet Kraft</legend>
+                            <input type="checkbox" id="kraft_case">
+                    </fieldset>
+                </div>
+            </div>
+            <div id="qte_precis">
+                <label>Quantité :</label>
+                <input type="number" name="Qte_commande">
+                <em>Kraft "ou" Consiqne</em>
+            </div>
+            <div id="total_prix">
+                <label>TOTAL :</label>
+                <input type="number" name="total_nb">
+                <input type="submit" value="Ajouter au panier" />
+            </div>
+        </form>-->
+        
+    </div>
+</article>
+
+<article id="desc">
+    <p>
+        <h2>Description</h2>
+        {{ produit.description }}
+    </p>
+    <p>
+        <label>Producteur : </label><span>{{ produit.producteur }}</span>
+    </p>
+    <p>
+        <label>Origine : </label><span>{{ produit.origine}}</span>
+    </p>
+    <p>
+        <label>Ingrédient : </label><span>{{ produit.ingredient}}</span>
+    </p>
+    <p>
+        <label>Conservation : </label><span>{{ produit.conservation}}</span>
+    </p>
+    <p>
+        <label>Conseil de préparation : </label><span>{{ produit.conseil_prepa}}</span>
+    </p>
+
+    <table>
+        <tr>
+            <th>Valeurs nutritionnelles</th>
+            <th>Pour 100 g/ml</th>
+        </tr>
+
+        <tr>
+            <td>Energie en Kj</td>
+            <td>{{ produit.energie_kj}}</td>
+        </tr>
+        <tr>
+            <td>Energie en Kcal</td>
+            <td>{{ produit.energie_kcal}}</td>
+        </tr>
+        <tr>
+            <td>Matières grasses (en g)</td>
+            <td>{{ produit.matiere_grasse|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>dont acides gras saturés (en g)</td>
+            <td>{{ produit.acide_gras_sat|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>Glucide (en g)</td>
+            <td>{{ produit.glucide|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>dont sucres (en g)</td>
+            <td>{{ produit.sucres|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>Fibres alimentaire (en g)</td>
+            <td>{{ produit.fibre_alim|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>Protéines (en g)</td>
+            <td>{{ produit.proteine|floatformat}}</td>
+        </tr>
+        <tr>
+            <td>Sel (en g)</td>
+            <td>{{ produit.sel|floatformat}}</td>
+        </tr>
+    </table>
+
+</article>
+
+<!--<p class="infos">Produit par {{ produit.producteur }}, le {{ produit.date_saisie|date:"DATE_FORMAT" }}<span class="small">dans {{ produit.cat }}</span></p>-->
+
+</div>
+
+{% endblock %}
