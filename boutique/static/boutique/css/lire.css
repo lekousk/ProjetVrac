@@ -1,276 +1,543 @@
 
-#body_edition
+@media all and (max-width: 900px)
 {
-	width: 1000px;
-	margin: auto;
-	padding-top: 10px;
-	font-size: 0.8em;
+	.body_edition
+	{
+		width: 100%;
+		margin: auto;
+		padding-top: 2rem;
+		padding-bottom: 1.5rem;
+	}
+
+	.titre_img_achat
+	{
+		margin-top: 2.5rem;
+	}
+
+	.titre_produit
+	{
+		justify-content: space-around;
+		width: 100%;
+		margin: 0 15px 15px;
+	}
+
+	.img_produit img
+	{
+		width: 40vw;
+	}
+
+	.consigne_forme /* fond de la partie cousigne ou kraft */
+	{
+		padding: 1rem 0;
+		background-color: #f8f8f8;
+		position: relative;
+		width: 85vw;
+		max-width: 550px;
+		min-height: 15rem;
+	}
 }
 
-#photo_titre
+/*@media all and (max-width: 450px)
+{
+	.img_produit img
+	{
+		width: 40vw;
+	}
+}
+
+@media all and (min-width: 451px) and (max-width: 900px)
+{
+	.img_produit img
+	{
+		width: 40vw;
+	}
+}*/
+
+@media all and (min-width: 901px)/* and (max-width: 1250px)*/
+{
+	.body_edition
+	{
+		width: 100%;
+		margin: auto;
+		padding-top: 2rem;
+		padding-bottom: 1.5rem;
+	}
+
+	.titre_img_achat
+	{
+		margin-top: 2.5rem;
+		border:1px solid yellow;
+		display: flex;
+		justify-content: space-around;
+		position: relative;
+	}
+
+	.titre_produit
+	{
+		border:1px solid red;
+		width: 35vw;
+		position: absolute;
+		right: 0;
+		justify-content: space-between;
+	}
+
+	/*.titre_et_produ
+	{
+		min-width: 400px;
+	}*/
+
+	.img_produit
+	{
+		
+	}
+
+	.img_produit img
+	{
+		width: 28vw;
+		border:1px solid green;
+		vertical-align: middle;
+	}
+
+	.form_achat_produit
+	{
+		width: 35vw;
+		min-width: 450px;
+		border:1px solid red;
+	}
+
+	.consigne_forme /* fond de la partie cousigne ou kraft */ /* à modifier */
+	{
+		padding: 1rem 0;
+		background-color: #f8f8f8;
+		position: relative;
+		width: 85vw;
+		max-width: 550px;
+		min-height: 15rem;
+	}
+}
+
+/* Section de la page */
+
+.body_edition
+{
+	
+}
+
+/* Mise en place 1. Titre 2. Image du produit 3. Achat: (Consigne ou Kraft) */
+
+/*.titre_img_achat
 {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	/*flex-wrap: wrap;*/
-}
+}*/
 
-#img_produit img
+/* Partie Titre avec désignation et le prix au kg/U/l */
+
+.titre_produit
 {
-	max-width: 350px;
+	display: flex;
 }
 
-#part_droite
+	/* Désignation du produit */
+
+h1
+{
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: bold;
+	margin: 0;
+}
+
+	/* Prix au kg/l/U */
+
+#prix_produit
+{
+	font-size: 1.1rem;
+	margin-right: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	color: grey;
+	position: relative;
+}
+
+#prix_produit::after
+{
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 6px;
+	background-color: #5bc7ab;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+/* Image du produit */
+
+.img_produit
+{
+	text-align: center;
+}
+
+/* Achat: consigne ou kraft et choix de la quantité avec l'ajout panier */
+
+.form_achat_produit
 {
 	text-align: left;
-	/*border: 1px solid red;*/
-	margin-left: 30px;
-	width: 600px;
+	border-bottom: 0.1rem solid #5bc7ab;
 }
 
-#titre_c_k
+	/* Menu choix consigne ou kraft */
+
+.consigne_kraft
+{
+	padding-top: 1.2rem;
+	position: relative;
+}
+
+.ul_c_k
 {
 	list-style-type: none;
     display: flex;
     justify-content: center;
-    height: 30px;
+    height: 2.5rem;
     width: 100%;
     padding-left: 0;
+    font-size: 1.1rem;
 }
 
-#titre_c_k li
+.ul_c_k li
 {
-	width: 30%;
+	width: 25%;
+	min-width: 10rem;
 	text-align: center;
 	padding-top: 0.8%;
+	cursor: pointer;
+	margin: 0 1rem;
 }
 
 #li_cons
 {
-	border-bottom: 3px solid #5bc7ab;
+	border-bottom: 0.2rem solid #5bc7ab;
 	font-weight: bold;
 }
 
 #li_kraft
 {
 	opacity: 0.6;
+	font-weight: bold;
+	border-bottom: 0rem solid #5bc7ab;
 }
 
-#consigne_kraft
+#li_kraft:hover
 {
-	width: 100%;
+	opacity: 1;
 }
 
-#consigne_forme
-{
-	padding-top: 20px;
+/*.consigne_forme*/ /* fond de la partie cousigne ou kraft */
+/*{
+	padding: 1rem 0;
 	background-color: #f8f8f8;
-	min-height: 150px;
-}
-
-/*#consigne_titre h2
-{
-	font-size: 1.3em;
-	font-style: normal;
-	font-weight: normal;
-	text-align: center;
+	position: relative;
 }*/
 
-#titre_produit
-{
-	display: flex;
-	justify-content: space-between;
-}
+/* Partie consigne */
 
-#prix_produit
-{
-	font-size: 1.1em;
-	margin-right: 0;
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-#choix_qte
-{
-	;
-}
-
-#consigne_kraft
-{
-	display: flex;
-	justify-content: center;
-	/*border: 1px solid green;*/
-	padding-top: 10px;
-}
-
-#consigne_boco
-{
-	border: 2px solid #5bc7ab;
-	text-align: center;
-}
-
-legend
-{
-	margin: auto;
-}
-
-#ou
-{
-	margin: auto 20px;
-	text-align: center;
-}
-
-#kraft_sachet
-{
-	border: 2px solid #5bc7ab;
-	margin: 50% 0 auto;
-}
-
-#consigne_table
+.consigne_table
 {
 	text-align: center;
 	border-collapse: collapse;
 	margin: auto;
+	width: 95%;
+	/*display: none;  A supprimer pour faire apparaitre la consigne */
 }
 
-#consigne_table th
+.consigne_table th
 {
 	vertical-align: bottom;
-	padding: 0px 30px;
-	/*border: 1px solid green;*/
+	padding: 1rem;
+	width: 25%;
 }
 
-#consigne_table td
+#img_s /* Taille des images bocal */
 {
-	/*border: 1px solid green;*/
+	width: 50%;
+	cursor: pointer;
 }
 
-#qte_precis
+#img_m
 {
-	display: inline-block;
-	margin: 15px 0;
+	width: 60%;
+	cursor: pointer;
 }
 
-
-/*#contenant_img
+#img_l
 {
-	display: flex;
-	justify-content: space-between;
-	border: 1px solid yellow;
+	width: 70%;
+	cursor: pointer;
 }
 
-.colonne_contenant
+#img_xl
 {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border: 1px solid grey;
+	width: 90%;
+	cursor: pointer;
 }
 
-#contenant_txt
-{
-	display: flex;
-	justify-content: normal;
-	border: 1px solid yellow;
-	text-align: center;
-}*/
+/* Partie Kraft */
 
-#img_s img
-{
-	width: 40px;
-}
-
-#img_m img
-{
-	width: 50px;
-}
-
-#img_l img
-{
-	width: 60px;
-}
-
-#img_xl img
-{
-	width: 70px;
-}
-
-/*#choix_qte input
-{
-	padding: 1px 1px;
-	border: 1px solid #CCC;
-	border-radius: 2px;
-	outline: none;
-}*/
-
-#precis
+.zone_kraft
 {
 	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+	display: none;
 }
 
-#qte_precis
-{
-	font-size: 1.2em;
-}
-
-#qte_precis input
-{
-	width: 50px;
-}
-
-#total_prix
-{
-	display: flex;
-	justify-content: space-between;
-	font-size: 1.5em;
-	color: grey;
-}
-
-#total_euro
-{
-	padding-top: 5px;
-}
-
-
-#total_prix span
+.zone_kraft span
 {
 	color: #5bc7ab;
 }
 
-#total_prix input
+/* Bouton info */
+
+#icone_info
 {
-	background-color: #5bc7ab;
-	color: white;
-	border-radius: 3px;
-	height: 40px;
-	width: 180px;
-	border: none;
+	position: absolute;
+	display: block;
+	font-size: 1.5rem;
+	background-color: grey;
+	border: 0;
+	color: #FFFFFF;
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+	border-radius: 20%;
+	font-weight: bold;
+	line-height: 1.8rem;
+	cursor: pointer;
+	top: 0.2rem;
+	right: 0;
 }
 
-#total_prix input:hover
+#icone_info:hover
 {
 	opacity: 0.8;
 }
 
-h1
+/* Partie Quantité choisie et ajout au panier */
+
+.qte_precis
 {
-	font-size: 1.6em;
-	font-style: normal;
-	font-weight: bold;
-	/*color: #262624;*/
-	margin: 0;
+	display: inline-block;
+	margin: 0.5rem 0;
+	font-size: 1.2rem;
+	/*border:1px solid red;*/
 }
 
-h2
+.qte_precis input
 {
-	font-size: 1em;
-	font-style: normal;
-	font-weight: normal;
+	width: 6rem;
+	font-size: 1rem;
+}
+
+#error_qte
+{
+	margin-left: 1.5rem;
+	color: red;
+	display: none;
+}
+
+.total_prix
+{
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5rem;
+	color: grey;
+	min-height: 4.5rem;
+	margin-top: 1.5rem;
+}
+
+.total_euro
+{
+	padding-top: 0.5rem;
+}
+
+.total_prix span
+{
 	color: #5bc7ab;
 }
 
-#desc label
+.total_prix input
 {
-	font-size: 1em;
+	background-color: #5bc7ab;
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	height: 2.5rem;
+	width: 12rem;
+	border: none;
+	cursor: pointer;
+	margin-top: 0.5rem;
+}
+
+.total_prix input:hover
+{
+	opacity: 0.8;
+}
+
+	/* Afficher / cacher le prix de l'emballage + adapter l'écriture */
+
+.emballage_div
+{
+	font-weight: normal;
+	font-size: 0.95rem;
+	padding-top: 0.2rem;
+}
+
+/* Section description produit et producteur */
+/* Menu produit ou producteur */
+
+.desc_sec
+{
+	margin-bottom: 1.2rem;
+	margin-top: 3rem;
+}
+
+		/* Voir .ul_c_k */
+
+#li_desc
+{
+	border-bottom: 0.2rem solid #5bc7ab;
+	font-weight: bold;
+}
+
+#li_prod
+{
+	opacity: 0.6;
+	font-weight: bold;
+	border-bottom: 0rem solid #5bc7ab;
+}
+
+#li_prod:hover
+{
+	opacity: 1;
+}
+
+/* Hauteur minimale de la zone description produit et producteur *.desc_dim
+{
+	min-height: 22rem;
+}
+
+/* Description du produit, 2 parties : Texte et valeurs nutri */
+
+.art_desc
+{
+	/* affichage de l'article description produit */
+}
+
+/* Partie texte */
+
+.dec_produit
+{
+	background-color: #f8f8f8;
+	border: 2px solid transparent;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 10px;
+}
+
+.desc_text
+{
+	font-size: 1rem;
+	margin: 10px 20px;
+}
+
+.desc_text h3
+{
+	font-size: 1.2em;
 	font-style: normal;
 	font-weight: bold;
 	color: #262624;
+	opacity: 0.9;
 }
+
+.desc_text label
+{
+	font-size: 1.1em;
+	font-style: normal;
+	font-weight: bold;
+	color: #262624;
+	opacity: 0.9;
+}
+
+/* Partie table valeurs nutritionnelles */
+
+.val_nutr
+{
+	margin: auto;
+	border-collapse: collapse;
+	min-width: 270px;
+}
+
+.val_nutr th
+{
+	background-color: #5bc7ab;
+	color: #FFFFFF;
+	font-weight: bold;
+	border: 1px solid #5bc7ab;
+	padding: 4px 15px;
+	font-size: 0.95em;
+}
+
+.val_nutr td
+{
+	border: 1px solid #5bc7ab;
+	padding: 3px 10px;
+	font-size: 0.9em;
+}
+
+.table_col1
+{
+	text-align: left;
+}
+
+.table_col2
+{
+	text-align: left;
+}
+
+/* Article Producteur*/
+
+.art_prod
+{
+	display: none; /* Cache article description du producteur */
+}
+
+.desc_producteur
+{
+	background-color: #f8f8f8;
+	border: 2px solid transparent;
+	padding: 0px 10px;
+	display: flex;
+}
+
+.img_prod
+{
+	padding: 10px 20px;
+}
+
+.img_prod img
+{
+	max-height: 12rem;
+	max-width: 12rem;
+}
+
+.prod_text
+{
+	padding: 0px 10px;
+}
+
+/* */

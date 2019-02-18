@@ -19,21 +19,36 @@
 
     	<div class="body_b">
 			<header>
-				<div class="header_haut bloc_principaux">
-					<nav class="nav_mobile_header">
-						<div class="nav_mobile_contenant">								
-							<span class="barre_menu"></span>
-							<span class="barre_menu"></span>
-							<span class="barre_menu"></span>
-							<span class="barre_menu_f">MENU</span>
-						</div>
-					</nav>
-
-					<div class="logo_bokalia">
+				<nav class="nav_mobile_header">
+					<div class="nav_mobile_contenant">								
+						<span class="barre_menu"></span>
+						<span class="barre_menu"></span>
+						<span class="barre_menu"></span>
+						<span class="barre_menu_f">Menu</span>
+					</div>
+					
+					<div class="nav_mobile_logo">
 						<img src="{% static "pages/images/logo_bokalia.png" %}" alt="Logo Bokalia" id="logo_bokalia_mini" />
 					</div>
 
-					<div class="search_div">	
+					<div class="nav_mobile_login" class="nav_mobile_li">
+						<a href="#" id="connexion_mobile"><img src="{% static "pages/images/icon_login.png" %}" alt="Logo du LogIn" /></a>
+					</div >
+
+					<div class="nav_mobile_panier" >
+						<a id="panier_mobile">
+							<img src="{% static "pages/images/icon_panier.png" %}" alt="Logo du panier"/>
+							<span id="nbr_article_dans_panier_mobile">0</span>
+							</a>
+						</div>
+				</nav>
+				<div class="menu_haut">
+					<div class="logo_search">
+						<div class="titre_principal">
+							<div id="logo_bokalia">
+								<img src="{% static "pages/images/logo_bokalia.png" %}" alt="Logo Bokalia" id="logo_bokalia_mini" />
+							</div>
+						</div>			
 						<form class="search_form" action="#" method="POST" autocomplete="off">
 							{% csrf_token %}
 							<input id="search_text" type="text" size="30" placeholder="Lait, œuf, farine…"/>
@@ -42,23 +57,21 @@
 					</div>
 
 					<div class="login_basket">
-						<div class="login">
-							<a href="#" id="connexion_img" hidden><img src="{% static "pages/images/icon_login.png" %}" alt="Logo du LogIn" height="35px" /></a>
-							<a href="#" id="connexion_text">Me connecter</a>
+						<div id="login">
+							<!--<img src="{% static "pages/images/icon_login.png" %}" alt="Logo du LogIn" />-->
+							<a href="#" id="connexion">Me connecter</a>
 						</div>
-						<div class="basket">
-							<a class="panier">
-								<div class="panierETnbr">
-									<img src="{% static "pages/images/icon_panier.png" %}" alt="Logo du panier"/>
-									<span id="nbr_article_dans_panier">0</span>
-								</div>
+						<div id="basket">
+							<a id="panier">
+								<img src="{% static "pages/images/icon_panier.png" %}" alt="Logo du panier"/>
+								<span id="nbr_article_dans_panier">0</span>
 							</a>
-							<div class="panier_reduit">
-								<div class="ajout_dans_panier">
-									<div id="panier_vide_msg" class="classArticlePanier"><a>Votre panier est vide</a></div>
-								</div>
+							<div id="panier_reduit">
+								<ul id="ajout_dans_panier">
+									<li id="panier_vide_msg"><a>Votre panier est vide</a></li>
+								</ul>
 									
-								<div class="voir_panier">
+								<div>
 									<a href="" id="voir_panier">Voir le panier</a> <!-- Ajouter href="/panier/" une fois fini-->
 								</div>
 							</div>
@@ -86,18 +99,14 @@
 				</div>
 			</header>
 
-			<section class="bloc_principaux">
-
-				{% block content %}{% endblock %}
-
-			</section>
+			{% block content %}{% endblock %}
 
 			<div id="scrollUp">
 				<a href="#"><img src="{% static "pages/images/to_top_v.png" %}" alt="Scroll up"></a>				
 			</div>
 
 			<footer>
-				<div class="corps_footer bloc_principaux">
+				<div id="corps_footer">
 					<div class="bloc_bas_page">
 						<h2>Bokalia</h2>
 						<p>Adresse ...</p>

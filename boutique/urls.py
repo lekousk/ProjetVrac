@@ -23,4 +23,5 @@ urlpatterns = [
     path('edition', views.New_produit_vue, name = 'edition'),
     path('all_products', views.Aff__tout_produits),
     path('produit/<int:id>', views.Aff_un_produit, name = 'lire'),
+    path('panier', views.Panier, name = 'panier'),
 ]

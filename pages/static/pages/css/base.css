@@ -8,65 +8,421 @@
 #6dbf81 avant
 */
 
-/* En-tête */
+/* Corps de la page */
 
-.body
+*
 {
-	position: absolute;
-	left: 0;
-	right: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	width: auto;
+	margin: 0;
+}
+
+.body_b
+{
 	font-family: 'Sarabun','Thasadith', sans-serif;
 	color: grey;
 }
 
-header
+@media all and (max-width: 900px)
 {
-	margin-top: 2px;
-	margin-bottom: 2px;
+	html
+	{
+		font-size: 12px;
+	}
+
+	.header_haut
+	{
+		flex-wrap: wrap;
+	}
+
+	.nav_mobile_header
+	{
+		display: contents;
+		order: 1;
+		flex: none;
+	}
+
+	.logo_bokalia
+	{
+		order: 2;
+		flex: 1;
+		padding: 5px 0 0 5px;
+		height: 45px;
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 35px;
+	}
+
+	.search_div
+	{
+		background-color: #d6d4d4;
+		order: 4;
+	}
+
+	.login_basket
+	{
+		order: 3;
+		flex: 0.7;
+		max-width: 180px;
+	}
+
+	.login
+	{
+		padding-top: 8px;
+		border-right: 1px solid #d6d4d4;
+		border-left: 1px solid #d6d4d4;
+		height: 100%;
+		flex: 0.5;
+	}
+
+	#connexion_img
+	{
+		display: contents;
+	}
+
+	#connexion_text
+	{
+		display: none;
+	}
+
+	.basket
+	{
+		flex: 0.5;
+	}
+
+	.panier img
+	{
+		height: 30px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.9rem;
+		background-color: #5bc7ab;
+		width: 1.8rem;
+		height: 1.8rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.8;
+		font-weight: bold;
+	}
+
+	.panier_reduit
+	{
+		top: 40px;
+		right: 5px;
+		width: 30rem;
+	}
+
+	.search_div
+	{
+		width: 100%;
+	}
+
+	.search_form
+	{
+		
+		margin: 3px 1px;
+	}
+
+	.bandeau_fond
+	{
+		display: none;
+	}
+
 }
 
-.menu_haut
+@media all and (min-width: 901px) and (max-width: 1250px)
 {
-	width: 1000px;
-	height: 50px;
+	html
+	{
+		font-size: 14px;
+	}
+
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	.bloc_principaux
+	{
+		width: 90vw;
+		flex-wrap: nowrap;
+		margin: auto;
+	}
+
+	.logo_bokalia
+	{
+		padding: 5px;
+		height: 50px;
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 40px;
+
+	}
+
+	.search_div
+	{
+		flex: 1;
+		padding: 0 1vw;
+		margin: auto;
+	}
+
+	.login_basket
+	{
+		width: 200px;
+	}
+
+	.login
+	{
+		flex: 0.6;
+		border-right: 0.1rem solid grey;
+	}
+
+	.basket
+	{
+		flex: 0.4;
+	}
+
+	.panier img
+	{
+		height: 35px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.8rem;
+		background-color: #5bc7ab;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.6;
+		font-weight: bold;
+	}
+
+	.panier_reduit
+	{
+		top: 42px;
+		right: 15px;
+		width: 30rem;
+	}
+
+	/*.login
+	{
+		padding-top: 8px;
+		border-right: 1px solid #d6d4d4;
+		border-left: 1px solid #d6d4d4;
+		height: 100%;
+	}*/
+
+	.bandeau_menu
+	{
+		width: 90vw;
+	}
+
+}
+
+@media all and (min-width: 1251px)
+{
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	header
+	{
+		width: auto;
+		padding-top: 0.3rem;
+		padding-bottom: 0.2rem;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0rem;
+		z-index: 900;
+		background-color: white;
+	}
+
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	.bloc_principaux
+	{
+		width: 80vw;
+		max-width: 1600px;
+		flex-wrap: nowrap;
+		margin: auto;
+	}
+
+	.logo_bokalia
+	{
+		padding: 5px;
+		height: 55px;
+
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 45px;
+	}
+
+	.search_div
+	{
+		flex: 1;
+		padding: 0 1vw;
+		margin: auto;
+	}
+
+	.login_basket
+	{
+		width: 200px;
+	}
+
+	.login
+	{
+		flex: 0.6;
+		border-right: 0.1rem solid grey;
+	}
+
+	.basket
+	{
+		flex: 0.4;
+	}
+
+	.panier img
+	{
+		height: 40px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.8rem;
+		background-color: #5bc7ab;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.6;
+	}
+
+	.panier_reduit
+	{
+		top: 47px;
+		right: 15px;
+		width: 30rem;
+	}
+
+	.bandeau_menu
+	{
+		width: 80vw;
+		max-width: 1600px;
+	}
+
+}
+
+
+/* En-tête de la page base */
+
+.header_haut
+{
 	display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
+	align-content: center;
+	margin: auto;
 }
 
-/* Recherche */
-
-
-.rechercher
+.nav_mobile_header
 {
-	background-color: white;
+	margin: 0;
+}
+
+	/* Menu: Partie menu */
+
+.nav_mobile_contenant
+{
+	width: 50px;
+	font-size: 1rem;
+	padding-top: 12px;
+}
+
+.barre_menu_f
+{
+	display: block;
+	text-align: center;
+	padding-top: 2px;
+}
+
+.barre_menu
+{
+	display: block;
+	width: 22px;
+	height: 3px;
+	border-radius: 2px;
+	background-color: #5bc7ab;
 	margin: auto;
-	/*border:2px solid red;*/
-	height: 100%;
-	margin-left: 10px;
+}
+
+.barre_menu + .barre_menu
+{
+	margin-top: 3px;
+}
+
+	/* Menu: Partie Logo */
+
+.nav_mobile_logo
+{
+	width: 40%;
+}
+
+/* Barre de recherche */
+
+.search_div
+{
+
 }
 
 .search_form
 {
+	background-color: white;
+	box-sizing: border-box;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	height: 100%;
-	border: 2px solid #d6d4d4;
-	border-radius: 15px;
+	border: 0.2rem solid #d6d4d4;
+	border-radius: 1rem;
 	background-color: #f8f8f8;
 }
 
 #search_text
 {
-	font-size: 0.8em;
+	font-size: 1rem;
 	font-style: italic;
 	color: #000000;
-	width: 700px;
-	height: 30px;
+	height: 2rem;
+	width: 100%;
 	border: none;
-	border-radius: 20px;
-	padding-left: 10px;
+	border-radius: 1rem;
+	padding-left: 0.5rem;
 	background-color: #f8f8f8;
 }
 
@@ -74,70 +430,190 @@ header
 {
 	/*border:2px solid red;*/
 	/*background-color: #000000;*/
-	height: 30px;
+	height: 1.6rem;
 }
 
-/* Logion et panier haut droite */
-
-.logo_menu
-{
-	display: flex;
-	align-items: flex-end;
-}
+/* Login et panier haut droite */
 
 .login_basket
 {
 	display: flex;
 	align-items: center;
-	margin-bottom: 2px;
 }
 
-#login a
-{
-	color: #181818;
-	text-decoration: none;
-}
+/* Login (connexion) */
 
-#connexion
+.login
 {
-	padding-right: 10px;
-	border-right: 1px solid black;
 	text-align: center;
-	font-size: 0.75em;
-		
 }
 
-#login a:hover
+.login a
 {
-	color: #5bc7ab;
-}
-
-#basket a
-{
-	padding-left: 10px;
-	margin-right: 10px;
-	color: #181818;
+	color: grey;
 	text-decoration: none;
 }
 
-#basket a:hover
+#connexion_text
+{
+	text-align: center;
+	font-size: 1rem;
+}
+
+.login a:hover
 {
 	color: #5bc7ab;
 }
 
-#panier
+/* Panier et nombre d'article */
+
+.basket
 {
-	font-size: 0.75em;
+	position: relative;
+	color: #181818;
+	text-decoration: none;
+	font-size: 0.75rem;
+	text-align: center;
 }
 
+.basket:hover
+{
+	/*color: #5bc7ab;*/
+}
 
+.panierETnbr
+{
+	position: relative;
+}
+
+.panier_reduit
+{
+	position: absolute;
+	display: none;
+	border: 0;
+	background-color: white;
+	box-shadow: 0 0 0.3rem grey;
+	z-index: 1000;
+}
+
+.ajout_dans_panier
+{
+	margin: 5px;
+}
+
+.classArticlePanier
+{
+	height: 70px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid grey;
+	display: flex;
+	justify-content: center;
+}
+
+.classArticlePanier + .classArticlePanier
+{
+	margin-top: 5px;
+}
+
+.classArticlePanier img
+{
+	height: 60px;
+}
+
+.panier_milieu
+{
+	flex: 0.9;
+	padding: 2px 5px;
+	color: grey;
+}
+
+.panier_milieu p
+{
+	text-align: left;
+	margin: 0;
+}
+
+.panier_titre
+{
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.panier_titre a
+{
+	/*text-decoration: none;*/
+	color: grey;
+}
+
+.panier_sousTitre
+{
+	font-size: 0.6rem;
+}
+
+.panier_prixArticle
+{
+	font-size: 0.75rem;
+	color: #5bc7ab;
+}
+
+.panier_prixArticle span
+{
+	font-weight: bold;
+}
+
+#voir_panier
+{
+	display: block;
+    text-decoration: none;
+    width: 10rem;
+    height: 2.4rem;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    background-color: #5bc7ab;
+    border: 0;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+#voir_panier:hover
+{
+	opacity: 0.8;
+}
+
+/* Mise en forme de chaque article du panier */
+
+#panier_vide_msg
+{
+	text-align: center;
+}
+
+/* pour les test du panier */
+/*
+
+#ajout_danspanier
+{
+	width: 300px;
+}
+
+#ajout_danspanier img
+{
+	height: 70px;
+	float: left;
+	margin-right: 10px;
+}
+*/
+
+/* Partie horizontale 2/2 : Navigation des menus */
 /* Navigation */
 
 .bandeau_fond
 {
 	background: #5bc7ab;
 	opacity: 1;
-	min-width: 1000px;
 }
 
 .bandeau_menu
@@ -145,13 +621,6 @@ header
 	/*display: flex;
 	justify-content: space-between;*/
 	margin: auto;
-	width: 1000px;
-
-}
-
-#navigation
-{
-	
 }
 
 #navigation ul
@@ -159,7 +628,7 @@ header
 	list-style-type: none;
     display: inline-flex;
     margin: 0;
-    height: 2.5em;
+    height: 2.5rem;
     padding-left: 0;
 }
 
@@ -170,10 +639,10 @@ header
 
 #navigation li a
 {
-    font-size: 0.9em;
+    font-size: 1rem;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 0.85em 1em;
+    padding: 0.85rem 1rem;
 }
 
 #navigation a:hover
@@ -192,12 +661,24 @@ header
 	min-height: 500px;
 }*/
 
+/* scroll up / monter haut de page */
+
+
+
+#scrollUp
+{
+	position: fixed;
+	bottom : 8rem;
+	right: 5vw;
+	opacity: 1;
+	display: none;
+}
+
 /* Footer */
 
 footer
 {
     background-color: #5bc7ab;
-    min-width: 1000px;
 }
 
 footer h2
@@ -205,10 +686,8 @@ footer h2
 	color: black;
 }
 
-#corps_footer
+.corps_footer
 {
-	width: 1000px;
-	margin: auto;
 	display: flex;
     justify-content: space-between;
     align-items: center;

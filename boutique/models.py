@@ -7,7 +7,7 @@ class Produit(models.Model):
 	nom = models.CharField(max_length=40)
 	cat = models.ForeignKey('Categorie_produit', on_delete = models.CASCADE) #Catégorie
 	prix_p = models.FloatField(blank = True)
-	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou litre ou qté
+	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou l ou pce
 	date_saisie = models.DateTimeField(default = timezone.now, verbose_name = "Date d'enregistrement du produit")
 	date_der_modif = models.DateTimeField(verbose_name = "date de modification", null = True, blank = True)
 	# null autorise la valeur vide dans la BDD, blank autorise la saisie de vide dans la validation django ou formulaire
@@ -54,24 +54,6 @@ class Producteur(models.Model):
 	def __str__(self):
 		return self.nom
 
-"""class Description(models.Model):
-	description = models.TextField()
-	origine = models.CharField(max_length=30)
-	ingredient = models.TextField()
-	conservation = models.TextField()
-	conseil_prepa =  models.TextField()"""
-
-"""class Valeurs_nutritionnelles(models.Model):
-	energie_kj = models.PositiveIntegerField()
-	energie_kcal = models.PositiveIntegerField()
-	matiere_grasse = models.PositiveIntegerField()
-	acide_gras_sat = models.PositiveIntegerField()
-	glucide = models.PositiveIntegerField()
-	sucres = models.PositiveIntegerField()
-	fibre_alim = models.PositiveIntegerField()
-	proteine = models.PositiveIntegerField()
-	sel = models.PositiveIntegerField()"""
-
 class Categorie_produit(models.Model):
 	nom = models.CharField(max_length=30)
 
@@ -85,29 +67,14 @@ class Type_de_prix(models.Model):
 		return self.nom
 
 
-""" class Provenance(models.Model):
-	ville = models.CharField(max_length = 50, null = True)
-	region = models.CharField(max_length = 50, null = True)
-	pays = models.CharField(max_length = 50)
-	groupe_pays = models.CharField(max_length = 50)
+# Données pour les emballages: tous les types de bocal et kraft
+
+class Emballage(models.Model):
+	nom = models.CharField(max_length=30)	# Ex Bocal_xs / sachet_kraft
+	taille = models.CharField(max_length=20)	# xs ou 0.5l ...
+	hauteur = models.DecimalField(null = True, blank = True, max_digits=6, decimal_places=2,)
+	diametre = models.DecimalField(null = True, blank = True, max_digits=6, decimal_places=2)
+	prix = models.DecimalField(null = False, blank = False, max_digits=5, decimal_places=2)
 
 	def __str__(self):
-		return self.ville
-
-class ville(models.Model):
-	ville = models.CharField(max_length = 50, null = True)
-
-	def __str__(self):
-		return self.ville
-
-class region(models.Model):
-	region = models.CharField(max_length = 50, null = True)
-
-	def __str__(self):
-		return self.region
-
-class region(models.Model):
-	region = models.CharField(max_length = 50, null = True)
-
-	def __str__(self):
-		return self.region """
+		return self.nom

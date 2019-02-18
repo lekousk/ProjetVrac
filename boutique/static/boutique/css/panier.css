@@ -1,0 +1,13 @@
+
+/* Section de la page */
+
+#body_edition
+{
+	width: 1000px;
+	margin: auto;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-size: 0.8em;
+}
+
+/* Fin */

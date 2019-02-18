@@ -1,0 +1,44 @@
+{% extends 'pages/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Panier - Bokalia{% endblock %}
+
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/panier.css' %}" />{% endblock %}
+
+{% block content %}
+
+<div id="body_edition">
+
+    <section>
+        <h1>PANIER</h1>
+    </section>
+
+    <section>
+        <p>
+            Description panier
+        </p>
+    </section>
+
+    <section id="table_panier">
+        <table>
+            <thead>
+                <tr>
+                    <th>Article</th>
+                    <th>Unité</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<script type="text/javascript" src="{% static 'boutique/js/panier.js' %}"></script>
+
+{% endblock %}

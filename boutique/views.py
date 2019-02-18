@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import New_produit_F
-from .models import Produit
+from .models import Produit, Producteur, Emballage, Categorie_produit
 
 # Create your views here.
 
@@ -32,8 +32,33 @@ def Aff__tout_produits(request):
 
 	return render(request, 'boutique/all_products.html', {'tout_produit': produit})
 
+#def ex(id):
+#	produit_x = Produit.objects.get(id=1)
+#
+#	if produit_x.type_prix == 'kg'
+#
+#	return produit_x.type_prix
 
 def Aff_un_produit(request, id):
 	produit_c = get_object_or_404(Produit, id=id)
+	xc = produit_c.type_prix.nom
+	emballage_tout = Emballage.objects.all()
 
-	return render(request, 'boutique/lire.html', {'produit': produit_c})
+	context = {
+	'produit': produit_c,
+	'emb_tout': emballage_tout,
+	}
+
+	if xc == 'kg':
+		context['kraft_s'] = Emballage.objects.get(nom = 'kraft_s')
+		context['kraft_m'] = Emballage.objects.get(nom = 'kraft_m')
+		context['bocal_s'] = Emballage.objects.get(nom = 'bocal_s')
+		context['bocal_m'] = Emballage.objects.get(nom = 'bocal_m')
+		context['bocal_l'] = Emballage.objects.get(nom = 'bocal_l')
+		context['bocal_xl'] = Emballage.objects.get(nom = 'bocal_xl')
+
+	return render(request, 'boutique/lire.html', context)
+
+def Panier(request):
+
+	return render(request, 'boutique/panier.html')
