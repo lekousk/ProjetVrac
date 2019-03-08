@@ -54,11 +54,18 @@ class Producteur(models.Model):
 	def __str__(self):
 		return self.nom
 
-class Categorie_produit(models.Model):
-	nom = models.CharField(max_length=30)
+class Categorie_mere(models.Model):
+        nom = models.CharField(max_length = 40)
 
-	def __str__(self):
-		return self.nom
+        def __str__(self):
+            return self.nom
+
+class Categorie_produit(models.Model):
+    nom = models.CharField(max_length=30)
+    cat_mere = models.ForeignKey('Categorie_mere', on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return self.nom
 
 class Type_de_prix(models.Model):
 	nom = models.CharField(max_length=20)

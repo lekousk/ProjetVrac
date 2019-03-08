@@ -8,11 +8,11 @@ $(function() {
 
   //Test
 
-  var width = $('.consigne_forme').width();
+  var width = $('.form_achat_produit').width();
   var height = $(window).height();
   var width_w = $(window).width();
  
-     console.log(width + "  " + height + "   " + width_w);
+     console.log(width + "  hauteur fenetre " + height + "    largeur fenetre " + width_w);
 
   // Initialisation des données:
   $('#qte_input').val(0); // init quantité à 0
@@ -434,7 +434,7 @@ $('#ajout_panier').click(function() {
       typ_pri: typ_pri,
       val_qte: val_qte,
       prix_tot: prix_tot,
-      info_prix_emballage,
+      info_prix_emballage: info_prix_emballage,
       qt: qt,
       url: url
     });

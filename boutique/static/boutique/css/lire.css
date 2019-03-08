@@ -5,36 +5,72 @@
 	{
 		width: 100%;
 		margin: auto;
-		padding-top: 2rem;
+		padding-top: 1rem;
 		padding-bottom: 1.5rem;
 	}
 
 	.titre_img_achat
 	{
-		margin-top: 2.5rem;
+		margin: 0;
 	}
 
 	.titre_produit
 	{
-		justify-content: space-around;
+		justify-content: space-between;
 		width: 100%;
-		margin: 0 15px 15px;
+		padding: 0px 5% 15px;
 	}
 
-	.img_produit img
+	/*.img_produit
 	{
-		width: 40vw;
+		border: 1px solid red;
+	}*/
+
+	#image_produit
+	{
+		width: 60vw;
+		max-width: 500px;
 	}
 
-	.consigne_forme /* fond de la partie cousigne ou kraft */
+	.form_achat_produit
+	{
+		background-color: #f8f8f8;
+		justify-content: center;
+	}
+
+	.consigne
+	{
+		background-color: #FFFFFF;
+	}
+
+	.consigne + .consigne
+	{
+		margin-top: 10px;
+	}
+
+	.consigne_forme
 	{
 		padding: 1rem 0;
-		background-color: #f8f8f8;
 		position: relative;
 		width: 85vw;
 		max-width: 550px;
-		min-height: 15rem;
+		margin: auto;
+		min-height: 12rem;
 	}
+
+	.qte_precis
+	{
+		width: 85vw;
+		max-width: 550px;
+		margin: auto;
+		padding: 0.5rem;
+	}
+
+	.total_prix
+	{
+		justify-content: space-around;
+	}
+
 }
 
 /*@media all and (max-width: 450px)
@@ -59,25 +95,25 @@
 	{
 		width: 100%;
 		margin: auto;
-		padding-top: 2rem;
-		padding-bottom: 1.5rem;
 	}
 
 	.titre_img_achat
 	{
-		margin-top: 2.5rem;
-		border:1px solid yellow;
+		padding-top: 2.5rem;
+		/*border:1px solid yellow;*/
 		display: flex;
 		justify-content: space-around;
 		position: relative;
+		flex-wrap: wrap;
 	}
 
 	.titre_produit
 	{
-		border:1px solid red;
-		width: 35vw;
-		position: absolute;
-		right: 0;
+		/*border:1px solid red;*/
+		padding-left: 45%;
+		width: 100%;
+		/*position: absolute;
+		right: 0;*/
 		justify-content: space-between;
 	}
 
@@ -91,18 +127,20 @@
 		
 	}
 
-	.img_produit img
+	#image_produit
 	{
 		width: 28vw;
-		border:1px solid green;
+		max-width: 500px;
+		/*border:1px solid green;*/
 		vertical-align: middle;
 	}
 
 	.form_achat_produit
 	{
 		width: 35vw;
-		min-width: 450px;
-		border:1px solid red;
+		min-width: 400px;
+		max-width: 625px;
+		/*border:1px solid blue;*/
 	}
 
 	.consigne_forme /* fond de la partie cousigne ou kraft */ /* à modifier */
@@ -110,9 +148,23 @@
 		padding: 1rem 0;
 		background-color: #f8f8f8;
 		position: relative;
-		width: 85vw;
-		max-width: 550px;
+		width: 90%;
 		min-height: 15rem;
+		margin: 5% auto 0;
+	}
+
+	.qte_precis
+	{
+		background-color: #f8f8f8;
+		width: 90%;
+		margin: 1rem auto 0.5rem;
+		padding: 0.5rem;
+		height: 3rem;
+	}
+
+	.total_prix
+	{
+		justify-content: space-between;
 	}
 }
 
@@ -120,7 +172,7 @@
 
 .body_edition
 {
-	
+		
 }
 
 /* Mise en place 1. Titre 2. Image du produit 3. Achat: (Consigne ou Kraft) */
@@ -159,6 +211,8 @@ h1
 	margin-bottom: auto;
 	color: grey;
 	position: relative;
+	min-width: 5rem;
+	text-align: center;
 }
 
 #prix_produit::after
@@ -167,7 +221,7 @@ h1
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	top: 1rem;
 	height: 6px;
 	background-color: #5bc7ab;
 	opacity: 0.5;
@@ -185,8 +239,8 @@ h1
 
 .form_achat_produit
 {
-	text-align: left;
 	border-bottom: 0.1rem solid #5bc7ab;
+	padding-bottom: 5px;
 }
 
 	/* Menu choix consigne ou kraft */
@@ -200,12 +254,12 @@ h1
 .ul_c_k
 {
 	list-style-type: none;
-    display: flex;
-    justify-content: center;
-    height: 2.5rem;
-    width: 100%;
-    padding-left: 0;
-    font-size: 1.1rem;
+	display: flex;
+	justify-content: center;
+	height: 2.5rem;
+	width: 100%;
+	padding-left: 0;
+	font-size: 1.1rem;
 }
 
 .ul_c_k li
@@ -250,7 +304,7 @@ h1
 	text-align: center;
 	border-collapse: collapse;
 	margin: auto;
-	width: 95%;
+	width: 90%;
 	/*display: none;  A supprimer pour faire apparaitre la consigne */
 }
 
@@ -330,8 +384,6 @@ h1
 
 .qte_precis
 {
-	display: inline-block;
-	margin: 0.5rem 0;
 	font-size: 1.2rem;
 	/*border:1px solid red;*/
 }
@@ -352,7 +404,6 @@ h1
 .total_prix
 {
 	display: flex;
-	justify-content: space-between;
 	font-size: 1.5rem;
 	color: grey;
 	min-height: 4.5rem;
@@ -426,9 +477,11 @@ h1
 	opacity: 1;
 }
 
-/* Hauteur minimale de la zone description produit et producteur *.desc_dim
+/* Hauteur minimale de la zone description produit et producteur */
+
+.desc_dim
 {
-	min-height: 22rem;
+	min-height: 30rem;
 }
 
 /* Description du produit, 2 parties : Texte et valeurs nutri */
@@ -444,9 +497,8 @@ h1
 {
 	background-color: #f8f8f8;
 	border: 2px solid transparent;
-	display: flex;
-	flex-direction: column;
 	padding: 0px 10px;
+	justify-content: center;
 }
 
 .desc_text

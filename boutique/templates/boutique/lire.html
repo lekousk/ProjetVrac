@@ -23,17 +23,17 @@
         </div>
 
         <div class="img_produit">
-            <img src="{{ produit.image_p.url }}"/>
+            <img src="{{ produit.image_p.url }}" id="image_produit"/>
         </div>
 
         <form class="form_achat_produit" action="" method="get"><!-- <form class="form_achat_produit" action="" method="get" enctype="multipart/form-data"> -->
-            <div class="consigne_kraft">
+            <div class="consigne_kraft consigne">
                 <ul class="ul_c_k">
                     <li id="li_cons">Bocaux consignés</li>
                     <li id="li_kraft">Sachet kraft</li>
                 </ul>
             </div>
-            <div class="consigne_forme">
+            <div class="consigne_forme consigne">
                 <table class="consigne_table">
                     <tr>
                         <th><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal S" id="img_s" /></th>
@@ -64,13 +64,13 @@
                 <a id="icone_info">?</a>
             </div>
 
-            <div class="qte_precis">
+            <div class="qte_precis consigne">
                 <label>Quantité :</label>
                 <input type="number" name="qte_commande" id="qte_input" step="10" min="0" max="1050"> <!-- Valeur max à mettre à jour via la BDD !! -->
                 <span>g</span>
                 <span id="error_qte">Entrez une quantité valide !</span>
             </div>
-            <div class="total_prix">
+            <div class="total_prix consigne">
                 <div class="total_euro">
                     <div>
                         TOTAL :
@@ -126,10 +126,10 @@
         <article class="art_desc">
             <div class="dec_produit">
                 <div class="desc_text">
-                    <p>
-                        <h3>Présentation</h3>
-                        {{ produit.description }}
-                    </p>
+                    <h3>Présentation</h3>
+		    <p>
+		    	{{ produit.description }}
+		    </p>
                     <p>
                         <label>Producteur : </label><span>{{ produit.producteur }}</span>
                     </p>
@@ -197,8 +197,8 @@
                     <img src="{{ produit.producteur.image_prod.url }}">
                 </div>
                 <div class="prod_text">
-                    <p>
-                        <h2>{{ produit.producteur.nom }}</h2>
+                    <h2>{{ produit.producteur.nom }}</h2>
+		    <p>
                         {{ produit.producteur.desc_prod }}
                     </p>
                     <p>

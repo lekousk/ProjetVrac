@@ -1,12 +1,13 @@
 from django.contrib import admin
 #from pages.models import Categorie, Article
-from .models import Produit, Producteur, Categorie_produit, Type_de_prix, Emballage
+from .models import Produit, Producteur, Categorie_produit, Type_de_prix, Emballage, Categorie_mere
 
 admin.site.register(Produit)
 admin.site.register(Producteur)
 admin.site.register(Categorie_produit)
 admin.site.register(Type_de_prix)
 admin.site.register(Emballage)
+admin.site.register(Categorie_mere)
 
 # Register your models here.
 
