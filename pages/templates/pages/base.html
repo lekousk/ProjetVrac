@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -31,10 +31,11 @@
 					</div>
 
 					<div class="search_div">
-						<form class="search_form" action="#" method="POST" autocomplete="off">
-							{% csrf_token %}
-							<input id="search_text" type="text" size="30" placeholder="Lait, œuf, farine…"/>
-							<input id="submit_img" type="image" name="search_submit" src="{% static "pages/images/icon_search.png" %}" alt="icone rechercher">
+						<form class="search_form" action="{% url 'all_products' %}" method="get" accept-charset="utf-8" autocomplete="off">
+							<!--{% csrf_token %}-->
+							<input name="query" id="search_text" type="search" size="30" placeholder="Lait, œuf, farine…"/>
+							<!--<input id="submit_img" type="submit" style="background:url({% static "pages/images/icon_search.png" %})" alt="icone rechercher" value = " ">-->
+							<input id="submit_img" type="submit" alt="icone rechercher" value = " ">
 						</form>
 					</div>
 
@@ -66,33 +67,36 @@
 
 			<div class='header_nav'>
 
-				<div class="bandeau_fond">
+				<div class="bandeau_fond bf_mobile">
 					<div class="bandeau_menu">
-						<nav class="navigation">
-							<a href='xxx' class='menu_1 menu_a'>Nos produits</a>
-							<div class='sousMenu'>
-								<a href="xxx" class='menu_2 menu_a'>pate riz ...</a>
-								<div class='sousMenu'>
-									<a class='menu_3'>Voir tout</a>
-									<a class='menu_3'>pate</a>
-									<a class='menu_3'>riz</a>
-									<a class='menu_3'>Legumineuse</a>
-								</div>
-
-								<a href='xxx' class='menu_2 menu_a'>epicerie salée</a>
-								<div class='sousMenu'>
-									<a class='menu_3'>Voir tout</a>
-									<a class='menu_3'>Fruits secs</a>
-									<a class='menu_3'>Epices et aromates</a>
-								</div>
-							</div>
-
-							<a class='menu_1 menu_a'>Fonctionnement</a>
-
-							<a class='menu_1 menu_a'>La boutique</a>
-
-							<a class='menu_1 menu_a'>Contact</a>
-						</nav>
+						<ul class="navigation">
+							<li class='affnav'><a class='menu_1 menu_a' href="xxx" data_href='kk'>Nos produits</a>
+								<ul class='sousMenu subMenuP subMenu1 sousMenuMob' >
+									<li><a class='menu_2 menu_a voir_tout' href="yyy">Pate, riz et légumineuses</a>
+										<ul class='sousMenu subMenu2 sousMenuMob'>
+											<li><a class='menu_3' href="bbb">pate</a></li>
+											<li><a class='menu_3'>riz</a></li>
+											<li><a class='menu_3'>Legumineuse</a></li>
+											<li><a class='menu_3'>Confiture, miel et pâte à tartiner</a></li>
+										</ul>
+									</li>
+									<li><a href='zzz' class='menu_2 menu_a voir_tout'>Epicerie salée</a>
+										<ul class='sousMenu subMenu2 sousMenuMob'>
+											<li><a class='menu_3'>Fruits secs</a></li>
+											<li><a class='menu_3'>Epices et aromates ...</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class='affnav'><a class='menu_1 menu_a' href="fff">Fonctionnement</a></li>
+							<li class='affnav'><a class='menu_1 menu_a'>La boutique</a>
+								<ul class='sousMenu subMenuP sousMenuMob'>
+									<li><a class='menu_3 menu_a' href="yyy">L'équipe ddddd frerferg fref freggh</a></li>
+									<li><a class='menu_3 menu_a' href="yyy">Accès</a></li>
+								</ul>
+							</li>
+							<li><a class='menu_1 menu_a'>Contact</a></li>
+						</ul>
 
 						<!--<div class="reseaux_sociaux">
 	      <a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
@@ -123,11 +127,10 @@
 					<div class="bloc_bas_page">
 						<h2>Liens utiles</h2>
 
-						<div id="liste_bas">
-							<ul id="liens_bas">
-								<li><a href="#">Conditions Générales de vente</a></li>
-								<li><a href="#">Politique de Protection des Données Personnelles</a></li>
-								<li><a href="#">Mentions Légales</a></li>
+						<div class="liste_bas">
+							<ul>
+								<li><a>Conditions Générales de vente</a></li>
+								<li><a>Mentions Légales</a></li>
 							</ul>
 						</div>
 					</div>
@@ -136,15 +139,16 @@
 						<h2>Retrouvez nous</h2>
 
 						<div class="reseaux_sociaux">
-							<a href="#" title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
-							<a href="#" title="lien Insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
-							<a href="#" title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
+							<a title="lien facebook"><img src="{% static "pages/images/icon_fb.png" %}" alt="icone facebook"></a>
+							<a title="lien Insta"><img src="{% static "pages/images/icon_insta.png" %}" alt="icone instagram"></a>
+							<a title="lien twitter"><img src="{% static "pages/images/icon_twitter.png" %}" alt="icone twitter"></a>
 						</div>
 					</div>
 				</div>
 			</footer>
 		</div>
 
+		{% block extra_js %}{% endblock %}
 		<!--<script type="text/javascript" src="{% static 'pages/js/base.js' %}"></script>-->
 	</body>
 </html>

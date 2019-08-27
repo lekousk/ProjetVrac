@@ -1,0 +1,50 @@
+{% load static %}
+{% if produit %}
+<div class="nb_result">
+	<span>{{ produit.start_index }} - {{ produit.end_index }} sur {{ produit.paginator.count }} produit{{ produit.paginator.count|pluralize }}</span>
+</div>
+
+<div class="resultat_recherche list">
+	{% for produits in produit %}
+	<article class="produit_find">
+		<div class="produit_visuel">
+			<img class="produit_img" src="{{ produits.image_p.url }}" alt="{{ produits.nom }}" onclick="window.location='{% url 'lire' id=produits.id %}'">
+		</div>
+		<div class="produit_info">
+			<a class="produit_info_titre" href="{% url 'lire' id=produits.id %}">{{ produits.nom }}</a>
+			<a class="produit_info_producteur"  href="">{{ produits.producteur }}</a>
+			<div class="prix_art">
+				<span>{{ produits.prix_p|floatformat:-2 }} €/{{ produits.type_prix }}</span>
+			</div>
+			<a class="produit_add_rapid" rel="nofollow"></a>
+		</div>
+	</article>
+	{% endfor %}
+</div>
+{% else %}
+<div>
+	<p>Aucun produit ma couille</p>
+</div>
+
+{% endif %}
+
+{% if paginate %}
+<nav class="pagination">
+	{% if produit.has_previous %}
+	{% if produit.number > 2 %}
+		<a href="?query={{ request.GET.query }}&page=1{%if tr %}&tr={{ tr }}{% endif %}{%if fi %}&fi={{ fi }}{% endif %}{%if ray %}&ray={{ ray }}{% endif %}">&laquo;</a>
+	{% endif %}
+		<a href="?query={{ request.GET.query }}&page={{ produit.previous_page_number }}{%if tr %}&tr={{ tr }}{% endif %}{%if fi %}&fi={{ fi }}{% endif %}{%if ray %}&ray={{ ray }}{% endif %}">&lt;</a>
+	{% endif %}
+	<div class="pageActu pageBloc">
+		{{ produit.number }} / {{ produit.paginator.num_pages }}
+	</div>
+	{% if produit.has_next %}
+		<a href="?query={{ request.GET.query }}&page={{ produit.next_page_number }}{%if tr %}&tr={{ tr }}{% endif %}{%if fi %}&fi={{ fi }}{% endif %}{%if ray %}&ray={{ ray }}{% endif %}">&gt;</a>
+	{% if produit.next_page_number < produit.paginator.num_pages %}
+		<a href="?query={{ request.GET.query }}&page={{ produit.paginator.num_pages }}{%if tr %}&tr={{ tr }}{% endif %}{%if fi %}&fi={{ fi }}{% endif %}{%if ray %}&ray={{ ray }}{% endif %}">&raquo;</a>
+	{% endif %}
+	{% endif %}
+</nav>
+{% endif %}
+

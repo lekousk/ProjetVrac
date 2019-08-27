@@ -33,7 +33,7 @@ class Produit(models.Model):
 
 	class Meta:
 		verbose_name = "produit"
-		ordering = ['date_saisie']
+		ordering = ['-date_saisie']
 
 	def __str__(self):
 		return self.nom
