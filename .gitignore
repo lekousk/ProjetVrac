@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 *.pyc
 __pycache__
 .DS_Store
+=======
+venv/
+>>>>>>> Reprise du projet gitignore
