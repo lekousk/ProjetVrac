@@ -1,0 +1,27 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}Edition de produit - Bokalia{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/p_edition.css' %}" />{% endblock %}
+
+{% block content %}
+
+<div id="body_edition">
+    <h1>Création de Produit</h1>
+
+    <div>
+        <a href="#" title="image exemple"><img src="{% static "boutique/images/petitdejdef.jpg" %}" alt="exemple d'image"></a>
+    </div>
+
+    {% if envoi %}Votre message a bien été envoyé !{% endif %}
+
+    <form action="{% url "edition" %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,1043 @@
+
+/* Ex de couleur:
+#57cfb0
+#abd0bf
+#5bc7ab ?1
+#00b68c ?2
+
+#6dbf81 avant
+*/
+
+/* Corps de la page */
+
+*
+{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+a
+{
+	text-decoration: none;
+	outline: none;
+}
+
+html
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body
+{
+	width: auto;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.body_b
+{
+	font-family: 'Sarabun','Thasadith', sans-serif;
+	color: grey;
+	position: relative;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	flex-direction: column;
+}
+
+/* Pour les navigateurs IE < 12 */
+@supports (display: flex){
+	.body_b{
+		display: flex;
+	}
+}
+	
+@media all and (max-width: 900px)
+{
+	html
+	{
+		font-size: 12px;
+	}
+
+	.body_b
+	{
+		background: #FFFFFF;
+	}
+
+	header
+	{
+		position: relative;
+	}
+
+	.header_haut
+	{
+		flex-wrap: wrap;
+	}
+
+	.nav_mobile_header
+	{
+		display: contents;
+		order: 1;
+		flex: none;
+	}
+
+	.logo_bokalia
+	{
+		order: 2;
+		flex: 1;
+		padding: 5px 0 0 5px;
+		height: 3.8rem;
+		margin-left: 50px;
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 3rem;
+	}
+
+	.search_div
+	{
+		background-color: #FFFFFF;
+		order: 4;
+		width: 100%;
+		padding: 0 5px;
+		border-top: 1px solid #d6d4d4;
+	}
+
+	.login_basket
+	{
+		order: 3;
+		flex: 0.7;
+		max-width: 180px;
+	}
+
+	.login
+	{
+		padding-top: 8px;
+		border-right: 1px solid #d6d4d4;
+		border-left: 1px solid #d6d4d4;
+		height: 100%;
+		flex: 0.5;
+	}
+
+	#connexion_img
+	{
+		display: contents;
+	}
+
+	#connexion_text
+	{
+		display: none;
+	}
+
+	.basket
+	{
+		flex: 0.5;
+	}
+
+	.panier img
+	{
+		height: 30px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.9rem;
+		background-color: #5bc7ab;
+		width: 1.8rem;
+		height: 1.8rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.8;
+		font-weight: bold;
+	}
+
+	#search_text
+	{
+		font-size: 1.2rem;
+		height: 2.5rem;
+	}
+
+	.bf_mobile
+	{
+		display: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background: #FFFFFF;
+	}
+
+	.nav_open_BF
+	{
+		left: 0px;
+	}
+
+	.navigation a
+	{
+		text-decoration: none;
+		color: white;
+	}
+
+	.sousMenuMob
+	{
+		display: none;
+	}
+
+	.menu_1
+	{
+		display: block;
+		width: 100%;
+		height: 2.5rem;
+		background: #00b68c;
+		border: 1px solid #d6d4d4;
+		padding-left: 1rem;
+		line-height: 2rem;
+	}
+
+	.menu_2
+	{
+		display: block;
+		height: 2.5rem;
+		background: #5bc7ab;
+		margin-left: 5%;
+		border: 1px solid #d6d4d4;
+		padding-left: 1rem;
+		line-height: 2rem;
+	}
+
+	.menu_3
+	{
+		background: #007a89;
+		display: block;
+		height: 2.5rem;
+		margin-left: 10%;
+		border: 1px solid #d6d4d4;
+		padding-left: 1rem;
+		line-height: 2rem;
+	}
+
+	.corps_footer
+	{
+		flex-direction: column;
+	}
+
+	.bloc_bas_page
+	{
+		margin: auto;
+		width: 85%;
+	}
+}
+
+/* Dimension à changer pour les cas particuliers, notamment lors de valeurs absolues */
+
+	/* Début cas particuliers */
+
+@media all and (max-width: 450px)
+{
+	.panier_reduit
+	{
+		width: 310px;
+	}
+}
+
+@media all and (min-width: 451px)
+{
+	.panier_reduit
+	{
+		width: 30rem;
+	}
+}
+
+@media screen and (pointer: fine)
+{
+	/*exemple*/
+}
+
+	/* Fin cas particuliers */
+
+@media all and (min-width: 901px)
+{
+	.bandeau_fond
+	{
+		background-color: #5bc7ab;
+	}
+
+	.navigation
+	{
+		display: flex;
+		position: relative;
+	}
+
+	.navigation a
+	{
+		text-decoration: none;
+	}
+
+	.sousMenu a:hover
+	{
+		color: #007a89;
+	}
+
+	.menu_1
+	{
+		/*border: 1px solid red;*/
+		display: block;
+		text-align: center;
+		padding: 5px 20px;
+		color: #FFFFFF;
+	}
+
+	.menu_1:hover
+	{
+		color: #5bc7ab;
+		background-color: #FFFFFF;
+	}
+
+	.sousMenu, .sousMenu a, .menu_2
+	{
+		color: grey;
+	}
+
+	.sousMenu
+	{
+		display: none;
+	}
+
+	.subMenuP
+	{
+		position: absolute;
+		z-index: 1100;
+		background: #FFFFFF;
+		box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+	}
+
+	.subMenu1
+	{
+		/*display: flex;*/
+		/*border: 1px solid green;*/
+	}
+
+	.menu_2
+	{
+		display: block;
+		padding: 5px 0 5px 0;
+		width: 160px;
+		/*border: 1px solid blue;*/
+		text-align: center;
+		position: relative;
+		margin: 0 5px;
+	}
+
+	.menu_2::after
+	{
+		content:"";
+		position: absolute;
+		width: 80px;
+		left: 40px;
+		background: #5bc7ab;
+		height: 2px;
+		opacity: 0.5;
+		bottom: 0px;
+	}
+
+	.subMenu2
+	{
+		display: block;
+		background: #FFFFFF;
+		/*border: 1px solid yellow;*/
+	}
+
+	.menu_3
+	{
+		display: block;
+		/*border: 1px solid blue;*/
+		padding: 5px 10px 5px 10px;
+		margin: auto;
+		width: 140px;
+	}
+
+	.bloc_bas_page
+	{
+		width: 25%;
+	}
+}
+
+@media all and (min-width: 901px) and (max-width: 1250px)
+{
+	html
+	{
+		font-size: 14px;
+	}
+
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	.bloc_principaux
+	{
+		width: 90vw;
+		flex-wrap: nowrap;
+		margin: auto;
+	}
+
+	.logo_bokalia
+	{
+		padding: 5px;
+		height: 50px;
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 40px;
+
+	}
+
+	.search_div
+	{
+		flex: 1;
+		padding: 0 1vw;
+		margin: auto;
+	}
+
+	.login_basket
+	{
+		width: 200px;
+	}
+
+	.login
+	{
+		flex: 0.6;
+		border-right: 0.1rem solid grey;
+	}
+
+	.basket
+	{
+		flex: 0.4;
+	}
+
+	.panier img
+	{
+		height: 35px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.8rem;
+		background-color: #5bc7ab;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.6;
+		font-weight: bold;
+	}
+
+	/*.login
+	{
+		padding-top: 8px;
+		border-right: 1px solid #d6d4d4;
+		border-left: 1px solid #d6d4d4;
+		height: 100%;
+	}*/
+
+	#connexion_img
+	{
+		display: none;
+	}
+
+	#search_text
+	{
+		font-size: 1rem;
+		height: 2rem;
+	}
+
+	.bandeau_menu
+	{
+		width: 90vw;
+	}
+}
+
+@media all and (min-width: 1251px)
+{
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	header
+	{
+		width: 100vw;
+		padding-top: 5px;
+		/*padding-bottom: 0.2rem;*/
+		/*position: -webkit-sticky;
+		position: sticky;*/
+		position: fixed;
+		top: 0rem;
+		z-index: 12;
+		background-color: white;
+	}
+
+	.nav_mobile_header
+	{
+		display: none;
+	}
+
+	.bloc_principaux
+	{
+		width: 90vw;
+		max-width: 2000px;
+		flex-wrap: nowrap;
+		margin: auto;
+	}
+
+	.logo_bokalia
+	{
+		padding: 5px;
+		height: 55px;
+
+	}
+
+	#logo_bokalia_mini
+	{
+		height: 45px;
+	}
+
+	.search_div
+	{
+		flex: 1;
+		padding: 0 5px;
+		margin: auto;
+	}
+
+	.login_basket
+	{
+		width: 200px;
+	}
+
+	.login
+	{
+		flex: 0.6;
+		border-right: 0.1rem solid grey;
+	}
+
+	#connexion_img
+	{
+		display: none;
+	}
+
+	.basket
+	{
+		flex: 0.4;
+	}
+
+	.panier img
+	{
+		height: 40px;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		left: 55%;
+		font-size: 0.8rem;
+		background-color: #5bc7ab;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.6;
+	}
+
+	#search_text
+	{
+		font-size: 1rem;
+		height: 2rem;
+	}
+
+	.header_nav
+	{
+		width: 100vw;
+		/*position: -webkit-sticky;
+		position: sticky;*/
+		position: fixed;
+		z-index: 11;
+		top: 60px;
+	}
+
+	.bandeau_menu
+	{
+		width: 90vw;
+		max-width: 2000px;
+	}
+
+	.corps_page
+	{
+		margin-top: 91px;
+	}
+
+	.affnav
+	{
+	    width: 15%;
+	}
+}
+
+
+/* En-tête de la page base */
+
+.header_haut
+{
+	display: flex;
+	align-content: center;
+	margin: auto;
+}
+
+.nav_mobile_header
+{
+	margin: 0;
+	position: relative;
+}
+
+	/* Menu: Partie menu */
+
+#nav_bt_burger
+{
+	border-top: 2px solid #5bc7ab;
+	height: 1.8rem;
+	width: 30px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 1rem;
+	left: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+}
+
+#nav_bt_burger:before
+{
+	content:"";
+	display: block;
+	height: 2px;
+	width: 30px;
+	left: 0;
+	top: 0.7rem;
+	transition: all 0.3s ease-in;
+	background: #5bc7ab;
+	position: absolute;
+}
+
+#nav_bt_burger:after
+{
+	content: "";
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 30px;
+	left: 0;
+	background: #5bc7ab;
+	bottom: 0;
+	transition: all 0.3s ease-in;
+}
+
+.nav_open #nav_bt_burger
+{
+	border-color: transparent;
+}
+
+.nav_open #nav_bt_burger:before
+{
+	transform: rotate(45deg);
+	width: 33px;
+	left: -2px;
+}
+
+.nav_open #nav_bt_burger:after
+{
+	transform: rotate(135deg);
+	bottom: 0.7rem;
+	width: 33px;
+	left: -2px;
+}
+
+	/* Menu: Partie Logo */
+
+.nav_mobile_logo
+{
+	width: 40%;
+}
+
+/* Barre de recherche */
+
+.search_div
+{
+
+}
+
+.search_form
+{
+	background-color: white;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 0.2rem solid #d6d4d4;
+	border-radius: 1rem;
+	background-color: #f8f8f8;
+	margin: 0.5rem auto;
+}
+
+
+#search_text
+{
+	font-style: italic;
+	color: grey;
+	width: 100%;
+	border: none;
+	border-radius: 1rem;
+	padding-left: 0.5rem;
+	background-color: #f8f8f8;
+}
+
+.search_form input:focus
+{
+	outline: none;
+}
+
+.search_form:focus-within
+{
+	border-color: #A4C6FD;
+}
+
+#submit_img
+{
+	background-image: url("/static/pages/images/icon_search.png");
+	background-repeat: no-repeat;
+	height: 1.6rem;
+	width: 1.6rem;
+	border: none;
+	cursor: pointer;
+	margin-right: 0.5rem;
+}
+
+/* Login et panier haut droite */
+
+.login_basket
+{
+	display: flex;
+	align-items: center;
+}
+
+/* Login (connexion) */
+
+.login
+{
+	text-align: center;
+}
+
+.login a
+{
+	color: grey;
+	text-decoration: none;
+}
+
+#connexion_text
+{
+	text-align: center;
+	font-size: 1rem;
+}
+
+.login a:hover
+{
+	color: #5bc7ab;
+}
+
+/* Panier et nombre d'article */
+
+.basket
+{
+	position: relative;
+	color: #181818;
+	text-decoration: none;
+	font-size: 0.75rem;
+	text-align: center;
+}
+
+.basket:hover
+{
+	/*color: #5bc7ab;*/
+}
+
+.panierETnbr
+{
+	position: relative;
+}
+
+.panier_reduit
+{
+	position: absolute;
+	display: none;
+	border: 0;
+	background-color: white;
+	box-shadow: 0 0 0.3rem grey;
+	top: 3.8rem;
+	right: 5px;
+	z-index: 22;
+}
+
+.ajout_dans_panier
+{
+	margin: 5px;
+}
+
+.classArticlePanier
+{
+	height: 70px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid grey;
+	display: flex;
+	justify-content: center;
+}
+
+.classArticlePanier + .classArticlePanier
+{
+	margin-top: 5px;
+}
+
+.classArticlePanier img
+{
+	height: 60px;
+}
+
+.panier_milieu
+{
+	flex: 0.9;
+	padding: 2px 5px;
+	color: grey;
+}
+
+.panier_milieu p
+{
+	text-align: left;
+	margin: 0;
+}
+
+.panier_titre
+{
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.panier_titre a
+{
+	/*text-decoration: none;*/
+	color: grey;
+}
+
+.panier_sousTitre
+{
+	font-size: 0.6rem;
+}
+
+.panier_prixArticle
+{
+	font-size: 0.75rem;
+	color: #5bc7ab;
+}
+
+.panier_prixArticle span
+{
+	font-weight: bold;
+}
+
+#voir_panier
+{
+	display: block;
+    text-decoration: none;
+    width: 10rem;
+    height: 2.4rem;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    background-color: #5bc7ab;
+    border: 0;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+}
+
+#voir_panier:hover
+{
+	opacity: 0.8;
+}
+
+/* Mise en forme de chaque article du panier */
+
+#panier_vide_msg
+{
+	text-align: center;
+}
+
+/* pour les test du panier */
+/*
+
+#ajout_danspanier
+{
+	width: 300px;
+}
+
+#ajout_danspanier img
+{
+	height: 70px;
+	float: left;
+	margin-right: 10px;
+}
+*/
+
+/* Partie horizontale 2/2 : Navigation des menus */
+/* Navigation */
+
+.bandeau_fond
+{
+	/*background: #5bc7ab;*/
+	opacity: 1;
+}
+
+.bandeau_menu
+{
+	/*display: flex;
+	justify-content: space-between;*/
+	margin: auto;
+}
+
+.bandeau_menu ul li
+{
+	list-style: none;
+}
+
+.navigation, .sousMenu
+{
+	padding: 0;
+	margin: 0;
+}
+/* Navigation format > 901px
+.navigation
+{
+    display: inline-flex;
+    margin: auto;
+    height: 2.5rem;
+}
+
+.menu_1
+{
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem  1rem;
+    text-align: center;
+}
+
+.menu_1:hover
+{
+    color: #5bc7ab;
+    background-color: #FFFFFF;
+}
+
+.menu_enfant
+{
+	position: relative;
+}
+
+.menu_2
+{
+	display: none;
+}*/
+
+
+/* corps de la page*/
+/* flex = 1, demande au corps de page à prendre tout l'espace disponible si le contenu ne rempli pas 100% de la page */
+.corps_page
+{
+	flex: 1;
+}
+
+/* scroll up / monter haut de page */
+
+
+
+#scrollUp
+{
+	position: fixed;
+	bottom : 8rem;
+	right: 5vw;
+	opacity: 1;
+	display: none;
+}
+
+/* Footer */
+
+footer
+{
+	background-color: #5bc7ab;
+	width: 100%;
+	color: white;
+	padding-bottom: 10px;
+	font-size: 0.8rem;
+}
+
+footer h2
+{
+	color: black;
+	opacity: 0.6;
+	font-size: 0.9rem;
+}
+
+footer a
+{
+	color: white;
+}
+
+.corps_footer
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: top;
+}
+
+.bloc_bas_page
+{
+	flex: 0 1 auto;
+}
+
+.liste_bas
+{
+	margin: 0;
+	padding: 0;
+}
+/* Margin et padding à 0 dans la div parent de ul pour mettre la liste coller à gauche*/
+
+.liste_bas ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.liste_bas li
+{
+	/*border: 1px solid red;*/
+}
