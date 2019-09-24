@@ -7,67 +7,70 @@
 
 {% block content %}
 
-{% include 'boutique/filtreTrier.html' %}
+<div class="allprod">
+	{% include 'boutique/filtreTrier.html' %}
+	{% include 'boutique/add_rapid.html' %}
 
-<div class='contenuP'>
-	<div class="nom_recherche">
-		<p>Resultat de recherche pour "{{ query }}"</p>
-	</div>
+	<div class='contenuP'>
+		<div class="nom_recherche">
+			<span>Résultat de recherche pour "{{ query }}"</span>
+		</div>
 
-	<div class="infoMin notMin">
-		<!--<button class="mosaic_list" type="button">
-			<div class="grid_4 icon_mosaic"></div>
-		</button>-->
-		<button class="trier" type="button">TRIER</button>
-		<button class="rayons" type="button">RAYONS</button>
-	</div>
-	{% if fi or ray %}
-	<div class="searchRecap">
-		<div class="searchItems">
-		{% if searchRay %}
-			{% for x in searchRay %}
-			<div class="searchEach" data-ray="{{ x.id }}">
-				{{ x }}<span>x</span>
-			</div>
-			{% endfor %}
-		{% endif %}
-		{% if searchProd %}
-			{% for x in searchProd %}
-			<div class="searchEach" data-fi="{{ x.id }}">
-				{{ x }}<span>x</span>
-			</div>
-			{% endfor %}
-		{% endif %}
-		</div>
-		<div class="searchItems">
-			<button class="btnCroixEff" type="button"></button>
-		</div>
-	</div>
-	{% endif %}
-
-	<div class="barreInfo">
-		{% if produit %}
-		<div class="nb_result">
-			<span>{{ produit.start_index }} - {{ produit.end_index }} sur {{ produit.paginator.count }} produit{{ produit.paginator.count|pluralize }}</span>
-		</div>
-		{% endif %}
-		<div class="ensembleTrier notMax">
-			<div class="titreTrier">Triez par</div>
-			<div class="voletTrier">
-				<a>
-					<div class="arrowTrier">Pertinence</div>
-				</a>
-				{% include 'boutique/trier.html' with classTrier='trierMin' classfitri='Min' %}
-			</div>
-		</div>
-		<!--<div class="ensembleML">
-			<button class="mosaic_list" type="button">
+		<div class="infoMin notMin">
+			<!--<button class="mosaic_list" type="button">
 				<div class="grid_4 icon_mosaic"></div>
-			</button>
-			<div class="texteML">Mosaïque</div>
-		</div>-->
+			</button>-->
+			<button class="rayons" type="button">Tous les rayons</button>
+			<button class="trier" type="button">Trier</button>
+		</div>
+		{% if fi or ray %}
+		<div class="searchRecap">
+			<div class="searchItems">
+			{% if searchRay %}
+				{% for x in searchRay %}
+				<div class="searchEach" data-ray="{{ x.id }}">
+					{{ x }}<span>x</span>
+				</div>
+				{% endfor %}
+			{% endif %}
+			{% if searchProd %}
+				{% for x in searchProd %}
+				<div class="searchEach" data-fi="{{ x.id }}">
+					{{ x }}<span>x</span>
+				</div>
+				{% endfor %}
+			{% endif %}
+			</div>
+			<div class="searchItems">
+				<button class="btnCroixEff" type="button"></button>
+			</div>
+		</div>
+		{% endif %}
+
+		<div class="barreInfo">
+			{% if produit %}
+			<div class="nb_result">
+				<span>{{ produit.start_index }} - {{ produit.end_index }} sur {{ produit.paginator.count }} produit{{ produit.paginator.count|pluralize }}</span>
+			</div>
+			{% endif %}
+			<div class="ensembleTrier notMax">
+				<div class="titreTrier">Triez par</div>
+				<div class="voletTrier">
+					<a>
+						<div class="arrowTrier">Pertinence</div>
+					</a>
+					{% include 'boutique/trier.html' with classTrier='trierMin' classfitri='Min' %}
+				</div>
+			</div>
+			<!--<div class="ensembleML">
+				<button class="mosaic_list" type="button">
+					<div class="grid_4 icon_mosaic"></div>
+				</button>
+				<div class="texteML">Mosaïque</div>
+			</div>-->
+		</div>
+		{% include 'boutique/liste_page.html' %}
 	</div>
-	{% include 'boutique/liste_page.html' %}
 </div>
 {% endblock %}
 
