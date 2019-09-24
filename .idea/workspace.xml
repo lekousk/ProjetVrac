@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="" />
+    <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/add_rapid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet_ka-master/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/all_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/all_products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/filtreTrier.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/filtreTrier.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/liste_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique/liste_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/pages/templates/pages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/pages/templates/pages/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/static/boutique/css/produit.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/static/boutique/css/produit.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka-master/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka-master/static/pages/css/base.css" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/projet_ka-master" />
+  </component>
   <component name="ProjectId" id="1QbufUbQTIBkvDbd1wVWbn0xnqh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/projet_ka-master/static/boutique/css" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique" />
       <recent name="$PROJECT_DIR$/projet_ka-master/static/boutique/css" />
       <recent name="$PROJECT_DIR$/projet_ka-master/projet_ka/static/boutique/css" />
       <recent name="$PROJECT_DIR$/projet_ka-master/projet_ka" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -50,5 +65,18 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
