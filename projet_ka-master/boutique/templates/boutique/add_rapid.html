@@ -3,34 +3,60 @@
 	<div class="backgr_gris">
 	</div>
 	<div class="addpart">
-		<div class="consigne_forme consigne">
-			<table class="consigne_table">
-				<tr>
-					<th><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal S" id="img_s" /></th>
-					<th><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal M" id="img_m" /></th>
-					<th><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal L" id="img_l" /></th>
-					<th><img src="{% static "boutique/images/leBocalTampon.png" %}" alt="Logo Bocal XL" id="img_xl" /></th>
-				</tr>
-				<tr>
-					<td><span id="val_s_max">260</span>g</td>
-                       <td><span id="val_m_max">520</span>g</td>
-                       <td><span id="val_l_max">780</span>g</td>
-                       <td><span id="val_xl_max">1040</span>g</td>
-				</tr>
-                   <tr>
-					   <td>0,63 €</td>
-                       <td>1,26 €</td>
-                       <td>1,89 €</td>
-                       <td>2,52 €</td>
-                   </tr>
-			</table>
-
-			<div class="zone_kraft">
-				<p>
-					Supplément emballage kraft :<br><br>
-					<span>+ 0,10 €</span>
-				</p>
+		<div class="addimage">
+			<img class="addimg" src="{% static "pages/images/logo_bokalia.png" %}" alt="Image du produit">
+		</div>
+		<div class="addtitprix">
+			<p class="addtit">Flageolet verts bio</p>
+			<p class="addpro">Le producteur</p>
+			<p class="addprix">0,69 €/kg</p>
+		</div>
+		<div class="addart">
+			<div class="addchoix">
+				Choisissez votre format :
+				<p><button>Bocal</button> ou <button>Kraft</button></p>
 			</div>
+			<div class="addtab">
+				<p><img src="{% static 'boutique/images/leBocalTampon.png' %}" alt="Logo Bocal S" id="img_s"/></p>
+				<p><img src="{% static 'boutique/images/leBocalTampon.png' %}" alt="Logo Bocal M" id="img_m" /></p>
+				<p><img src="{% static 'boutique/images/leBocalTampon.png' %}" alt="Logo Bocal L" id="img_l" /></p>
+				<p><img src="{% static 'boutique/images/leBocalTampon.png' %}" alt="Logo Bocal XL" id="img_xl" /></p>
+
+				<p><span id="val_s_max">260</span>g</p>
+				<p><span id="val_m_max">520</span>g</p>
+				<p><span id="val_l_max">780</span>g</p>
+				<p><span id="val_xl_max">1040</span>g</p>
+
+				<p class="addpr">0,63 €</p>
+				<p class="addpr">1,26 €</>
+				<p class="addpr">1,89 €</p>
+				<p class="addpr">2,52 €</p>
+			</div>
+
+			<div class="addqte">
+                <label>Quantité précise :</label>
+                <input type="number" name="qte_commande" id="qte_input" step="10" min="0" max="1050"> <!-- Valeur max à mettre à jour via la BDD !! -->
+                <span>g</span>
+            </div>
+            <div class="addtot">
+                <div class="addtotal">
+					<div>
+						TOTAL :
+						<span id="prix_cal">0,00</span>
+						<span>€</span>
+					</div>
+					{% comment %}{% if i in emb_tout %}{% endcomment %}
+					<div class="addemb">
+						Emballage : <span>+</span>
+						<span id="affiche_prix_emballage" class="prix_emballage" data_emballage="sans">5,40</span>
+						<span>€</span>
+					</div>
+					{% comment %}{% endif %}{% endcomment %}
+				</div>
+				<div>
+                    <input type="submit" value="Ajouter au panier" id="ajout_panier" data_id="" data_type_prix="" data_nom="" data_url=""/>
+                </div>
+            </div>
 		</div>
 	</div>
 </section>

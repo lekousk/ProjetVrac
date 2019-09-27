@@ -1,37 +1,47 @@
 
 /* Utilisation particulière pour les media query */
-/* affichage de la grille de résultat */
-@media all and (max-width: 500px)
-{
-    .resultat_recherche
+    /* affichage de la grille de résultat */
+    @media all and (max-width: 500px)
     {
-	    grid-template-columns: repeat(8, 1fr);
-	}
-}
+        .resultat_recherche
+        {
+            grid-template-columns: repeat(8, 1fr);
+        }
+    }
 
-@media all and (min-width: 501px) and (max-width: 1250px)
-{
-    .resultat_recherche
+    @media all and (min-width: 501px) and (max-width: 1250px)
     {
-	    grid-template-columns: repeat(12, 1fr);
-	}
-}
+        .resultat_recherche
+        {
+            grid-template-columns: repeat(12, 1fr);
+        }
+    }
 
-@media all and (min-width: 1251px) and (max-width: 2000px)
-{
-    .resultat_recherche
+    @media all and (min-width: 1251px) and (max-width: 2000px)
     {
-	    grid-template-columns: repeat(16, 1fr);
-	}
-}
+        .resultat_recherche
+        {
+            grid-template-columns: repeat(16, 1fr);
+        }
+    }
 
-@media all and (min-width: 2001px)
-{
-    .resultat_recherche
+    @media all and (min-width: 2001px)
     {
-	    grid-template-columns: repeat(20, 1fr);
-	}
-}
+        .resultat_recherche
+        {
+            grid-template-columns: repeat(20, 1fr);
+        }
+    }
+
+    /* affichage pop up achat rapide add */
+
+    @media all and (max-height: 500px)/* and (max-width: 1250px)*/
+    {
+    .addtot
+    {
+    border: 1px solid blue;
+    }
+    }
 
 /* Filtre + les différents rayons */
 .infoMin
@@ -738,7 +748,7 @@ color: black;
 .addrapid
 {
 position: fixed;
-display; flex;
+display: flex;
 top: 0px;
 left: 0px;
 right: 0px;
@@ -759,12 +769,212 @@ height: 100%;
 .addpart
 {
 position: relative;
-margin: 5% auto;
-width: 90%;
-height: 70%;
+margin: auto;
+width: 80%;
+
+min-height: 340px;
 background: white;
+display: grid;
+grid-template-columns: 30% 70%;
+grid-template-rows: 0.2fr auto;
+grid-template-areas:
+"img tit"
+"art art";
+border: 1px solid red;
+/*align-items: stretch;*/
+}
+
+.addimage
+{
+grid-area: img;
+/*border: 2px solid green;*/
+justify-self: center;
+}
+
+.addimage img
+{
+width: 50px;
+/*border: 1px solid green;*/
+}
+
+.addtitprix
+{
+grid-area: tit;
+/*border: 1px solid blue;*/
+align-self: center;
+}
+
+.addtit
+{
+color: #5bc7ab;
+font-size: 1.2rem;
+}
+
+.addtitprix p
+{
+/*border: 1px solid blue;*/
+margin: 0;
+word-wrap: break-word;
+}
+
+.addpro
+{
+color: black;}
+
+.addprix
+{
+text-align: right;
+padding-right: 2rem;
+}
+
+.addart
+{
+grid-area: art;
+/*border: 1px solid grey;*/
+width: 100%;
+}
+
+.addchoix p
+{
 text-align: center;
-align-items: center;
+/*border: 1px solid black;*/
+margin: 0.5rem auto;
+}
+
+.addchoix button
+{
+border: 1px solid grey;
+border-radius: 5px;
+padding: 0.2rem 1rem;
+background: white;
+cursor: pointer;
+margin: 0 1rem;
+}
+
+.addchoix button:hover
+{
+     background: #5bc7ab;
+     color: white;
+     background: linear-gradient( #a0f7e0, #5bc7ab);
+}
+
+.addchoix button:active
+{
+color: white;
+text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
+background: #444;
+background: linear-gradient( #a0f7e0, #5bc7ab);
+box-shadow: 1px 1px 10px white inset,
+            0 1px 0 rgba( 200, 200, 200, 0.4);
+
+}
+
+.addtab
+{
+/*border: 1px solid black;*/
+align-items: end;
+margin: auto;
+text-align: center;
+width: 90%;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-rows: auto;
+}
+
+.addtab p
+{
+margin: 0;
+padding: 0;
+/*border: 1px solid blue;*/
+}
+
+#img_s
+{
+width:35px;
+height: 35px;
+}
+
+#img_m
+{
+width:45px;
+height: 45px;
+}
+
+#img_l
+{
+width:55px;
+height: 55px;
+}
+
+#img_xl
+{
+width:65px;
+height: 65px;
+}
+
+.addpr
+{
+color: #5bc7ab;
+}
+
+.addqte
+	{
+		background-color: #f8f8f8;
+		width: 90%;
+		margin: 1rem auto 0.5rem;
+		padding: 0.5rem;
+		height: 3rem;
+}
+
+.addqte input
+{
+width: 8rem;}
+
+.addtot
+{
+	display: flex;
+	font-size: 1.5rem;
+	color: grey;
+	min-height: 4.5rem;
+	margin-top: 1.5rem;
+	justify-content: space-around;
+	margin: 0;
+}
+
+.addtotal
+{
+	padding-top: 0.5rem;
+}
+
+.addtot span
+{
+	color: #5bc7ab;
+}
+
+.addtot input
+{
+	background-color: #5bc7ab;
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	height: 2.5rem;
+	width: 12rem;
+	border: none;
+	cursor: pointer;
+	margin-top: 0.5rem;
+}
+
+.addtot input:hover
+{
+	opacity: 0.8;
+}
+
+.addemb
+{
+	font-weight: normal;
+	font-size: 0.95rem;
+	padding-top: 0.2rem;
 }
 
 /* Mise en place de la pagination */
