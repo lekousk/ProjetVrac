@@ -775,38 +775,41 @@ width: 80%;
 min-height: 340px;
 background: white;
 display: grid;
-grid-template-columns: 30% 70%;
-grid-template-rows: 0.2fr auto;
+grid-template-columns: 40% 60%;
+grid-template-rows: auto auto;
 grid-template-areas:
 "img tit"
 "art art";
 border: 1px solid red;
-/*align-items: stretch;*/
+justify-items: center;
+align-items: center;
 }
 
 .addimage
 {
 grid-area: img;
 /*border: 2px solid green;*/
-justify-self: center;
+width: 70%;
+margin: 10px 0;
 }
 
-.addimage img
+.addimg
 {
-width: 50px;
-/*border: 1px solid green;*/
+width: 100%;
+/*border: 1px solid grey;*/
+align-self: center;
 }
 
 .addtitprix
 {
 grid-area: tit;
-/*border: 1px solid blue;*/
-align-self: center;
+border: 1px solid blue;
+width: 95%;
+height: 70%;
 }
 
 .addtit
 {
-color: #5bc7ab;
 font-size: 1.2rem;
 }
 
@@ -819,19 +822,21 @@ word-wrap: break-word;
 
 .addpro
 {
-color: black;}
+margin: 5px 0;
+color: #5bc7ab;
+}
 
 .addprix
 {
 text-align: right;
-padding-right: 2rem;
+padding: 0.5rem 0.5rem 0 0;
 }
 
 .addart
 {
 grid-area: art;
-/*border: 1px solid grey;*/
-width: 100%;
+border: 1px solid grey;
+width: 90%;
 }
 
 .addchoix p
