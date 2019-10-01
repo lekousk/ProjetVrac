@@ -801,7 +801,6 @@ align-items: center;
 
         .addtitprix
         {
-        height: 70%;
         }
 
         .addprix
@@ -841,7 +840,7 @@ align-items: center;
         .addpart
         {
         grid-template-areas:
-        "tit tit"
+        "img tit"
         "img art";
         grid-template-rows: minmax(65px, auto) auto;
         }
@@ -854,7 +853,6 @@ align-items: center;
 
         .addtitprix
         {
-        height: 90%;
         border-bottom: 2px solid #5bc7ab;
         padding: 0 5%;
         }
@@ -886,6 +884,11 @@ align-items: center;
         margin: 1rem auto;
         }
     }
+
+.addimage
+{
+grid-area: img;
+}
 
 .addimg
 {
