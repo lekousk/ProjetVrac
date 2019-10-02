@@ -796,11 +796,16 @@ align-items: center;
         .addimage
         {
         width: 70%;
-        margin: 10px 0;
+        margin: 0.8rem 0;
         }
 
         .addtitprix
         {
+        }
+
+        .addtit
+        {
+        font-size: 1.2rem;
         }
 
         .addprix
@@ -810,7 +815,7 @@ align-items: center;
 
         .addart
         {
-        border-top: 2px solid #5bc7ab;
+        border-top: 0.17rem solid #5bc7ab;
         }
 
         .addchoix
@@ -842,7 +847,7 @@ align-items: center;
         grid-template-areas:
         "img tit"
         "img art";
-        grid-template-rows: minmax(65px, auto) auto;
+        grid-template-rows: minmax(4.65rem, auto) auto;
         }
 
         .addimage
@@ -855,6 +860,11 @@ align-items: center;
         {
         border-bottom: 2px solid #5bc7ab;
         padding: 0 5%;
+        }
+
+        .addtit
+        {
+        font-size: 1.2rem;
         }
 
         .addprix
@@ -885,6 +895,62 @@ align-items: center;
         }
     }
 
+    @media all and (min-width: 901px)/* and (max-width: 2000px)*/
+    {
+        .addpart
+        {
+        grid-template-areas:
+        "img tit"
+        "img art";
+        grid-template-rows: minmax(65px, auto) auto;
+        max-width: 56rem;
+        }
+
+        .addimage
+        {
+        width: 80%;
+        margin: 0;
+        }
+
+        .addtitprix
+        {
+        border-bottom: 2px solid #5bc7ab;
+        padding: 0 5%;
+        }
+
+        .addtit
+        {
+        font-size: 1.4rem;
+        }
+
+        .addprix
+        {
+        /*border: 1px solid black;*/
+        padding: 0 0.5rem 0.5rem 0;
+        }
+
+        .addchoix
+        {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 1rem 0;
+        /*border: 1px solid red;*/
+        }
+
+        .addchbtn
+        {
+        flex-grow: 2;
+        text-align: center;
+        }
+
+        .addtab
+        {
+        /*border: 1px solid black;*/
+        margin: 2rem auto;
+        }
+    }
+
 .addimage
 {
 grid-area: img;
@@ -911,14 +977,9 @@ margin: 0;
 word-wrap: break-word;
 }
 
-.addtit
-{
-font-size: 1.2rem;
-}
-
 .addpro
 {
-margin: 5px 0;
+margin: 0.4rem 0;
 color: #5bc7ab;
 }
 
@@ -951,12 +1012,13 @@ line-height: 150%;
 
 .addchoix button
 {
-border: 1px solid grey;
-border-radius: 5px;
-padding: 0.2rem 1rem;
+border: 0.06rem solid grey;
+border-radius: 0.4rem;
+padding: 0.2rem 1.5rem;
 background: white;
 cursor: pointer;
 margin: 0 0.5rem;
+font-size: 1rem;
 }
 
 .addchoix button:hover
@@ -997,26 +1059,26 @@ padding: 0;
 
 #img_s
 {
-width:35px;
-height: 35px;
+width: 3rem;
+height: 3rem;
 }
 
 #img_m
 {
-width:45px;
-height: 45px;
+width: 3.75rem;
+height: 3.75rem;
 }
 
 #img_l
 {
-width:55px;
-height: 55px;
+width: 4.5rem;
+height: 4.5rem;
 }
 
 #img_xl
 {
-width:65px;
-height: 65px;
+width: 5.25rem;
+height: 5.25rem;
 }
 
 .addpr
