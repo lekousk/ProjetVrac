@@ -687,6 +687,7 @@ color: black;
 	width: 80%;
 	margin: auto 10%;
 	padding: auto;
+	font-size: 1rem;
 }
 
 .produit_add_rapid:hover
@@ -1145,6 +1146,7 @@ text-align: left;
 width: 8rem;
 margin-left: 1.5rem;
 font-size: 1rem;
+padding: 0.2rem;
 }
 
 .addtot
