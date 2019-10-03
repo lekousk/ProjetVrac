@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 from django.db.models import Q, Count
+from django.http import JsonResponse
 
 from .forms import New_produit_F
 from .models import Produit, Producteur, Emballage, Categorie_produit, Categorie_mere
@@ -213,3 +214,8 @@ def Aff_un_produit(request, id):
 def Panier(request):
 
     return render(request, 'boutique/panier.html')
+
+
+def add_fast(request, id):
+
+    return JsonResponse(output_data)

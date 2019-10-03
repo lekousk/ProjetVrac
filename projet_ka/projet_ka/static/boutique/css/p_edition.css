@@ -1,0 +1,26 @@
+h1
+{
+	color: red;
+}
+
+#body_edition
+{
+	width: 900px;
+	margin: auto;
+}
+
+#id_nom
+{
+	background-color: red;
+}
+
+form label [id="id_nom"]
+{
+	color: red;
+}
+
+
+.errorlist
+{
+	color: red;
+}
