@@ -1,0 +1,22 @@
+
+
+/* corps de la page*/
+
+/*#body_accueil
+{
+	width: 900px;
+	margin: auto;
+	padding-top: 2px;
+	min-height: 500px;
+}*/
+
+span
+{
+	color: red;
+	background-color: #CFD1CF;
+}
+
+.errorlist
+{
+	color: red;
+}
