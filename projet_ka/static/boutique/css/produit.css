@@ -770,44 +770,206 @@ height: 100%;
 {
 position: relative;
 margin: auto;
-width: 80%;
-min-width: 350px;
+min-width: 300px;
 min-height: 300px;
 background: white;
 display: grid;
-grid-template-columns: 35% 65%;
-/*border: 1px solid red;*/
+grid-template-columns: auto auto;
+grid-template-rows: auto auto;
+justify-content: center;
 justify-items: center;
 align-items: center;
+flex: initial;
 }
 
 /* affichage pop up achat rapide add */
 
-@media all and (max-width: 900px) and (min-height: 501px)
+@media all and (max-width: 500px), all and (min-width: 501px) and (max-width: 900px) and (min-height: 501px)/* and (max-width: 2000px)*/
     {
         .addpart
         {
         grid-template-areas:
         "img tit"
         "art art";
-        grid-template-rows: auto auto;
+        }
+
+        .addart
+        {
+        border-top: 0.17rem solid #5bc7ab;
         }
 
         .addimage
         {
-        width: 70%;
-        margin: 10px 0;
+        margin: 0.8rem 0;
         }
 
-        .addtitprix
+        .addimg
         {
-        height: 70%;
+        width: 8.3rem;
+        }
+
+        .addtit
+        {
+        font-size: 1.2rem;
         }
 
         .addprix
         {
-        padding: 0.5rem 0.5rem 0 0;
+        padding: 1rem 0.5rem 0 0;
         }
+
+        .addchoix
+        {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        /*border: 1px solid red;*/
+        }
+
+        .addchbtn
+        {
+        flex-grow: 2;
+        text-align: center;
+        /*border: 1px solid black;*/
+        margin-top: 0.7rem;
+        }
+
+        .addtab
+        {
+        /*border: 1px solid black;*/
+        margin: 2rem auto;
+        }
+    }
+
+@media all and (min-width: 501px) and (max-width: 900px) and (max-height: 500px)
+    {
+        .addpart
+        {
+        grid-template-areas:
+        "img tit"
+        "img art";
+        }
+
+        .addtitprix
+        {
+        margin: 0.5rem 1rem;
+        position: relative;
+        }
+
+        .addimage
+        {
+        margin: 0 1rem;
+        }
+
+        .addimg
+        {
+        width: 12rem;
+        }
+
+        .addprix
+        {
+        position: absolute;
+        top:0;
+        right: 0;
+        }
+
+        .addtit
+        {
+        font-size: 1.2rem;
+        }
+
+        .addchoix
+        {
+        display: flex;
+        justify-content: space-between;
+        margin: 0rem 1rem;
+        padding-top: 0.3rem;
+        border-top: 0.17rem solid #5bc7ab;
+        /*border: 1px solid black;*/
+        align-items: baseline;
+        }
+
+        .addchtxt
+        {
+        }
+
+        .addchbtn
+        {
+        flex-grow: 2;
+        text-align: center;
+        /*border: 1px solid black;*/
+        margin-top: 0.7rem;
+        }
+
+        .addtab
+        {
+        /*border: 1px solid black;*/
+        margin: 1rem 0.5rem;
+        }
+    }
+
+@media all and (min-width: 501px) and (max-width: 900px) and (min-height: 501px)
+    {
+        .addpart
+        {/*
+        grid-template-areas:
+        "img tit"
+        "art art";
+        grid-template-rows: auto auto;*/
+        }
+    }
+
+@media all and (min-width: 901px)/* and (max-width: 2000px)*/
+    {
+        .addpart
+        {
+        grid-template-areas:
+        "img tit"
+        "img art";
+        }
+
+        .addimage
+        {
+        margin: 0 1rem;
+        }
+
+        .addimg
+        {
+        width: 12rem;
+        }
+
+        .addtitprix
+        {
+        margin: 1rem;
+        }
+
+        .addtit
+        {
+        font-size: 1.4rem;
+        margin-top: 1rem;
+        }
+
+/*
+        .addchoix
+        {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0.5rem 0;
+        }
+
+        .addchbtn
+        {
+        flex-grow: 2;
+        text-align: center;
+        margin-top: 0.7rem;
+        }
+
+        .addtab
+        {
+        margin: 2rem auto;
+        }*/
 
         .addart
         {
@@ -818,7 +980,7 @@ align-items: center;
         {
         display: flex;
         justify-content: space-between;
-        width: 100%;
+        align-items: baseline;
         margin: 1rem 0;
         /*border: 1px solid red;*/
         }
@@ -836,60 +998,13 @@ align-items: center;
         }
     }
 
-    @media all and (max-width: 900px) and (max-height: 500px)/* and (max-width: 1250px)*/
-    {
-        .addpart
-        {
-        grid-template-areas:
-        "tit tit"
-        "img art";
-        grid-template-rows: minmax(65px, auto) auto;
-        }
-
-        .addimage
-        {
-        width: 85%;
-        margin: 0;
-        }
-
-        .addtitprix
-        {
-        height: 90%;
-        border-bottom: 2px solid #5bc7ab;
-        padding: 0 5%;
-        }
-
-        .addprix
-        {
-        /*border: 1px solid black;*/
-        padding: 0 0.5rem 0.5rem 0;
-        }
-
-        .addchoix
-        {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0.5rem 0;
-        /*border: 1px solid red;*/
-        }
-
-        .addchbtn
-        {
-        flex-grow: 2;
-        text-align: center;
-        }
-
-        .addtab
-        {
-        /*border: 1px solid black;*/
-        margin: 1rem auto;
-        }
-    }
+.addimage
+{
+grid-area: img;
+}
 
 .addimg
 {
-width: 100%;
 /*border: 1px solid grey;*/
 align-self: center;
 }
@@ -898,7 +1013,7 @@ align-self: center;
 {
 grid-area: tit;
 /*border: 1px solid blue;*/
-width: 95%;
+justify-self: stretch;
 }
 
 .addtitprix p
@@ -908,14 +1023,9 @@ margin: 0;
 word-wrap: break-word;
 }
 
-.addtit
-{
-font-size: 1.2rem;
-}
-
 .addpro
 {
-margin: 5px 0;
+margin: 0.4rem 0;
 color: #5bc7ab;
 }
 
@@ -927,7 +1037,7 @@ text-align: right;
 .addart
 {
 grid-area: art;
-width: 95%;
+margin: 0 1rem;
 }
 
 .addchoix
@@ -938,7 +1048,6 @@ width: 95%;
 .addchoix div
 {
 /*border: 1px solid grey;*/
-line-height: 150%;
 }
 
 .addchbtn
@@ -948,12 +1057,13 @@ line-height: 150%;
 
 .addchoix button
 {
-border: 1px solid grey;
-border-radius: 5px;
-padding: 0.2rem 1rem;
+border: 0.06rem solid grey;
+border-radius: 0.4rem;
+padding: 0.4rem 2rem;
 background: white;
 cursor: pointer;
 margin: 0 0.5rem;
+font-size: 1rem;
 }
 
 .addchoix button:hover
@@ -979,10 +1089,10 @@ box-shadow: 1px 1px 10px white inset,
 /*border: 1px solid black;*/
 align-items: end;
 text-align: center;
-width: 90%;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-template-columns: auto auto auto auto; /*1fr 1fr 1fr 1fr;*/
 grid-template-rows: auto;
+grid-gap: 0.3rem 1rem;
 }
 
 .addtab p
@@ -994,26 +1104,26 @@ padding: 0;
 
 #img_s
 {
-width:35px;
-height: 35px;
+width: 3rem;
+height: 3rem;
 }
 
 #img_m
 {
-width:45px;
-height: 45px;
+width: 3.75rem;
+height: 3.75rem;
 }
 
 #img_l
 {
-width:55px;
-height: 55px;
+width: 4.5rem;
+height: 4.5rem;
 }
 
 #img_xl
 {
-width:65px;
-height: 65px;
+width: 5.25rem;
+height: 5.25rem;
 }
 
 .addpr
@@ -1023,34 +1133,33 @@ color: #5bc7ab;
 
 .addqte
 {
-		background-color: #f8f8f8;
-		width: 90%;
-		margin: 1rem auto 0.5rem;
-		padding: 0.5rem;
-		height: 3rem;
-		text-align: left;
+background-color: #f8f8f8;
+margin: 1rem 0;
+padding: 0.5rem;
+height: 3rem;
+text-align: left;
 }
 
 .addqte input
 {
 width: 8rem;
-margin-left: 2rem;
+margin-left: 1.5rem;
+font-size: 1rem;
 }
 
 .addtot
 {
 	display: flex;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: grey;
-	min-height: 4.5rem;
-	margin-top: 1.5rem;
-	justify-content: space-around;
-	margin: 0;
+	justify-content: space-between;
+	align-items: start;
+	margin: 1rem 0;
 }
 
 .addtotal
 {
-	padding-top: 0.5rem;
+	margin-right: 2rem;
 }
 
 .addtot span
@@ -1069,7 +1178,6 @@ margin-left: 2rem;
 	width: 12rem;
 	border: none;
 	cursor: pointer;
-	margin-top: 0.5rem;
 }
 
 .addtot input:hover
