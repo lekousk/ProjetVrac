@@ -13,8 +13,8 @@
 		</div>
 		<div class="addart">
 			<div class="addchoix">
-				<div>Choisissez votre format : </div>
-				<div class="addchbtn"><button>Bocal</button> ou <button>Kraft</button></div>
+				<div class="addchtxt">Choisissez votre format : </div>
+				<div class="addchbtn"><button class="btnboc">Bocal</button> ou <button class="btnkra">Kraft</button></div>
 			</div>
 			<div class="addtab">
 				<p><img src="{% static 'boutique/images/jar.png' %}" alt="Logo Bocal S" id="img_s"/></p>
@@ -53,9 +53,7 @@
 					</div>
 					{% comment %}{% endif %}{% endcomment %}
 				</div>
-				<div>
-                    <input type="submit" value="Ajouter au panier" id="ajout_panier" data_id="" data_type_prix="" data_nom="" data_url=""/>
-                </div>
+				<input type="submit" value="Ajouter au panier" id="ajout_panier" data_id="" data_type_prix="" data_nom="" data_url=""/>
             </div>
 		</div>
 	</div>

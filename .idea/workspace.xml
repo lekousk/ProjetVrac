@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boutique/templates/boutique/add_rapid.html" beforeDir="false" afterPath="$PROJECT_DIR$/boutique/templates/boutique/add_rapid.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/boutique/css/produit.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/boutique/css/produit.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/pages/css/base.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
