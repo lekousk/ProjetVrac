@@ -7,9 +7,9 @@
 			<img class="addimg" src="/media/image_produit/Cannelle.jpg" alt="Image du produit">
 		</div>
 		<div class="addtitprix">
-			<p class="addtit">Flageolet verts bio</p>
-			<p class="addpro">Le producteur</p>
-			<p class="addprix">0,69 €/kg</p>
+			<p class="addtit">{{ prod_ch.nom }}</p>
+			<p class="addpro">{{ prod_ch.nom }}</p>
+			<p class="addprix">{{ prod_ch.prix_p|floatformat:-2 }} €/{{ prod_ch.type_prix }}</p>
 		</div>
 		<div class="addart">
 			<div class="addchoix">
