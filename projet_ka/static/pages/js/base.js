@@ -50,10 +50,9 @@ $(function() {
 	}
 
 	// Affichage des menus avec media > 901px au survol
-	var affmenu;
 
 	$('li.affnav').hover(function(){
-			affmenu = $(this).children(".sousMenu");
+	    var affmenu = $(this).children(".sousMenu");
 		if(!is_coarse && !taille_p)
 		{
 			if(affmenu)
@@ -62,6 +61,7 @@ $(function() {
 			}
 		}
 	}, function(){
+	    var affmenu = $(this).children(".sousMenu");
 		if(!is_coarse && !taille_p)
 		{
 			affmenu.hide();

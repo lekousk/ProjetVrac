@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/add_rapid.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/add_rapid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/liste_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/liste_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/boutique/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/js/all_product.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/js/all_product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/js/base_fonctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/js/base_fonctions.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

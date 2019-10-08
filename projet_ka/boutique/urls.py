@@ -24,5 +24,5 @@ urlpatterns = [
     path('all_product/', views.Rechercher, name = 'all_products'),
     path('produit/<int:id>', views.Aff_un_produit, name = 'lire'),
     path('panier', views.Panier, name = 'panier'),
-    path('add_fast/<int:id>', views.add_fast, name = 'add_fast'),
+    path('add_fast/', views.add_fast, name = 'add_fast'),
 ]

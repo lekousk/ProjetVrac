@@ -217,8 +217,9 @@ def Panier(request):
     return render(request, 'boutique/panier.html')
 
 
-def add_fast(request, id):
-    prod_ch = get_object_or_404(Produit, id=id)
+def add_fast(request):
+    link = request.GET.get('link')
+    prod_ch = get_object_or_404(Produit, id=link)
 
     addfast_html = loader.render_to_string(
         'boutique/add_rapid.html',
