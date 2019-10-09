@@ -56,7 +56,7 @@ $(function() {
 		TrOuRay = false;
 	});
 
-	$('.btnCroix').on('click', function(){
+	$('.ftclose').on('click', function(){
 		$('.margeTr').trigger('click');
 	});
 
@@ -254,6 +254,7 @@ $(function() {
 		if(horsTrier && !$(e.target).closest('.voletTrier').length){
 			$('.voletTrier:first').trigger('click');
 		}
+		//fermeture de la fenêtre add rapide en cliquant hors du champs
 	});
 
 	// Pop up add_rapid : création de l'ajax pour acheter rapidement
@@ -287,6 +288,22 @@ $(function() {
 	    });
 	});
 
+	/*$('.margeTr').on('click', function(){
+		$('.fTrier').toggleClass("activeFtrier");
+		$('html').toggleClass("supprScroll");
+		$('.partRayon').delay(400).slideDown();
+		$('.partTrier').delay(400).slideDown();
+		clearFTrier();
+		TrOuRay = false;
+	});*/
+
+	$('.allprod').on('click', '.addcroix ', function(){
+	    $('.addrapid').remove();
+	});
+
+	$('.allprod').on('click', '.backgr_gris', function(){
+	    $('.addrapid').remove();
+	});
 
 });
 //Fin
