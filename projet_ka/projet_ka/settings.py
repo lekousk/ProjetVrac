@@ -89,6 +89,15 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         },
+
+    'customers': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bddclient',
+        'USER': 'kous',
+        'PASSWORD': 'motdepasse',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        },
 }
 
 
