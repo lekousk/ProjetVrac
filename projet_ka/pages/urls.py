@@ -20,5 +20,6 @@ from pages import views
 
 
 urlpatterns = [
-    path('', views.page_accueil, name='welcome'),
+    path('', views.Accueil, name='welcome'),
+    path('register', views.Registeruser, name='register'),
 ]

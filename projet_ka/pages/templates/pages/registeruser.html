@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'pages/base.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block title %}Tous les produits - Bokalia{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/registeruser.css' %}" />{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}
+
+{% block extra_js %}<script type="text/javascript" src="{% static 'pages/js/registeruser.js' %}"></script>{% endblock %}
