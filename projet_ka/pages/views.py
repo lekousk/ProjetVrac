@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from django.template import loader
 
 # Create your views here.
 
-def page_accueil(request):
+def Accueil(request):
 
 	return render(request, 'pages/accueil.html')
-

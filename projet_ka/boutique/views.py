@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 from django.db.models import Q, Count
 from django.http import JsonResponse
+from django.template import loader
 
 from .forms import New_produit_F
 from .models import Produit, Producteur, Emballage, Categorie_produit, Categorie_mere
@@ -216,6 +217,17 @@ def Panier(request):
     return render(request, 'boutique/panier.html')
 
 
-def add_fast(request, id):
+def add_fast(request):
+    link = request.GET.get('link')
+    prod_ch = get_object_or_404(Produit, id=link)
+
+    addfast_html = loader.render_to_string(
+        'boutique/add_rapid.html',
+        {'prod_ch': prod_ch}
+    )
+    # package output data and return it as a JSON object
+    output_data = {
+        'addfast_html': addfast_html,
+    }
 
     return JsonResponse(output_data)

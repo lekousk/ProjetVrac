@@ -56,7 +56,7 @@ $(function() {
 		TrOuRay = false;
 	});
 
-	$('.btnCroix').on('click', function(){
+	$('.ftclose').on('click', function(){
 		$('.margeTr').trigger('click');
 	});
 
@@ -254,6 +254,55 @@ $(function() {
 		if(horsTrier && !$(e.target).closest('.voletTrier').length){
 			$('.voletTrier:first').trigger('click');
 		}
+		//fermeture de la fenêtre add rapide en cliquant hors du champs
+	});
+
+	// Pop up add_rapid : création de l'ajax pour acheter rapidement
+	$('.produit_add_rapid').on('click', function() {
+	var link = $(this).attr("id_btn");
+	//var page = link.data('page');
+
+	$.ajax({
+	    type: 'GET',
+	    url: '/boutique/add_fast/',
+	    data: {
+	        //'page': page,
+	        'link': link,
+	        },
+
+	        success: function(data) {
+	        // if there are still more pages to load,
+	        // add 1 to the "Load More Posts" link's page data attribute
+	        // else hide the link
+	        /*if (data.has_next) {
+	            link.data('page', page+1);
+	            } else {
+	            link.hide();
+	            }*/
+	        $('.allprod').append(data.addfast_html);
+	        },
+
+	        error: function(xhr, status, error) {
+	            // shit happens friends!
+	        }
+	    });
+	});
+
+	/*$('.margeTr').on('click', function(){
+		$('.fTrier').toggleClass("activeFtrier");
+		$('html').toggleClass("supprScroll");
+		$('.partRayon').delay(400).slideDown();
+		$('.partTrier').delay(400).slideDown();
+		clearFTrier();
+		TrOuRay = false;
+	});*/
+
+	$('.allprod').on('click', '.addcroix ', function(){
+	    $('.addrapid').remove();
+	});
+
+	$('.allprod').on('click', '.backgr_gris', function(){
+	    $('.addrapid').remove();
 	});
 
 });

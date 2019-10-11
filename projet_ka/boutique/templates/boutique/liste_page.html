@@ -20,7 +20,7 @@
 				<span>{{ produits.prix_p|floatformat:-2 }} €/{{ produits.type_prix }}</span>
 			</div>
 			{% comment %}<a class="produit_add_rapid" rel="nofollow">Achat rapide</a>{% endcomment %}
-			<button class="produit_add_rapid" type="button">Achat rapide</button>
+			<button class="produit_add_rapid" type="button" id_btn="{{ produits.id }}">Achat rapide</button>
 		</div>
 	</article>
 	{% endfor %}
