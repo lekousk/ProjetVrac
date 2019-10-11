@@ -21,5 +21,4 @@ from pages import views
 
 urlpatterns = [
     path('', views.Accueil, name='welcome'),
-    path('register', views.Registeruser, name='register'),
 ]
