@@ -8,8 +8,8 @@ class Produit(models.Model):
 	cat = models.ForeignKey('Categorie_produit', on_delete = models.CASCADE) #Catégorie
 	prix_p = models.FloatField(blank = True)
 	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou l ou pce
-	date_saisie = models.DateTimeField(default = timezone.now, verbose_name = "Date d'enregistrement du produit")
-	date_der_modif = models.DateTimeField(verbose_name = "date de modification", null = True, blank = True)
+	date_saisie = models.DateTimeField(auto_now_add=True, verbose_name = "Date d'enregistrement du produit")
+	date_der_modif = models.DateTimeField(verbose_name = "date de modification", auto_now=True)
 	# null autorise la valeur vide dans la BDD, blank autorise la saisie de vide dans la validation django ou formulaire
 
 	description = models.TextField(null = True, blank = True)
