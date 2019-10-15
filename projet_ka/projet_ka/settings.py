@@ -41,7 +41,12 @@ INSTALLED_APPS = [
     'pages',
     'gunicorn',
     'django_filters',
+    'users',
 ]
+
+# Update du modèle d'identification pour USER : modèle 'MyUser' dans l'app 'users'
+
+AUTH_USER_MODEL = 'users.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

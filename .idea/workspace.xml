@@ -4,7 +4,11 @@
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/boutique/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
