@@ -6,11 +6,12 @@ class MyUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = MyUser
-        fields = ('email', 'is_active', 'city')
+        fields = '__all__'
+        #fields = ('email', 'first_name',)
 
 
 class MyUserChangeForm(UserChangeForm):
 
     class Meta:
         model = MyUser
-        fields = ('email', 'city',)
+        fields = ('email',)

@@ -38,6 +38,25 @@ function getCookie(sname) {
 	}
 }
 
+/* récupération du cookie CSFR_token (csfrtoken) pour l'utilisation dans les fonctions POST de Ajax */
+
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+$.ajaxSetup({
+    // fonction appelée avant d'envoyer une requête AJAX
+    beforeSend: function(xhr, settings) {
+        // on ajoute le header que si la requête de type POST est pas crossDomain
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
 /* Gestion générale du panier */
 
 // Variable pour stocker le nombre d'articles

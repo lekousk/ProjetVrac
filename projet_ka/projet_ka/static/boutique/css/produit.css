@@ -687,6 +687,7 @@ color: black;
 	width: 80%;
 	margin: auto 10%;
 	padding: auto;
+	font-size: 1rem;
 }
 
 .produit_add_rapid:hover
@@ -700,10 +701,9 @@ color: black;
 {
 	background-color: transparent;
 	border: none;
-	height: 30px;
-	width: 30px;
+	height: 2.5rem;
+	width: 2.5rem;
 	position: relative;
-	margin-left: 10px;
 	cursor: pointer;
 }
 
@@ -712,10 +712,10 @@ color: black;
 	content: '';
 	position: absolute;
 	background: grey;
-	top: 13px;
-	left: 5px;
-	width: 18px;
-	height: 3px;
+	top: 1.14rem;
+	left: 0.45rem;
+	width: 1.5rem;
+	height: 0.22rem;
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
@@ -725,10 +725,10 @@ color: black;
 	content: '';
 	position: absolute;
 	background: grey;
-	top: 13px;
-	left: 5px;
-	width: 18px;
-	height: 3px;
+	top: 1.14rem;
+	left: 0.45rem;
+	width: 1.5rem;
+	height: 0.22rem;
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
@@ -774,7 +774,7 @@ min-width: 300px;
 min-height: 300px;
 background: white;
 display: grid;
-grid-template-columns: auto auto;
+grid-template-columns: auto 1fr;
 grid-template-rows: auto auto;
 justify-content: center;
 justify-items: center;
@@ -791,6 +791,7 @@ flex: initial;
         grid-template-areas:
         "img tit"
         "art art";
+        max-width: 85%;
         }
 
         .addart
@@ -800,12 +801,18 @@ flex: initial;
 
         .addimage
         {
-        margin: 0.8rem 0;
+        margin: 0.8rem 0.5rem;
         }
 
         .addimg
         {
         width: 8.3rem;
+        }
+
+        .addtitprix
+        {
+        margin: 0.5rem 0.5rem;
+        position: relative;
         }
 
         .addtit
@@ -815,7 +822,7 @@ flex: initial;
 
         .addprix
         {
-        padding: 1rem 0.5rem 0 0;
+        /*padding: 1rem 0.5rem 0 0;*/
         }
 
         .addchoix
@@ -865,13 +872,6 @@ flex: initial;
         .addimg
         {
         width: 12rem;
-        }
-
-        .addprix
-        {
-        position: absolute;
-        top:0;
-        right: 0;
         }
 
         .addtit
@@ -1001,6 +1001,7 @@ flex: initial;
 .addimage
 {
 grid-area: img;
+border: 1px solid grey;
 }
 
 .addimg
@@ -1014,13 +1015,30 @@ align-self: center;
 grid-area: tit;
 /*border: 1px solid blue;*/
 justify-self: stretch;
+position: relative;
 }
 
 .addtitprix p
 {
-/*border: 1px solid blue;*/
+/*border: 1px solid red;*/
 margin: 0;
 word-wrap: break-word;
+}
+
+.addpro, .addtit
+{
+padding-right: 0.5rem;
+/*max-width: 80%;*/}
+
+.addcroix
+{
+float: right;
+}
+
+.addtit
+{
+padding-top: 0.7rem;
+padding-right: 0.5rem;
 }
 
 .addpro
@@ -1145,6 +1163,7 @@ text-align: left;
 width: 8rem;
 margin-left: 1.5rem;
 font-size: 1rem;
+padding: 0.2rem;
 }
 
 .addtot
