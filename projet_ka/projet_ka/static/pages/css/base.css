@@ -56,7 +56,7 @@ body
 		display: flex;
 	}
 }
-	
+
 @media all and (max-width: 900px)
 {
 	html, body
