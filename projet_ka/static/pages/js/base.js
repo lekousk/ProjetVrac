@@ -12,6 +12,7 @@ $(function() {
 		$('.bf_mobile').slideToggle('slow');
 		$('div.bloc_principaux').toggleClass("nav_open");
 		$('.sousMenuMob').hide('slow');
+		$('html').toggleClass("supprScroll");
 	});
 
 	// Affichage du menu pour un pointer coarse (tactile) et/ou une petite taille

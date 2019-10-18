@@ -50,13 +50,23 @@ body
 	flex-direction: column;
 }
 
+.supprScroll
+{
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
 /* Pour les navigateurs IE < 12 */
 @supports (display: flex){
 	.body_b{
 		display: flex;
 	}
 }
-	
+
+/* gestion du header */
+
 @media all and (max-width: 900px)
 {
 	html, body
@@ -69,75 +79,70 @@ body
 		background: #FFFFFF;
 	}
 
-	header
+	.isMax
 	{
-		position: relative;
+	display: none;
 	}
 
 	.header_haut
-	{
-		flex-wrap: wrap;
-	}
+    {
+    position: relative;
+    margin-top: 0.5rem;
+    background: white;
+    display: grid;
+    justify-content: center;
+    justify-items: stretch;
+    align-items: center;
+    flex: initial;
+    grid-template-columns: 4.5rem 1fr auto auto;
+    grid-template-rows: 4.5rem 4rem;
+    grid-template-areas:
+        "navm logo login basket"
+        "se se se se";
+    }
 
 	.nav_mobile_header
 	{
 		display: contents;
-		order: 1;
-		flex: none;
+		grid-area: navm;
+		height: 100%;
+		position: relative;
 	}
 
 	.logo_bokalia
 	{
-		order: 2;
-		flex: 1;
-		padding: 5px 0 0 5px;
-		height: 3.8rem;
-		margin-left: 50px;
+		grid-area: logo;
 	}
 
-	#logo_bokalia_mini
+	.logo_bokalia_mini
 	{
-		height: 3rem;
+		height: 3.5rem;
 	}
 
 	.search_div
 	{
 		background-color: #FFFFFF;
-		order: 4;
-		width: 100%;
+		grid-area: se;
 		padding: 0 5px;
 		border-top: 1px solid #d6d4d4;
 	}
 
-	.login_basket
-	{
-		order: 3;
-		flex: 0.7;
-		max-width: 180px;
-	}
-
 	.login
 	{
-		padding-top: 8px;
-		border-right: 1px solid #d6d4d4;
-		border-left: 1px solid #d6d4d4;
-		height: 100%;
-		flex: 0.5;
+		grid-area: login;
+		height: 40px;
 	}
 
-	#connexion_img
+	.login svg /* en attente dimmension image */
 	{
-		display: contents;
-	}
-
-	#connexion_text
-	{
-		display: none;
+	width: 40px;
 	}
 
 	.basket
 	{
-		flex: 0.5;
+		grid-area: basket;
+		margin: 0 2rem;
+		position: relative;
 	}
 
 	.panier svg
@@ -148,6 +153,7 @@ body
 	#nbr_article_dans_panier
 	{
 		position: absolute;
+		top: 0;
 		left: 55%;
 		font-size: 0.9rem;
 		background-color: #5bc7ab;
@@ -174,6 +180,7 @@ body
 		margin: 0;
 		padding: 0;
 		background: #FFFFFF;
+		overflow: auto;
 	}
 
 	.nav_open_BF
@@ -264,8 +271,98 @@ body
 
 	/* Fin cas particuliers */
 
+	/* Gestion header autre que mobile */
+
 @media all and (min-width: 901px)
 {
+	.header_haut
+    {
+        display: flex;
+        align-content: center;
+        margin: auto;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        padding-top: 0.5rem;
+        /*border: 1px solid red;*/
+        height: 4.5rem;
+    }
+
+    .nav_mobile_header
+	{
+		display: none;
+	}
+
+	.logo_bokalia
+	{
+	}
+
+	.logo_bokalia_mini
+	{
+		height: 3.5rem;
+	}
+
+	.search_div
+	{
+		padding: 0 1vw;
+		flex: auto;
+		margin: auto;
+		/*border: 1px solid blue;*/
+	}
+
+	.login
+	{
+		/*border: 1px solid blue;*/
+		margin: auto 1.5rem;
+
+	}
+
+	.connexion_img svg
+	{
+    height: 2rem;
+	}
+
+	.basket
+	{
+
+	}
+
+	.panierETnbr svg
+	{
+	height: 3.5rem;
+	}
+
+	#nbr_article_dans_panier
+	{
+		position: absolute;
+		top: 0;
+		left: 55%;
+		font-size: 0.8rem;
+		background-color: #5bc7ab;
+		width: 1.6rem;
+		height: 1.6rem;
+		border-radius: 50%;
+		text-align: center;
+		border: 1px solid #FFFFFF;
+		color: #FFFFFF;
+		line-height: 1.6;
+		font-weight: bold;
+	}
+
+	/*.login
+	{
+		padding-top: 8px;
+		border-right: 1px solid #d6d4d4;
+		border-left: 1px solid #d6d4d4;
+		height: 100%;
+	}*/
+
+	#search_text
+	{
+		font-size: 1rem;
+		height: 2rem;
+	}
+
 	.bandeau_fond
 	{
 		background-color: #5bc7ab;
@@ -292,7 +389,7 @@ body
 		/*border: 1px solid red;*/
 		display: block;
 		text-align: center;
-		padding: 5px 20px;
+		padding: 0.5rem 1.5rem;
 		color: #FFFFFF;
 	}
 
@@ -378,91 +475,11 @@ body
 		font-size: 14px;
 	}
 
-	.nav_mobile_header
-	{
-		display: none;
-	}
-
 	.bloc_principaux
 	{
 		width: 90vw;
 		flex-wrap: nowrap;
 		margin: auto;
-	}
-
-	.logo_bokalia
-	{
-		padding: 5px;
-		height: 50px;
-	}
-
-	#logo_bokalia_mini
-	{
-		height: 40px;
-
-	}
-
-	.search_div
-	{
-		flex: 1;
-		padding: 0 1vw;
-		margin: auto;
-	}
-
-	.login_basket
-	{
-		width: 200px;
-	}
-
-	.login
-	{
-		flex: 0.6;
-		border-right: 0.1rem solid grey;
-	}
-
-	.basket
-	{
-		flex: 0.4;
-	}
-
-	.panier img
-	{
-		height: 35px;
-	}
-
-	#nbr_article_dans_panier
-	{
-		position: absolute;
-		left: 55%;
-		font-size: 0.8rem;
-		background-color: #5bc7ab;
-		width: 1.6rem;
-		height: 1.6rem;
-		border-radius: 50%;
-		text-align: center;
-		border: 1px solid #FFFFFF;
-		color: #FFFFFF;
-		line-height: 1.6;
-		font-weight: bold;
-	}
-
-	/*.login
-	{
-		padding-top: 8px;
-		border-right: 1px solid #d6d4d4;
-		border-left: 1px solid #d6d4d4;
-		height: 100%;
-	}*/
-
-	#connexion_img
-	{
-		display: none;
-	}
-
-	#search_text
-	{
-		font-size: 1rem;
-		height: 2rem;
 	}
 
 	.bandeau_menu
@@ -478,111 +495,37 @@ body
 		font-size: 16px;
 	}
 
-	.nav_mobile_header
-	{
-		display: none;
-	}
-
 	header
 	{
-		width: 100vw;
-		padding-top: 5px;
-		/*padding-bottom: 0.2rem;*/
-		/*position: -webkit-sticky;
-		position: sticky;*/
-		position: fixed;
-		top: 0rem;
+		position: -webkit-sticky;
+		position: sticky;
 		z-index: 12;
-		background-color: white;
+		background-color: #FFFFFF;
+		top: 0;
 	}
 
-	.nav_mobile_header
-	{
-		display: none;
-	}
+	/* Pour les navigateurs IE < 12 */
+    @supports (not (position: sticky)) or (not (position: -webkit-sticky))
+    {
+        header
+        {
+		position: fixed;
+		top: 0rem;
+		background-color: white;
+        }
+
+        .corps_page
+	    {
+		padding-top: 7rem;
+	    }
+    }
 
 	.bloc_principaux
 	{
 		width: 90vw;
-		max-width: 2000px;
+		max-width: 125rem;
 		flex-wrap: nowrap;
 		margin: auto;
-	}
-
-	.logo_bokalia
-	{
-		padding: 5px;
-		height: 55px;
-
-	}
-
-	#logo_bokalia_mini
-	{
-		height: 45px;
-	}
-
-	.search_div
-	{
-		flex: 1;
-		padding: 0 5px;
-		margin: auto;
-	}
-
-	.login_basket
-	{
-		width: 200px;
-	}
-
-	.login
-	{
-		flex: 0.6;
-		border-right: 0.1rem solid grey;
-	}
-
-	#connexion_img
-	{
-		display: none;
-	}
-
-	.basket
-	{
-		flex: 0.4;
-	}
-
-	.panier img
-	{
-		height: 40px;
-	}
-
-	#nbr_article_dans_panier
-	{
-		position: absolute;
-		left: 55%;
-		font-size: 0.8rem;
-		background-color: #5bc7ab;
-		width: 1.6rem;
-		height: 1.6rem;
-		border-radius: 50%;
-		text-align: center;
-		border: 1px solid #FFFFFF;
-		color: #FFFFFF;
-		line-height: 1.6;
-	}
-
-	#search_text
-	{
-		font-size: 1rem;
-		height: 2rem;
-	}
-
-	.header_nav
-	{
-		width: 100vw;
-		/*position: -webkit-sticky;
-		position: sticky;*/
-		position: fixed;
-		z-index: 11;
-		top: 60px;
 	}
 
 	.bandeau_menu
@@ -591,10 +534,10 @@ body
 		max-width: 125rem;
 	}
 
-	.corps_page
+	/*.corps_page
 	{
 		margin-top: 91px;
-	}
+	}*/
 
 	.affnav
 	{
@@ -602,40 +545,25 @@ body
 	}
 }
 
-@media all and (min-width: 2001px)
+/*@media all and (min-width: 2001px)
 {
 	html
 	{
 		font-size: 25px;
 	}
-}
-
-/* En-tête de la page base */
-
-.header_haut
-{
-	display: flex;
-	align-content: center;
-	margin: auto;
-}
-
-.nav_mobile_header
-{
-	margin: 0;
-	position: relative;
-}
+}*/
 
 	/* Menu: Partie menu */
 
 #nav_bt_burger
 {
-	border-top: 2px solid #5bc7ab;
+	border-top: 0.22rem solid #5bc7ab;
 	height: 1.8rem;
-	width: 30px;
+	width: 2.5rem;
 	box-sizing: border-box;
 	position: absolute;
-	top: 1rem;
-	left: 10px;
+	top: 1.5rem;
+	left: 1rem;
 	cursor: pointer;
 	transition: all 0.3s ease-in;
 }
@@ -644,12 +572,13 @@ body
 {
 	content:"";
 	display: block;
-	height: 2px;
-	width: 30px;
+	height: 0.22rem;
+	width: 2.5rem;
 	left: 0;
-	top: 0.7rem;
+	top: 0.55rem;
 	transition: all 0.3s ease-in;
 	background: #5bc7ab;
+	border: none;
 	position: absolute;
 }
 
@@ -658,8 +587,8 @@ body
 	content: "";
 	display: block;
 	position: absolute;
-	height: 2px;
-	width: 30px;
+	height: 0.22rem;
+	width: 2.5rem;
 	left: 0;
 	background: #5bc7ab;
 	bottom: 0;
@@ -674,16 +603,14 @@ body
 .nav_open #nav_bt_burger:before
 {
 	transform: rotate(45deg);
-	width: 33px;
-	left: -2px;
+	width: 2.5rem;
 }
 
 .nav_open #nav_bt_burger:after
 {
 	transform: rotate(135deg);
 	bottom: 0.7rem;
-	width: 33px;
-	left: -2px;
+	width: 2.5rem;
 }
 
 	/* Menu: Partie Logo */
@@ -744,14 +671,6 @@ body
 	border: none;
 	cursor: pointer;
 	margin-right: 0.5rem;
-}
-
-/* Login et panier haut droite */
-
-.login_basket
-{
-	display: flex;
-	align-items: center;
 }
 
 /* Login (connexion) */
