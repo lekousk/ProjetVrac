@@ -8,8 +8,8 @@ class Produit(models.Model):
 	cat = models.ForeignKey('Categorie_produit', on_delete = models.CASCADE) #Catégorie
 	prix_p = models.FloatField(blank = True)
 	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou l ou pce
-	date_saisie = models.DateTimeField(default = timezone.now, verbose_name = "Date d'enregistrement du produit")
-	date_der_modif = models.DateTimeField(verbose_name = "date de modification", null = True, blank = True)
+	date_saisie = models.DateTimeField(auto_now_add=True, verbose_name = "Date d'enregistrement du produit")
+	date_der_modif = models.DateTimeField(verbose_name = "date de modification", auto_now=True, null = True, blank = True)
 	# null autorise la valeur vide dans la BDD, blank autorise la saisie de vide dans la validation django ou formulaire
 
 	description = models.TextField(null = True, blank = True)
@@ -55,17 +55,17 @@ class Producteur(models.Model):
 		return self.nom
 
 class Categorie_mere(models.Model):
-        nom = models.CharField(max_length = 40)
+	nom = models.CharField(max_length = 40)
 
-        def __str__(self):
-            return self.nom
+	def __str__(self):
+		return self.nom
 
 class Categorie_produit(models.Model):
-    nom = models.CharField(max_length=30)
-    cat_mere = models.ForeignKey('Categorie_mere', on_delete = models.CASCADE)
-    
-    def __str__(self):
-        return self.nom
+	nom = models.CharField(max_length=30)
+	cat_mere = models.ForeignKey('Categorie_mere', on_delete = models.CASCADE)
+
+	def __str__(self):
+		return self.nom
 
 class Type_de_prix(models.Model):
 	nom = models.CharField(max_length=20)

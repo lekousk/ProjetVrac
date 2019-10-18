@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block title %}Déconnection - Bokalia{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/registeruser.css' %}" />{% endblock %}
+
+{% block content %}
+<p>You have been logged out</p>
+
+<a href="{% url 'login'%}">Login</a>
+{% endblock %}
+
+{% block extra_js %}<script type="text/javascript" src="{% static 'pages/js/registeruser.js' %}"></script>{% endblock %}

@@ -41,7 +41,18 @@ INSTALLED_APPS = [
     'pages',
     'gunicorn',
     'django_filters',
+    'users',
 ]
+
+# Update du modèle d'identification pour USER : modèle 'MyUser' dans l'app 'users'
+
+AUTH_USER_MODEL = 'users.MyUser'
+
+LOGIN_URL = '/users/login/'
+
+LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = None
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

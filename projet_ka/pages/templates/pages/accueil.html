@@ -35,4 +35,16 @@
 
     	</div>
 
+{% if user.is_authenticated %}
+<p>User: {{ user.email }} logged in.</p>
+
+<p>{{ user.first_name }}</p>
+
+<p><a href="{% url 'welcome' %}">homepage</a></p>
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+<a href="{% url 'login' %}">login</a> |
+<a href="{% url 'register' %}">signup</a>
+{% endif %}
+
 {% endblock %}

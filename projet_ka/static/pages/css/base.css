@@ -140,9 +140,9 @@ body
 		flex: 0.5;
 	}
 
-	.panier img
+	.panier svg
 	{
-		height: 30px;
+
 	}
 
 	#nbr_article_dans_panier

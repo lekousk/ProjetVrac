@@ -2,11 +2,17 @@
 
 {% load static %}
 
-{% block title %}Tous les produits - Bokalia{% endblock %}
+{% block title %}Sign up - Bokalia{% endblock %}
 {% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/registeruser.css' %}" />{% endblock %}
 
 {% block content %}
 
+<h1>Sign up</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit">Sign up</input>
+</form>
 
 {% endblock %}
 
