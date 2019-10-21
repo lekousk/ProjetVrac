@@ -198,13 +198,15 @@ footer
 	{
 		display: none;
 		width: 100%;
-		height: calc(100% - 10rem);
 		margin: 0;
 		padding: 0;
-		background-color: red;
-		position: absolute;
+		background-color: #FFFFFF;
+		position: fixed;
 		z-index: 20;
 		overflow: auto;
+		top: 9rem;
+		left: 0;
+		bottom: 0;
 	}
 
 	.navigation
@@ -352,19 +354,22 @@ footer
 
 	.login
 	{
-		/*border: 1px solid blue;*/
 		margin: auto 1.5rem;
-
 	}
 
-	.connexion_img svg
+	.login svg
 	{
-    height: 2rem;
+		height: 2rem;
+		width: 2rem;
+	}
+
+	.login div
+	{
+	    margin: auto 0.5rem;
 	}
 
 	.basket
 	{
-
 	}
 
 	.panierETnbr svg

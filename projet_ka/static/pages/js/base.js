@@ -163,12 +163,12 @@ $(function() {
 		console.log('menu_resize');
 		if(taille_p)
 		{
+			if($('div.bloc_principaux').hasClass("nav_open")){
+				$('#nav_bt_burger').trigger("click");
+			}
 			$('.bandeau_fond').hide();
 			$('.sousMenuMob').hide();
 			$('.subMenu1').css("display", "");  // Suppression de la propiété display: flex
-			if($('div.bloc_principaux').hasClass("nav_open")){
-				$('div.bloc_principaux').removeClass("nav_open");
-			}
 		}
 		else{
 			$('.bandeau_fond').slideDown();
