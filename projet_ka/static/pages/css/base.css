@@ -691,15 +691,26 @@ footer
 	border-color: #A4C6FD;
 }
 
-#submit_img
+.labelsearch
 {
-	background-image: url("/static/pages/images/icon_search.png");
-	background-repeat: no-repeat;
-	height: 1.6rem;
 	width: 1.6rem;
-	border: none;
 	cursor: pointer;
 	margin-right: 0.5rem;
+	background: none;
+	position: relative;
+}
+
+.labelsearch svg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#submit_img
+{
+    background: none;
+    border: none;
 }
 
 /* Login (connexion) */
