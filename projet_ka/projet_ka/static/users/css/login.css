@@ -1,0 +1,28 @@
+
+.titcompte
+{
+border: 1px solid blue;
+}
+
+.titcompte h3
+{
+border: 1px solid red;
+}
+
+.contentlog
+{
+border: 1px solid red;
+padding: 2rem;
+}
+
+.login
+{
+display: block;
+border: 1px solid blue;
+height: auto;
+}
+
+.login label
+{
+display: block;
+}
