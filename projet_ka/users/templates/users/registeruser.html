@@ -14,24 +14,29 @@
     <form class="formcrea" method="post">
         {% csrf_token %}
         {% for inform in form %}
+        {% if forloop.last is False %}
         <div class="inplog">
             {{ inform }}
             <span class="focus-border"></span>
             <i></i>
-            <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} *</label>
-            {{ inform.errors }}
-             {% for error in inform.errors %}
-            {{ error }}
-            {% endfor %}
+            <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
         </div>
-        {{ inform.help_text }}
+        {% if inform.help_text %}
+        <p>({{ inform.help_text }})</p>
+        {% endif %}
+        {{ inform.errors }}
+        {% else %}
+        <div class="inplogcheck">
+            <label for="{{ inform.id_for_label }}" class="inplabelcheck" >{{ inform.label }}</label>
+            {{ inform }}
+        </div>
+        {{ inform.errors }}
+        {% endif %}
         {% endfor %}
         <div class="subcrea">
             <input type="submit" value="S'INSCRIRE">
         </div>
     </form>
-    {{ form.as_p }}
-    {{ form.errors }}
 </div>
 
 {% endblock %}

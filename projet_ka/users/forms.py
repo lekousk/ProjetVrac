@@ -4,6 +4,8 @@ from .models import MyUser
 from django import forms
 from django.forms import Widget
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class MyUserCreationForm(UserCreationForm):
     password1 = forms.CharField(
@@ -18,10 +20,18 @@ class MyUserCreationForm(UserCreationForm):
         strip=False,
     )
 
+    """birth_date = forms.DateField(
+        label=_("date d'anniversaire"),
+        widget=DateInput(),
+    )"""
+
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'phone', 'date_of_birth', 'email', 'password1', 'password2', 'adress', 'post_code', 'city', 'other_info',)
+        fields = ('last_name', 'first_name', 'phone', 'birth_date', 'email', 'password1', 'password2', 'adress', 'post_code', 'city', 'other_info','newsletter')
         field_classes = {'username': UsernameField}
+        widgets = {
+            'birth_date': DateInput(),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -30,8 +40,8 @@ class MyUserCreationForm(UserCreationForm):
         for visible in self.visible_fields():
             visible.field.widget.attrs.update({'class': 'inptext'})
         self.fields['last_name'].widget.attrs.update({'autofocus': True})
-        #self.fields['last_name'].widget.attrs.update({placeholder': visible.label})
-
+        self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
+        self.fields['phone'].widget.input_type = 'tel'
 
 class MyUserChangeForm(UserChangeForm):
 
