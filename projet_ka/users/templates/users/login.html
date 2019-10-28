@@ -3,9 +3,12 @@
 {% load static %}
 
 {% block title %}Login - Bokalia{% endblock %}
-{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/registeruser.css' %}" />{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}" />{% endblock %}
 
 {% block content %}
+<div class="titcompte">
+    <h3>MON COMPTE</h3>
+</div>
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -19,26 +22,35 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
+<div class="contentlog">
+    <form class="formlogin" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="inplog">
+            {{ form.username }}
+            <span class="focus-border"></span>
+            <i></i>
+            <label for="{{ form.username.id_for_label }}" class="inplabel" >{{ form.username.label }}</label>
+        </div>
+        <div class="inplog">
+            {{ form.password }}
+            <span class="focus-border" ></span>
+            <i></i>
+            <label for="{{ form.password.id_for_label }}" class="inplabel" >{{ form.password.label }}</label>
+        </div>
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        <div class="sublog">
+            <input type="submit" value="SE CONNECTER">
+            <input type="hidden" name="next" value="{{ next }}">
+            <a href="{% url 'password_reset' %}" class="areset">Mot de passe oublié ?</a>
+        </div>
+    </form>
+    <div class="divcrea">
+        <span>Pas encore de compte ?</span>
+        <a class="acrea" href="{% url 'register' %}">CREER UN COMPTE</a>
+    </div>
+</div>
 
 {% endblock %}
-
-{% block extra_js %}<script type="text/javascript" src="{% static 'pages/js/registeruser.js' %}"></script>{% endblock %}
+{% comment %}
+{% block extra_js %}<script type="text/javascript" src="{% static 'users/js/login.js' %}"></script>{% endblock %}
+{% endcomment %}

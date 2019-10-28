@@ -3,17 +3,38 @@
 {% load static %}
 
 {% block title %}Sign up - Bokalia{% endblock %}
-{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/registeruser.css' %}" />{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'users/css/registeruser.css' %}" />{% endblock %}
 
 {% block content %}
+<div class="titcompte">
+    <h3>CRÉATION D'UN COMPTE</h3>
+</div>
 
-<h1>Sign up</h1>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit">Sign up</input>
-</form>
+<div class="contentcre">
+    <form class="formcrea" method="post">
+        {% csrf_token %}
+        {% for inform in form %}
+        <div class="inplog">
+            {{ inform }}
+            <span class="focus-border"></span>
+            <i></i>
+            <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} *</label>
+            {{ inform.errors }}
+             {% for error in inform.errors %}
+            {{ error }}
+            {% endfor %}
+        </div>
+        {{ inform.help_text }}
+        {% endfor %}
+        <div class="subcrea">
+            <input type="submit" value="S'INSCRIRE">
+        </div>
+    </form>
+    {{ form.as_p }}
+    {{ form.errors }}
+</div>
 
 {% endblock %}
-
+{% comment %}
 {% block extra_js %}<script type="text/javascript" src="{% static 'pages/js/registeruser.js' %}"></script>{% endblock %}
+{% endcomment %}

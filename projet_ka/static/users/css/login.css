@@ -11,7 +11,7 @@ color: #5bc7ab;
 text-align: center;
 }
 
-.contentcre
+.contentlog
 {
 /*border: 1px solid red;*/
 padding: 2rem;
@@ -21,7 +21,7 @@ max-width: 60rem;
 margin: 2rem auto;
 }
 
-.formcre
+.formlogin
 {
 text-align: center;
 }
@@ -71,7 +71,7 @@ transition: 0.4s;}
 border: 1px solid #5bc7ab;
 }
 
-.subcrea input
+.sublog input
 {
 	display: block;
 	background-color: #5bc7ab;
@@ -86,7 +86,36 @@ border: 1px solid #5bc7ab;
 	margin: 1.5rem auto 0.5rem;
 }
 
-.subcrea input:hover
+.sublog input:hover
 {
 	opacity: 0.8;
+}
+
+.areset
+{
+color: grey;
+}
+
+.areset:hover
+{
+color: #5bc7ab;
+border-bottom: 1px solid #5bc7ab;
+}
+
+.divcrea
+{
+margin: 2rem auto;
+border-top: 1px solid #ccc;
+padding: 1rem 0 0 0.5rem;
+}
+
+.acrea
+{
+color: #5bc7ab;
+cursor: pointer;
+}
+
+.acrea:hover
+{
+	border-bottom: 1px solid #5bc7ab;
 }
