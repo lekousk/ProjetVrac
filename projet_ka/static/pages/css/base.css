@@ -22,6 +22,10 @@ a
 	outline: none;
 }
 
+*:focus{
+outline: none;
+}
+
 html
 {
 	margin: 0;

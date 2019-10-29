@@ -24,20 +24,23 @@
         {% if inform.help_text %}
         <p>({{ inform.help_text }})</p>
         {% endif %}
-        {{ inform.errors }}
         {% else %}
         <div class="inplogcheck">
-            <label for="{{ inform.id_for_label }}" class="inplabelcheck" >{{ inform.label }}</label>
             {{ inform }}
+            <label for="{{ inform.id_for_label }}" class="inplabelcheck" >
+                {{ inform.label }}
+                <span></span>
+            </label>
         </div>
-        {{ inform.errors }}
         {% endif %}
+        {{ inform.errors }}
         {% endfor %}
         <div class="subcrea">
             <input type="submit" value="S'INSCRIRE">
         </div>
     </form>
 </div>
+
 
 {% endblock %}
 {% comment %}

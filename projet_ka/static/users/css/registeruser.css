@@ -1,6 +1,3 @@
-*:focus {
-    outline: none;
-}
 
 .titcompte
 {
@@ -74,6 +71,12 @@ transition: 0.4s;}
 border: 1px solid #5bc7ab;
 }*/
 
+.inplog ~ p{
+margin: 0;
+color: #9098A9;
+font-size: 0.9rem;
+}
+
 .subcrea input
 {
 	display: block;
@@ -93,3 +96,119 @@ border: 1px solid #5bc7ab;
 {
 	opacity: 0.8;
 }
+
+.inplogcheck {
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+.inplabelcheck {
+    display: inline-block;
+    color: #9098A9;
+    cursor: pointer;
+    position: relative;
+    }
+
+.inplabelcheck > span {
+      display: inline-block;
+      position: relative;
+      background-color: transparent;
+      width: 1.6rem;
+      height: 1.6rem;
+      transform-origin: center;
+      border: 2px solid #d2d4d8;
+      border-radius: 50%;
+      vertical-align: -0.5rem;
+      margin-left: 1.5rem;
+      transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89);
+      }
+
+.inplabelcheck > span:before {
+      content: "";
+      width: 0rem;
+      height: 2px;
+      border-radius: 2px;
+      background: #9098A9;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 0.6rem;
+      left: 0.4rem;
+      transition: width 50ms ease 50ms;
+      transform-origin: 0% 0%;
+    }
+
+.inplabelcheck > span:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: #9098A9;
+      position: absolute;
+      transform: rotate(305deg);
+      top: 0.95rem;
+      left: 0.5rem;
+      transition: width 50ms ease;
+      transform-origin: 0% 0%;
+    }
+
+.errorlist
+{
+color: red;
+}
+
+@media screen and (pointer: fine)
+{
+
+.inplabelcheck:hover > span:before {
+        width: 0.35rem;
+        transition: width 0.1s ease;
+      }
+
+.inplabelcheck:hover > span:after {
+        width: 0.7rem;
+        transition: width 0.15s ease 0.1s;
+      }
+
+#id_newsletter:checked + .inplabelcheck:hover > span {
+          background-color: #5bc7ab;
+          border: 2px solid #d2d4d8;
+          transform: scale(1.25);
+          }
+
+#id_newsletter:checked + .inplabelcheck:hover > span:after {
+            width: 0.7rem;
+            background: #FFF;
+            transition: width 150ms ease 100ms;
+          }
+
+#id_newsletter:checked + .inplabelcheck:hover > span:before {
+            width: 0.35rem;
+            background: #FFF;
+            transition: width 150ms ease 100ms;
+          }
+}
+
+#id_newsletter {
+    display: none;
+    }
+
+#id_newsletter:checked + .inplabelcheck > span {
+        background-color: #FFF;
+        border-width: 2px;
+        border-color: #5bc7ab;
+        transform: scale(1.25);
+        }
+
+#id_newsletter:checked + .inplabelcheck > span:after {
+          width: 0.7rem;
+          background: #5bc7ab;
+          transition: width 150ms ease 100ms;
+        }
+
+#id_newsletter:checked + .inplabelcheck > span:before {
+          width: 0.35rem;
+          background: #5bc7ab;
+          transition: width 150ms ease 100ms;
+        }
+

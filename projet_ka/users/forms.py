@@ -2,7 +2,6 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Authenti
 from django.utils.translation import gettext_lazy as _
 from .models import MyUser
 from django import forms
-from django.forms import Widget
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -32,6 +31,11 @@ class MyUserCreationForm(UserCreationForm):
         widgets = {
             'birth_date': DateInput(),
         }
+        error_messages = {
+            'email': {
+                'unique': _("Cette adresse e-mail existe déjà"),
+            }
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -42,6 +46,7 @@ class MyUserCreationForm(UserCreationForm):
         self.fields['last_name'].widget.attrs.update({'autofocus': True})
         self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
         self.fields['phone'].widget.input_type = 'tel'
+        self.fields['phone'].widget.attrs.update({'minlength': '10'})
 
 class MyUserChangeForm(UserChangeForm):
 

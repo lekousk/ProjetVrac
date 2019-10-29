@@ -4,6 +4,7 @@ from django.template import loader
 
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+from django.contrib.auth.decorators import login_required
 
 from .forms import MyUserCreationForm
 
@@ -13,3 +14,8 @@ class Registeruser(CreateView):
     form_class = MyUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registeruser.html'
+
+
+@login_required()
+def profile(request):
+    return render()

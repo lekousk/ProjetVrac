@@ -21,6 +21,11 @@ max-width: 60rem;
 margin: 2rem auto;
 }
 
+.errormess
+{
+color: red;
+}
+
 .formlogin
 {
 text-align: center;
