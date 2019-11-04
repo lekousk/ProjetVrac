@@ -1,0 +1,50 @@
+{% extends 'pages/base.html' %}
+
+{% load static %}
+
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/style_accueil.css' %}" />{% endblock %}
+
+{% block content %}
+    	<div id="body_accueil">
+
+	<section class="partie_corps">
+		<article id="image_magasin">
+			<span>Corps image du magasin par ex</span>
+		</article>
+	</section>
+
+	<section class="partie_corps">
+	
+		<article id="fonctionnement">
+			<span>Corps fonctionnement par ex</span>
+			
+		</article>
+	</section>
+
+	<section class="partie_corps">
+
+		<article id="visit_us">
+			<span>Corps plan nous trouver par ex</span>
+			
+		</article>
+
+		<aside id="magasin_map">
+			
+		</aside>
+	</section>
+
+    	</div>
+
+{% if user.is_authenticated %}
+<p>User: {{ user.email }} logged in.</p>
+
+<p>{{ user.first_name }}</p>
+
+<p><a href="{% url 'welcome' %}">homepage</a></p>
+<p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+<a href="{% url 'login' %}">login</a> |
+<a href="{% url 'register' %}">signup</a>
+{% endif %}
+
+{% endblock %}
