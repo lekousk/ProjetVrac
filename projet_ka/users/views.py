@@ -17,5 +17,5 @@ class Registeruser(CreateView):
 
 
 @login_required()
-def profile(request):
-    return render()
+def Profile(request):
+    return render(request, 'users/profile.html')
