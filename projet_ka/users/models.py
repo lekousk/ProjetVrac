@@ -42,12 +42,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('E-mail'), unique=True, )
     first_name = models.CharField(_('prénom'), max_length=30, blank=True)
     last_name = models.CharField(_('nom'), max_length=30, blank=True)
-    phone = models.PositiveIntegerField(_('téléphone'), null=True, blank=True)
-    adress = models.CharField(_('adresse'), null=True, max_length=50, blank=True)
-    post_code = models.PositiveIntegerField(_('code postal'), null=True, blank=True)
-    city = models.CharField(_('ville'), max_length=30, blank=True)
     birth_date = models.DateField(_("date d'anniversaire"), null=True, blank=True)
-    other_info = models.CharField(_('informations complémentaires'), max_length=50, blank=True)
     date_joined = models.DateTimeField(_("date d'enregistrement"), auto_now_add=True)
     newsletter = models.BooleanField(default=False)
     is_active = models.BooleanField(_('profile actif'), default=True)
@@ -80,3 +75,14 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         '''
         send_mail(subject, message, from_email, [self.email], **kwargs)"""
+
+class Address(models.Model):
+    name = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    nom = models.CharField(_('Nom'), max_length=30, blank=True)
+    prenom = models.CharField(_('prénom'), max_length=30, blank=True)
+    societe = models.CharField(_("nom de l'entreprise"), max_length=30, blank=True)
+    phone = models.PositiveIntegerField(_('téléphone'), null=True, blank=True)
+    numetvoie = models.CharField(_('numéro et nom de la rue'), null=True, max_length=50, blank=True)
+    post_code = models.PositiveIntegerField(_('code postal'), null=True, blank=True)
+    city = models.CharField(_('ville'), max_length=30, blank=True)
+    other_info = models.CharField(_('informations complémentaires'), max_length=50, blank=True)

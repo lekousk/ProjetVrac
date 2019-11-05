@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 
-from .forms import MyUserCreationForm
+from .forms import MyUserCreationForm, MyUserModifForm
 
 # Create your views here.
 
@@ -18,4 +18,7 @@ class Registeruser(CreateView):
 
 @login_required()
 def Profile(request):
+    myuserf = MyUserModifForm(request.POST)
+
+    #if myuserf.is_valid():
     return render(request, 'users/profile.html')

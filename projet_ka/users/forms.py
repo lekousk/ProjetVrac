@@ -26,11 +26,8 @@ class MyUserCreationForm(UserCreationForm):
 
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'phone', 'birth_date', 'email', 'password1', 'password2', 'adress', 'post_code', 'city', 'other_info','newsletter')
+        fields = ('last_name', 'first_name', 'email', 'password1', 'password2', 'newsletter')
         field_classes = {'username': UsernameField}
-        widgets = {
-            'birth_date': DateInput(),
-        }
         error_messages = {
             'email': {
                 'unique': _("Cette adresse e-mail existe déjà"),
@@ -45,8 +42,6 @@ class MyUserCreationForm(UserCreationForm):
             visible.field.widget.attrs.update({'class': 'inptext'})
         self.fields['last_name'].widget.attrs.update({'autofocus': True})
         self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
-        self.fields['phone'].widget.input_type = 'tel'
-        self.fields['phone'].widget.attrs.update({'minlength': '10'})
 
 class MyUserChangeForm(UserChangeForm):
 
@@ -57,3 +52,27 @@ class MyUserChangeForm(UserChangeForm):
 class CustomAuthForm(AuthenticationForm):
     username = forms.CharField(label=_("E-MAIL"), widget=forms.TextInput(attrs={'autofocus': True, 'class': 'inptext', 'type': 'email', 'placeholder':'Adresse e-mail'}))
     password = forms.CharField(label=_("MOT DE PASSE"), strip=False, widget=forms.PasswordInput(attrs={'placeholder':'Mot de passe', 'class': 'inptext'}))
+
+class MyUserModifForm(forms.ModelForm):
+    class Meta:
+        model = MyUser
+        fields ='__all__'
+        widgets = {
+            'birth_date': DateInput(),
+        }
+        error_messages = {
+            'email': {
+                'unique': _("Cette adresse e-mail existe déjà"),
+            }
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # if self._meta.model.USERNAME_FIELD in self.fields:
+        #   self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
+        for visible in self.visible_fields():
+            visible.field.widget.attrs.update({'class': 'inptext'})
+        self.fields['last_name'].widget.attrs.update({'autofocus': True})
+        self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
+        self.fields['phone'].widget.input_type = 'tel'
+        self.fields['phone'].widget.attrs.update({'minlength': '10'})
