@@ -22,8 +22,8 @@ from .forms import CustomAuthForm
 
 
 urlpatterns = [
-    #path('register', views.Registeruser, name='register'),
-    path('register/', views.Registeruser.as_view(template_name='users/registeruser.html'), name='register'),
+    path('register', views.Registeruser, name='register'),
+    #path('register/', views.Registeruser.as_view(template_name='users/registeruser.html'), name='register'),
     path('profile/', views.Profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html', authentication_form=CustomAuthForm), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),

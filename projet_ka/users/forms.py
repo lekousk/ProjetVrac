@@ -57,6 +57,7 @@ class MyUserModifForm(forms.ModelForm):
     class Meta:
         model = MyUser
         fields ='__all__'
+        exclude = ('password',)
         widgets = {
             'birth_date': DateInput(),
         }
@@ -74,5 +75,5 @@ class MyUserModifForm(forms.ModelForm):
             visible.field.widget.attrs.update({'class': 'inptext'})
         self.fields['last_name'].widget.attrs.update({'autofocus': True})
         self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
-        self.fields['phone'].widget.input_type = 'tel'
-        self.fields['phone'].widget.attrs.update({'minlength': '10'})
+        #self.fields['phone'].widget.input_type = 'tel'
+        #self.fields['phone'].widget.attrs.update({'minlength': '10'})

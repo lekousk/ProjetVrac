@@ -70,14 +70,14 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         '''
         return self.first_name
 
-    """    def email_user(self, subject, message, from_email=None, **kwargs):
+    def email_user(self, subject, message, from_email=None, **kwargs):
         '''
         Sends an email to this User.
         '''
-        send_mail(subject, message, from_email, [self.email], **kwargs)"""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
 
 class Address(models.Model):
-    name = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     nom = models.CharField(_('Nom'), max_length=30, blank=True)
     prenom = models.CharField(_('prénom'), max_length=30, blank=True)
     societe = models.CharField(_("nom de l'entreprise"), max_length=30, blank=True)
