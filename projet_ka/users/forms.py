@@ -56,7 +56,7 @@ class CustomAuthForm(AuthenticationForm):
 class MyUserModifForm(forms.ModelForm):
     class Meta:
         model = MyUser
-        fields ='__all__'
+        fields = ('last_name', 'first_name', 'email', 'birth_date', 'newsletter')
         exclude = ('password',)
         widgets = {
             'birth_date': DateInput(),

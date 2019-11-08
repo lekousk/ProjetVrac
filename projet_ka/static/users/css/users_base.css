@@ -1,3 +1,42 @@
+@media (min-width: 901px)
+{
+    .allcontusers
+    {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+	.notMin
+	{
+		display: none;
+	}
+
+	.fTrier
+	{
+		width: 20%;
+	}
+
+	.contenuP
+	{
+		width: 75%;
+	}
+
+	/*Configuration de la partie filtres */
+
+	.partRayon, .partTrier
+	{
+	}
+
+	.corpsTr
+	{
+		background: #FFF;
+		border: 1px solid #F1F1F1;
+		box-shadow: 5px 4px 3px -2px #D8D8D8;
+		margin-top: 50px;
+		border-radius: 5px;
+	}
+}
 
 .titcompte
 {

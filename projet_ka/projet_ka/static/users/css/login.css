@@ -18,7 +18,12 @@ padding: 2rem;
 background: #fafafa;
 width: 100%;
 max-width: 60rem;
-margin: auto;
+margin: 2rem auto;
+}
+
+.errormess
+{
+color: red;
 }
 
 .formlogin
@@ -66,10 +71,10 @@ transition: 0.4s;}
     transform-origin: 0 0;
 }
 
-.inptext:not(:placeholder-shown)
+/*.inptext:not(:placeholder-shown)
 {
 border: 1px solid #5bc7ab;
-}
+}*/
 
 .sublog input
 {

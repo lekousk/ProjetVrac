@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/pages/templates/pages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/pages/templates/pages/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/static/pages/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/password_reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/password_reset.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/registeruser.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/static/users/css/registeruser.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,18 +50,18 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
-      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
-      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
       <recent name="$PROJECT_DIR$/projet_ka/users" />
       <recent name="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique" />
       <recent name="$PROJECT_DIR$/projet_ka-master/static/boutique/css" />
-      <recent name="$PROJECT_DIR$/projet_ka-master/projet_ka/static/boutique/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
+      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
     </key>
   </component>
   <component name="RunDashboard">

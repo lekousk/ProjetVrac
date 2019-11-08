@@ -1,43 +1,64 @@
-{% extends 'pages/base.html' %}
+{% extends 'users/users_base.html' %}
 
 {% load static %}
 
-{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'pages/css/style_accueil.css' %}" />{% endblock %}
+{% block users_content %}
 
-{% block content %}
+    <div class="titcompte">
+        <h3>Vos informations personnelles</h3>
+    </div>
 
-{% if user.is_authenticated %}
-<p>User: {{ user.email }} logged in.</p>
+    <div class="contentcre">
+        <form class="formcrea" method="post">
+            {% csrf_token %}
+            {% for inform in form_info %}
+            {% if forloop.last is False %}
+            <div class="inplog">
+                {{ inform }}
+                <span class="focus-border"></span>
+                <i></i>
+                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+            </div>
+            {% if inform.help_text %}
+            <p>({{ inform.help_text }})</p>
+            {% endif %}
+            {% else %}
+            <div class="inplogcheck">
+                {{ inform }}
+                <label for="{{ inform.id_for_label }}" class="inplabelcheck" >
+                    {{ inform.label }}
+                    <span></span>
+                </label>
+            </div>
+            {% endif %}
+            {{ inform.errors }}
+            {% endfor %}
+            <div class="subcrea">
+                <input type="submit" value="ENREGISTRER">
+            </div>
+        </form>
+    </div>
 
-<p>{{ user.first_name }}</p>
-
-<div class="infopers">
-	<p>
-		<form method="post">
-		{% csrf_token %}
-		{{ form_info.as_p }}
-
-		<input type="submit" value="Submit"/>
-	</form>
-	</p>
-</div>
-
-<div class="respass">
-	<p>
-		<form method="post">
-		{% csrf_token %}
-		{{ form_mdp.as_p }}
-
-		<input type="submit" value="Submit"/>
-	</form>
-	</p>
-</div>
-
-<p><a href="{% url 'welcome' %}">homepage</a></p>
-<p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-<a href="{% url 'login' %}">login</a> |
-<a href="{% url 'register' %}">signup</a>
-{% endif %}
+    <div class="contentcre">
+        <form class="formcrea" method="post">
+            {% csrf_token %}
+            {% for inform in form_mdp %}
+            <div class="inplog">
+                {{ inform }}
+                <span class="focus-border"></span>
+                <i></i>
+                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+            </div>
+            {% if inform.help_text %}
+            <p>({{ inform.help_text }})</p>
+            {% endif %}
+            {{ inform.errors }}
+            {% endfor %}
+            <div class="subcrea">
+                <input type="submit" value="ENREGISTRER">
+            </div>
+        </form>
+    </div>
+    <p><a href="{% url 'logout' %}">logout</a></p>
 
 {% endblock %}

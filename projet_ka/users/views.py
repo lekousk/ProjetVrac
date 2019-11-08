@@ -27,8 +27,10 @@ def Registeruser(request):
             raw_password = form_reg.cleaned_data.get('password1')
             user = authenticate(email=username, password=raw_password)
             login(request, user)
-            message = 'à definir'
-            mail_subject = "Création de votre compte Bokalia"
+            message = loader.render_to_string('users/created_email.html',{
+                'user': user,
+            })
+            mail_subject = "Confirmation de votre inscription Bokalia"
             user.email_user(mail_subject, message)
             #email = EmailMessage(mail_subject, message, to=[username])
             #email.send()
