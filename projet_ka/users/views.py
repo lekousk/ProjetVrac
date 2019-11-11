@@ -5,11 +5,10 @@ from django.template import loader
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.core.mail import EmailMessage
 
-from .forms import MyUserCreationForm, MyUserModifForm
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChange
 
 # Create your views here.
 
@@ -46,7 +45,7 @@ def Registeruser(request):
 def Profile(request):
 
     myuserf = MyUserModifForm(instance=request.user)
-    chpass = PasswordChangeForm(user=request.user)
+    chpass = MyPasswordChange(user=request.user)
 
     if request.method == 'POST':
         myuserf = MyUserModifForm(request.POST, instance=request.user)

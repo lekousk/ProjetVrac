@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import gettext_lazy as _
 from .models import MyUser
 from django import forms
@@ -73,7 +74,24 @@ class MyUserModifForm(forms.ModelForm):
         #   self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
         for visible in self.visible_fields():
             visible.field.widget.attrs.update({'class': 'inptext'})
-        self.fields['last_name'].widget.attrs.update({'autofocus': True})
         self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
+        #self.fields['phone'].widget.input_type = 'tel'
+        #self.fields['phone'].widget.attrs.update({'minlength': '10'})
+
+class MyPasswordChange(PasswordChangeForm):
+    new_password1 = forms.CharField(
+        label=_("New password"),
+        widget=forms.PasswordInput,
+        strip=False,
+        help_text=_('(Minimum 8 caractères)'),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # if self._meta.model.USERNAME_FIELD in self.fields:
+        #   self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
+        for visible in self.visible_fields():
+            visible.field.widget.attrs.update({'class': 'inptext'})
+        #self.fields['new_password1'].help_text = _('zdaazd')
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})
