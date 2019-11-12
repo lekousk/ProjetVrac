@@ -21,7 +21,7 @@
     .allcontusers
     {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         width: 100%;
     }
 
@@ -32,12 +32,13 @@
 
 	.fTrier
 	{
-		width: 20%;
+
 	}
 
 	.contenuP
 	{
-		width: 75%;
+		width: 70%;
+		max-width: 50rem;
 	}
 
 	/*Configuration de la partie filtres */
@@ -49,11 +50,29 @@
 	.corpsTr
 	{
 		background: #FFF;
-		border: 1px solid #F1F1F1;
+		margin-top: 2rem;
+		/*border-top: 3px solid #5bc7ab;
 		box-shadow: 5px 4px 3px -2px #D8D8D8;
-		margin-top: 50px;
-		border-radius: 5px;
+		border-radius: 5px;*/
 	}
+
+    .profselect, .profnorm
+    {
+    display: block;
+    padding: 1rem 2rem 1rem 0.5rem;
+    cursor: pointer;
+    }
+
+    .profselect{
+    background-color: rgba(92, 103, 115, 1);
+    color: white;
+    border-radius: 0.5rem;
+    }
+
+    .profnorm:hover
+    {
+    color: #5bc7ab;
+    }
 }
 
 .titcompte

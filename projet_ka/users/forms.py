@@ -78,7 +78,7 @@ class MyUserModifForm(forms.ModelForm):
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})
 
-class MyPasswordChange(PasswordChangeForm):
+class MyPasswordChangeForm(PasswordChangeForm):
     new_password1 = forms.CharField(
         label=_("New password"),
         widget=forms.PasswordInput,
@@ -92,6 +92,6 @@ class MyPasswordChange(PasswordChangeForm):
         #   self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
         for visible in self.visible_fields():
             visible.field.widget.attrs.update({'class': 'inptext'})
-        #self.fields['new_password1'].help_text = _('zdaazd')
+        self.fields['new_password2'].help_text = 'zdaazd'
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})

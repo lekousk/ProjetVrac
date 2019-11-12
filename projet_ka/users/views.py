@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.core.mail import EmailMessage
 
-from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChange
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm
 
 # Create your views here.
 
@@ -44,8 +44,7 @@ def Registeruser(request):
 @login_required()
 def Profile(request):
 
-    myuserf = MyUserModifForm(instance=request.user)
-    chpass = MyPasswordChange(user=request.user)
+    chpass = MyPasswordChangeForm(user=request.user)
 
     if request.method == 'POST':
         myuserf = MyUserModifForm(request.POST, instance=request.user)
@@ -54,6 +53,26 @@ def Profile(request):
             myuserf.save()
     else:
         myuserf = MyUserModifForm(instance=request.user)
+
+    context = {
+        'form_info': myuserf,
+        'form_mdp' : chpass,
+    }
+
+    return render(request, 'users/profile.html', context)
+
+@login_required()
+def MyPasswordChange(request):
+
+    myuserf = MyUserModifForm(instance=request.user)
+
+    if request.method == 'POST':
+        chpass = MyPasswordChangeForm(data=request.POST, user=request.user)
+        update_session_auth_hash(request, chpass.user)
+        if chpass.is_valid():
+            chpass.save()
+    else:
+        chpass = MyUserModifForm(user=request.user)
 
     context = {
         'form_info': myuserf,

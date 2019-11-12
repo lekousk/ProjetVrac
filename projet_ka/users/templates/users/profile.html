@@ -8,7 +8,7 @@
         <div class="titcompte">
         <h3>Vos informations personnelles</h3>
     </div>
-        <form class="formcrea" method="post">
+        <form class="formcrea" method="post" action="{% url 'profile' %}">
             {% csrf_token %}
             {% for inform in form_info %}
             {% if forloop.last is False %}
@@ -42,7 +42,7 @@
         <div class="titcompte">
         <h3>Changer le mot de passe</h3>
     </div>
-        <form class="formcrea" method="post">
+        <form class="formcrea" method="post" action="{% url 'my_password_change' %}">
             {% csrf_token %}
             {% for inform in form_mdp %}
             <div class="inplog">
@@ -61,6 +61,5 @@
             </div>
         </form>
     </div>
-    <p><a href="{% url 'logout' %}">logout</a></p>
 
 {% endblock %}
