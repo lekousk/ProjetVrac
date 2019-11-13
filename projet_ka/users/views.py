@@ -45,25 +45,27 @@ def Registeruser(request):
 def Profile(request):
 
     chpass = MyPasswordChangeForm(user=request.user)
+    succes_info_form = False
 
     if request.method == 'POST':
         myuserf = MyUserModifForm(request.POST, instance=request.user)
 
         if myuserf.is_valid():
             myuserf.save()
+            succes_info_form = True
     else:
         myuserf = MyUserModifForm(instance=request.user)
 
     context = {
         'form_info': myuserf,
         'form_mdp' : chpass,
+        'succes_info_form': succes_info_form,
     }
 
     return render(request, 'users/profile.html', context)
 
 @login_required()
 def MyPasswordChange(request):
-
     myuserf = MyUserModifForm(instance=request.user)
 
     if request.method == 'POST':

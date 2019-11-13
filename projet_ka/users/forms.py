@@ -55,6 +55,7 @@ class CustomAuthForm(AuthenticationForm):
     password = forms.CharField(label=_("MOT DE PASSE"), strip=False, widget=forms.PasswordInput(attrs={'placeholder':'Mot de passe', 'class': 'inptext'}))
 
 class MyUserModifForm(forms.ModelForm):
+    typ_form = 1
     class Meta:
         model = MyUser
         fields = ('last_name', 'first_name', 'email', 'birth_date', 'newsletter')
@@ -92,6 +93,7 @@ class MyPasswordChangeForm(PasswordChangeForm):
         #   self.fields[self._meta.model.USERNAME_FIELD].widget.attrs.update({'autofocus': True})
         for visible in self.visible_fields():
             visible.field.widget.attrs.update({'class': 'inptext'})
-        self.fields['new_password2'].help_text = 'zdaazd'
+            visible.field.widget.attrs.update({'autofocus': False})
+        #self.fields['new_password2'].help_text = 'zdaazd'
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})

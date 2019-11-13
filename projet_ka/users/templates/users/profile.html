@@ -6,17 +6,20 @@
 
     <div class="contentcre">
         <div class="titcompte">
-        <h3>Vos informations personnelles</h3>
-    </div>
+            <h3>Vos informations personnelles</h3>
+        </div>
         <form class="formcrea" method="post" action="{% url 'profile' %}">
             {% csrf_token %}
+            {% if succes_info_form %}
+            <p>Vos informations ont été mises à jour</p>
+            {% endif %}
             {% for inform in form_info %}
             {% if forloop.last is False %}
             <div class="inplog">
+                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
                 {{ inform }}
                 <span class="focus-border"></span>
                 <i></i>
-                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
             </div>
             {% if inform.help_text %}
             <p>({{ inform.help_text }})</p>
@@ -39,10 +42,10 @@
     </div>
 
     <div class="contentcre">
-        <div class="titcompte">
-        <h3>Changer le mot de passe</h3>
-    </div>
-        <form class="formcrea" method="post" action="{% url 'my_password_change' %}">
+        <div class="titcompte chmdp">
+            <h3 class="arrowTrier">Changer le mot de passe</h3>
+        </div>
+        <form class="formcrea chmdpform" method="post" action="{% url 'my_password_change' %}" hidden>
             {% csrf_token %}
             {% for inform in form_mdp %}
             <div class="inplog">
@@ -60,6 +63,15 @@
                 <input type="submit" value="MODIFIER">
             </div>
         </form>
+    </div>
+
+    <div class="contentcre">
+        <div class="titcompte supprcmt">
+            <h3 class="arrowTrier">Supprimer mon compte</h3>
+        </div>
+        <div class="affsupprcmt" hidden>
+            <button class="btnSupprCompte" type="button">SUPPRIMER MON COMPTE</button>
+        </div>
     </div>
 
 {% endblock %}

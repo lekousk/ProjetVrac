@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/users_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/users_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>
@@ -48,18 +48,18 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
+      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
+      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
       <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
       <recent name="$PROJECT_DIR$/projet_ka/users" />
       <recent name="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique" />
       <recent name="$PROJECT_DIR$/projet_ka-master/static/boutique/css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
-      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
     </key>
   </component>
   <component name="RunDashboard">

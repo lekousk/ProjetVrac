@@ -78,6 +78,7 @@
 .titcompte
 {
 /*border: 1px solid blue;*/
+margin: 0;
 }
 
 .titcompte h3
@@ -98,22 +99,24 @@ max-width: 40rem;
 margin: 0rem auto;
 }
 
-.formcre
+.formcrea
 {
-text-align: center;
 }
 
 .inplog{
 width: 90%;
 max-width: 50rem;
-margin: 2.5rem auto 0.5rem;
-position: relative;}
+margin: 0rem auto 0.5rem;
+position: relative;
+padding-top: 2.5rem;
+}
 
 .inptext{
 width: 100%;
 border: 1px solid #ccc;
 padding: 0.6rem 1rem;
-transition: 0.4s;}
+transition: 0.4s;
+}
 
 .focus-border:before, .focus-border:after
 {content: ""; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background-color: #5bc7ab; transition: 0.4s;}
@@ -136,7 +139,7 @@ transition: 0.4s;}
 .inplabel
  {
     position: absolute;
-    top: -1.5rem;
+    top: 0.8rem;
     left: 0;
     color: #9098A9;
     font-weight: 500;
@@ -291,3 +294,48 @@ color: red;
           transition: width 150ms ease 100ms;
         }
 
+.chmdp, .supprcmt
+{
+position: relative;
+cursor: pointer;
+margin-bottom: 1rem;
+}
+
+.arrowTrier:before
+{
+	content:'';
+	position: absolute;
+	right: 10px;
+	bottom: 0.5rem;
+	width: 8px;
+	height: 8px;
+	border-top: 2px solid grey;
+	border-right: 2px solid grey;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	background: transparent;
+}
+
+.arrowTarget:before
+{
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+
+.btnSupprCompte
+{
+	display: block;
+	background-color: rgba(92, 103, 115, 1);
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	height: 2.5rem;
+	width: 80%;
+	min-width: 26rem;
+	border: none;
+	cursor: pointer;
+	margin: 0rem auto 0.5rem;
+}
