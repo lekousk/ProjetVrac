@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/users_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/users_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>

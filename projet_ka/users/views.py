@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.core.mail import EmailMessage
 
-from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm
 
 # Create your views here.
 
@@ -83,20 +83,29 @@ def MyPasswordChange(request):
 
     return render(request, 'users/profile.html', context)
 
-"""@login_required()
-def Profile(request):
-
+@login_required()
+def Delete_user(request):
+    temp = 0
+    temp1 = 0
     if request.method == 'POST':
-        myuserf = MyUserModifForm(request.POST, instance=request.user)
+        conf_passw = ConfirmPasswForm(request.POST, instance=request.user)
+        temp = print(conf_passw)
 
-        if myuserf.is_valid():
-            myuserf.save()
+        if conf_passw.is_valid():
+            temp1 = 1
+        else:
+            temp1= 2
     else:
-        myuserf = MyUserModifForm(instance=request.user)
+        conf_passw = ConfirmPasswForm()
 
-    context = {'form_info': myuserf}
+    context = {
+        'conf_passw': conf_passw,
+        'temp': temp,
+        'temp1': temp1,
+    }
 
-    return render(request, 'users/profile.html', context)"""
+
+    return render(request, 'users/delete.html', context)
 
 """def password_change(request):
     if request.method == 'POST':

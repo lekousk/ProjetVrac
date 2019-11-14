@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.urls import path
 from django.conf.urls import url
-from users import views
+from . import views
 from django.contrib.auth import views as auth_views
 from .forms import CustomAuthForm
 
@@ -33,4 +33,5 @@ urlpatterns = [
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'), name='password_reset_complete'),
+    path('deleteconfirmation', views.Delete_user, name='delete_confirmation'),
 ]

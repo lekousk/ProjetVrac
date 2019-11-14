@@ -78,7 +78,7 @@
 .titcompte
 {
 /*border: 1px solid blue;*/
-margin: 0;
+margin: 0.5rem;
 }
 
 .titcompte h3
@@ -87,6 +87,7 @@ font-size: 1.4rem;
 color: #9098A9;
 text-align: left;
 border-bottom: 2px solid #5bc7ab;
+margin: 0;
 }
 
 .contentcre
@@ -101,15 +102,25 @@ margin: 0rem auto;
 
 .formcrea
 {
+display: block;
+margin: 0;
+padding: 0;
+width: 100%;
+}
+
+.inpcomplet
+{
+width: 90%;
+max-width: 50rem;
+margin: 2.2rem auto;
 }
 
 .inplog{
-width: 90%;
-max-width: 50rem;
-margin: 0rem auto 0.5rem;
+width: 100%;
 position: relative;
-padding-top: 2.5rem;
+/*padding-top: 2.5rem;*/
 }
+
 
 .inptext{
 width: 100%;
@@ -138,12 +149,18 @@ transition: 0.4s;
 
 .inplabel
  {
-    position: absolute;
-    top: 0.8rem;
-    left: 0;
+    /*position: absolute;
+    top: -1.5rem;
+    left: 0;*/
     color: #9098A9;
     font-weight: 500;
     transform-origin: 0 0;
+}
+
+.helptext
+{
+margin: 0;
+padding: 0.5rem;
 }
 
 /*.inptext:not(:placeholder-shown)
@@ -298,7 +315,6 @@ color: red;
 {
 position: relative;
 cursor: pointer;
-margin-bottom: 1rem;
 }
 
 .arrowTrier:before
@@ -324,9 +340,15 @@ margin-bottom: 1rem;
 	-webkit-transform: rotate(135deg);
 }
 
+.affsupprcmt
+{
+justify-self: center;
+}
 .btnSupprCompte
 {
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: rgba(92, 103, 115, 1);
 	color: white;
 	font-weight: bold;

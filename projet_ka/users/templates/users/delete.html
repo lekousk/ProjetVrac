@@ -1,0 +1,36 @@
+{% extends 'users/users_base.html' %}
+
+{% load static %}
+
+{% block users_content %}
+
+<div class="contentcre">
+    <div class="titcompte">
+            <h3>Supprimer mon compte</h3>
+    </div>
+    <p>
+        Si vous supprimez votre compte, toutes vos données seront détruites ou anonymisées. Cette opération est irréversible.
+    </p>
+    <form class="formcrea" method="post" action="{% url 'delete_confirmation' %}">
+        {% csrf_token %}
+        <div class="inplog">
+            <label for="{{ conf_passw.confirm_password.id_for_label }}" class="inplabel" >{{ conf_passw.confirm_password.label }} *</label>
+            {{ conf_passw.confirm_password }}
+            <span class="focus-border"></span>
+            <i></i>
+        </div>
+        <div class="subcrea">
+            <input type="submit" value="MODIFIER">
+        </div>
+    </form>
+
+temp: {{ temp }}
+temp1: {{ temp1 }}
+{{ conf_passw.errors }}
+
+{% if conf_passw.errors %}
+ded
+{% endif %}
+</div>
+
+{% endblock %}

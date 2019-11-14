@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm, UsernameField
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.hashers import check_password
 from .models import MyUser
 from django import forms
 
@@ -97,3 +98,21 @@ class MyPasswordChangeForm(PasswordChangeForm):
         #self.fields['new_password2'].help_text = 'zdaazd'
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})
+
+class ConfirmPasswForm(forms.ModelForm):
+    confirm_password = forms.CharField(
+        label=_("Confirmation de votre mot de passe"),
+        widget=forms.PasswordInput(
+            attrs= {'class': 'inptext'}
+        ),
+    )
+
+    class Meta:
+        model = MyUser
+        fields = ('confirm_password',)
+
+    def clean(self):
+        cleaned_data = super(ConfirmPasswForm, self).clean()
+        confirm_password = cleaned_data.get('confirm_password')
+        if not check_password(confirm_password, self.instance.password):
+            self.add_error('confirm_password', 'Le mot de passe saisie est invalide.')

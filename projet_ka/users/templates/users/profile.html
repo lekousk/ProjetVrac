@@ -15,15 +15,17 @@
             {% endif %}
             {% for inform in form_info %}
             {% if forloop.last is False %}
-            <div class="inplog">
+            <div class="inpcomplet">
                 <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+                <div class="inplog">
                 {{ inform }}
-                <span class="focus-border"></span>
-                <i></i>
+                    <span class="focus-border"></span>
+                    <i></i>
+                </div>
+                {% if inform.help_text %}
+                <p class="helptext">({{ inform.help_text }})</p>
+                {% endif %}
             </div>
-            {% if inform.help_text %}
-            <p>({{ inform.help_text }})</p>
-            {% endif %}
             {% else %}
             <div class="inplogcheck">
                 {{ inform }}
@@ -48,15 +50,17 @@
         <form class="formcrea chmdpform" method="post" action="{% url 'my_password_change' %}" hidden>
             {% csrf_token %}
             {% for inform in form_mdp %}
-            <div class="inplog">
-                {{ inform }}
-                <span class="focus-border"></span>
-                <i></i>
+            <div class="inpcomplet">
                 <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+                <div class="inplog">
+                {{ inform }}
+                    <span class="focus-border"></span>
+                    <i></i>
+                </div>
+                {% if inform.help_text %}
+                <p class="helptext">{{ inform.help_text }}</p>
+                {% endif %}
             </div>
-            {% if inform.help_text %}
-            <p>{{ inform.help_text }}</p>
-            {% endif %}
             {{ inform.errors }}
             {% endfor %}
             <div class="subcrea">
@@ -70,7 +74,7 @@
             <h3 class="arrowTrier">Supprimer mon compte</h3>
         </div>
         <div class="affsupprcmt" hidden>
-            <button class="btnSupprCompte" type="button">SUPPRIMER MON COMPTE</button>
+            <a class="btnSupprCompte" href="{% url 'delete_confirmation' %}">SUPPRIMER MON COMPTE</a>
         </div>
     </div>
 
