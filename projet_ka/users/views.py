@@ -46,6 +46,7 @@ def Profile(request):
 
     chpass = MyPasswordChangeForm(user=request.user)
     succes_info_form = False
+    hidden = True
 
     if request.method == 'POST':
         myuserf = MyUserModifForm(request.POST, instance=request.user)
@@ -60,6 +61,7 @@ def Profile(request):
         'form_info': myuserf,
         'form_mdp' : chpass,
         'succes_info_form': succes_info_form,
+        'cacher_hid': hidden,
     }
 
     return render(request, 'users/profile.html', context)
@@ -67,6 +69,7 @@ def Profile(request):
 @login_required()
 def MyPasswordChange(request):
     myuserf = MyUserModifForm(instance=request.user)
+    hidden = False
 
     if request.method == 'POST':
         chpass = MyPasswordChangeForm(data=request.POST, user=request.user)
@@ -74,11 +77,12 @@ def MyPasswordChange(request):
         if chpass.is_valid():
             chpass.save()
     else:
-        chpass = MyUserModifForm(user=request.user)
+        chpass = MyPasswordChangeForm(user=request.user)
 
     context = {
         'form_info': myuserf,
         'form_mdp' : chpass,
+        'cacher_hid': hidden,
     }
 
     return render(request, 'users/profile.html', context)
@@ -86,22 +90,18 @@ def MyPasswordChange(request):
 @login_required()
 def Delete_user(request):
     temp = 0
-    temp1 = 0
     if request.method == 'POST':
         conf_passw = ConfirmPasswForm(request.POST, instance=request.user)
-        temp = print(conf_passw)
+        temp = request.POST
 
         if conf_passw.is_valid():
-            temp1 = 1
-        else:
-            temp1= 2
+            temp = 'Profile prêt à être supprimé'
     else:
         conf_passw = ConfirmPasswForm()
 
     context = {
         'conf_passw': conf_passw,
         'temp': temp,
-        'temp1': temp1,
     }
 
 

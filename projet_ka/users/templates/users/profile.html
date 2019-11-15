@@ -45,9 +45,9 @@
 
     <div class="contentcre">
         <div class="titcompte chmdp">
-            <h3 class="arrowTrier">Changer le mot de passe</h3>
+            <h3 class="arrowTrier{% if not cacher_hid %} arrowTarget{% endif %}">Changer le mot de passe</h3>
         </div>
-        <form class="formcrea chmdpform" method="post" action="{% url 'my_password_change' %}" hidden>
+        <form class="formcrea chmdpform" method="post" action="{% url 'my_password_change' %}"{% if cacher_hid %} hidden{% endif %}>
             {% csrf_token %}
             {% for inform in form_mdp %}
             <div class="inpcomplet">

@@ -3,9 +3,12 @@
 	<div class="margeTr notMin">
 	</div>
 	<div class="corpsTr">
-		<a class="profselect">Vos informations personnelles</a>
+		<a class="{% if form_info %}profselect{% else %}profnorm{% endif %}" href="{% url 'profile' %}">Vos informations personnelles</a>
 		<a class="profnorm">Carnet d'adresses</a>
 		<a class="profnorm">Mes commandes</a>
 		<a class="profnorm">Historique de mes commandes</a>
     </div>
 </section>
+<div class="tesss">
+	<div class="btn_burger"></div>
+</div>

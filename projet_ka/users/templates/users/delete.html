@@ -13,24 +13,27 @@
     </p>
     <form class="formcrea" method="post" action="{% url 'delete_confirmation' %}">
         {% csrf_token %}
-        <div class="inplog">
+        <div class="inpcomplet">
             <label for="{{ conf_passw.confirm_password.id_for_label }}" class="inplabel" >{{ conf_passw.confirm_password.label }} *</label>
-            {{ conf_passw.confirm_password }}
-            <span class="focus-border"></span>
-            <i></i>
+            <div class="inplog">
+                {{ conf_passw.confirm_password }}
+                <span class="focus-border"></span>
+                <i></i>
+            </div>
+            {% if conf_passw.confirm_password.help_text %}
+            <p class="helptext">({{ conf_passw.confirm_password.help_text }})</p>
+            {% endif %}
+            {{ conf_passw.confirm_password.errors }}
         </div>
         <div class="subcrea">
-            <input type="submit" value="MODIFIER">
+            <input type="submit" value="SUPPRIMER MON COMPTE">
         </div>
     </form>
+    <br>
+    temp: {{ temp }}
+    <br>
+    {{ conf_passw.errors }}
 
-temp: {{ temp }}
-temp1: {{ temp1 }}
-{{ conf_passw.errors }}
-
-{% if conf_passw.errors %}
-ded
-{% endif %}
 </div>
 
 {% endblock %}
