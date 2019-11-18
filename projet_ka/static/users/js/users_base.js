@@ -1,6 +1,6 @@
 //Attente chargement du DOM
 
-$(function() {
+$(function(){
 
 $('.chmdp').on('click', function(){
     $('.chmdpform').slideToggle('slow');
@@ -11,5 +11,10 @@ $('.supprcmt').on('click', function(){
     $('.affsupprcmt').slideToggle('slow');
     $(this).children().toggleClass('arrowTarget');
 });
+
+$('.margeTr').on('click', function(){
+		$('.corpsTr').slideToggle('slow');
+		$(this).toggleClass("nav_open");
+	});
 
 });

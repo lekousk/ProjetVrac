@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Authenti
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.hashers import check_password
-from .models import MyUser
+from .models import MyUser, Address
 from django import forms
 
 class DateInput(forms.DateInput):
@@ -116,3 +116,8 @@ class ConfirmPasswForm(forms.ModelForm):
         confirm_password = cleaned_data.get('confirm_password')
         if not check_password(confirm_password, self.instance.password):
             self.add_error('confirm_password', 'Le mot de passe saisie est invalide.')
+
+class NewAdresse(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ('nom',)

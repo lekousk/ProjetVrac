@@ -6,9 +6,9 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
-from django.core.mail import EmailMessage
+from .models import Address
 
-from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse
 
 # Create your views here.
 
@@ -107,11 +107,35 @@ def Delete_user(request):
 
     return render(request, 'users/delete.html', context)
 
-"""def password_change(request):
+@login_required()
+def Carnet_adresses(request):
     if request.method == 'POST':
-        form = PasswordChangeForm(user=request.user, data=request.POST)
-        if form.is_valid():
+        form_adress = NewAdresse()
+        """if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)
+            update_session_auth_hash(request, form.user)"""
     else:
-        ..."""
+        form_adress = NewAdresse()
+
+    context = {
+        'form_adress': form_adress,
+    }
+    return render(request, 'users/carnet_adresses.html', context)
+
+@login_required()
+def New_adresse(request):
+    form_adress = NewAdresse()
+    if request.method == 'POST':
+        form_adress = NewAdresse(request.POST)
+        if form_adress.is_valid():
+            form_adress.save(commit=False)
+            form_adress.user = request.user
+            form_adress.save()
+
+    tep = form_adress
+
+    context = {
+        'form_adress': form_adress,
+        'tep': tep,
+    }
+    return render(request, 'users/adresse.html', context)

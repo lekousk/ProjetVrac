@@ -1,14 +1,21 @@
 {% load static %}
 <section class="fTrier">
 	<div class="margeTr notMin">
+		<div class="tit_burger">
+			{% if form_info %}
+			Mes informations personnelles
+			{% elif form_adress %}
+			Carnet d'adresses
+			{% endif %}
+		</div>
+		<div class="contenant_burger">
+			<div class="btn_burger"></div>
+		</div>
 	</div>
 	<div class="corpsTr">
-		<a class="{% if form_info %}profselect{% else %}profnorm{% endif %}" href="{% url 'profile' %}">Vos informations personnelles</a>
-		<a class="profnorm">Carnet d'adresses</a>
+		<a class="{% if form_info %}profselect{% else %}profnorm{% endif %}" href="{% url 'profile' %}">Mes informations personnelles</a>
+		<a class="{% if form_adress %}profselect{% else %}profnorm{% endif %}" href="{% url 'Carnet_adresses' %}">Carnet d'adresses</a>
 		<a class="profnorm">Mes commandes</a>
-		<a class="profnorm">Historique de mes commandes</a>
+		<a class="profnorm">Historique de commandes</a>
     </div>
 </section>
-<div class="tesss">
-	<div class="btn_burger"></div>
-</div>

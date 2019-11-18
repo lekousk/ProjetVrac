@@ -5,9 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/users/js/users_base.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/js/users_base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,6 +39,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/projet_ka/users/templates/users" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -48,18 +51,18 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
-      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
-      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
-      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
       <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
       <recent name="$PROJECT_DIR$/projet_ka/users" />
       <recent name="$PROJECT_DIR$/projet_ka-master/boutique/templates/boutique" />
       <recent name="$PROJECT_DIR$/projet_ka-master/static/boutique/css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/js" />
+      <recent name="$PROJECT_DIR$/projet_ka/users/templates/users" />
+      <recent name="$PROJECT_DIR$/projet_ka/static/users/css" />
+      <recent name="$PROJECT_DIR$/projet_ka-master/boutique/static/boutique/css" />
     </key>
   </component>
   <component name="RunDashboard">

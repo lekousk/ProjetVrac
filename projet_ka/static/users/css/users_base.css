@@ -1,22 +1,72 @@
 @media (max-width: 900px)
 {
+    .allcontusers
+    {
+    /*border: 1px solid red;*/
+    }
+
     .fTrier
 	{
-		display: none;
+		/*display: flex;
 		position:fixed;
 		top:0;
 		left: -1000px;
 		z-index: 9999;
 		height: 100%;
 		Width: 100%;
-		flex-shrink: 1;
+		flex-shrink: 1;*/
+		Width: 90%;
+		margin: auto;
 		transition: all 0.5s ease-in;
+		border: 1px solid #eaeaea;
+		border-radius: 5px;
 	}
-}
 
-.tesss
-{
-position: relative;
+	.fTrier:hover
+	{
+	border: 1px solid #5bc7ab;
+	transition: all 0.5s ease-in;
+	}
+
+	.margeTr
+	{
+	display: grid;
+	justify-content: space-between;
+	/*justify-items: center;*/
+	align-items: center;
+	width: 100%;
+	grid-template-columns: 1fr 4.5rem;
+	grid-template-areas: "tit btn";
+	cursor: pointer;
+	}
+
+	.tit_burger
+	{
+	grid-area: tit;
+	/*border: 1px solid red;*/
+	font-size: 1.3rem;
+	font-weight: bold;
+	justify-self: stretch;
+	text-align: center;
+	}
+
+	.contenant_burger
+    {
+    position: relative;
+    grid-area: btn;
+    /*border: 1px solid red;*/
+    height: 3.2rem;
+    }
+
+    .btn_burger
+    {
+    top: 0.6rem;
+    }
+
+    .corpsTr
+    {
+    display: none;
+    }
 }
 
 
@@ -45,19 +95,16 @@ position: relative;
 		max-width: 50rem;
 	}
 
+		.corpsTr
+	{
+		background: #FFF;
+		margin-top: 2rem;
+	}
+}
 	/*Configuration de la partie filtres */
 
 	.partRayon, .partTrier
 	{
-	}
-
-	.corpsTr
-	{
-		background: #FFF;
-		margin-top: 2rem;
-		/*border-top: 3px solid #5bc7ab;
-		box-shadow: 5px 4px 3px -2px #D8D8D8;
-		border-radius: 5px;*/
 	}
 
     .profselect, .profnorm
@@ -73,11 +120,15 @@ position: relative;
     border-radius: 0.5rem;
     }
 
+    .profnorm
+    {
+    color: grey;
+    }
+
     .profnorm:hover
     {
     color: #5bc7ab;
     }
-}
 
 .titcompte
 {

@@ -1,0 +1,37 @@
+{% extends 'users/users_base.html' %}
+
+{% load static %}
+
+{% block users_content %}
+
+<div class="contentcre">
+        <div class="titcompte">
+            <h3>Nouvelle adresse</h3>
+        </div>
+        <form class="formcrea" method="post" action="{% url 'new_adresse' %}">
+            {% csrf_token %}
+            {% if succes_info_form %}
+            <p>Vos informations ont été mises à jour</p>
+            {% endif %}
+            {% for inform in form_adress %}
+            <div class="inpcomplet">
+                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+                <div class="inplog">
+                {{ inform }}
+                    <span class="focus-border"></span>
+                    <i></i>
+                </div>
+                {% if inform.help_text %}
+                <p class="helptext">({{ inform.help_text }})</p>
+                {% endif %}
+            </div>
+            {{ inform.errors }}
+            {% endfor %}
+            <div class="subcrea">
+                <input type="submit" value="MODIFIER">
+            </div>
+        </form>
+    {{ tep }}
+</div>
+
+{% endblock %}
