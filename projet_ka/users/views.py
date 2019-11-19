@@ -108,34 +108,25 @@ def Delete_user(request):
     return render(request, 'users/delete.html', context)
 
 @login_required()
-def Carnet_adresses(request):
-    if request.method == 'POST':
-        form_adress = NewAdresse()
-        """if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)"""
-    else:
-        form_adress = NewAdresse()
-
-    context = {
-        'form_adress': form_adress,
-    }
-    return render(request, 'users/carnet_adresses.html', context)
-
-@login_required()
 def New_adresse(request):
     form_adress = NewAdresse()
     if request.method == 'POST':
         form_adress = NewAdresse(request.POST)
         if form_adress.is_valid():
-            form_adress.save(commit=False)
-            form_adress.user = request.user
-            form_adress.save()
-
-    tep = form_adress
+            adresse_temp = form_adress.save(commit=False)
+            adresse_temp.user = request.user
+            adresse_temp.save()
 
     context = {
         'form_adress': form_adress,
-        'tep': tep,
     }
     return render(request, 'users/adresse.html', context)
+
+@login_required()
+def Carnet_adresses(request):
+    Liste_adresse = Address.objects.filter(user__exact=request.user)
+
+    context = {
+        'form_adress': Liste_adresse,
+    }
+    return render(request, 'users/carnet_adresses.html', context)

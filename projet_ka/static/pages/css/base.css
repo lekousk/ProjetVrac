@@ -22,13 +22,13 @@ a
 	outline: none;
 }
 
-a:visited
-{
-	color: inherit;
-}
-
 *:focus{
 outline: none;
+}
+
+textarea
+{
+resize: none;
 }
 
 html

@@ -118,6 +118,23 @@ class ConfirmPasswForm(forms.ModelForm):
             self.add_error('confirm_password', 'Le mot de passe saisie est invalide.')
 
 class NewAdresse(forms.ModelForm):
+    other_info = forms.CharField(
+        label=_("Informations complémentaires"),
+        required=False,
+        widget=forms.Textarea(
+            attrs= {
+                'class': 'inptext',
+                'placeholder': 'Information pour faciliter la livraison',
+                'rows': '3',
+            }
+        ),
+    )
     class Meta:
         model = Address
-        fields = ('nom',)
+        exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs.update({'class': 'inptext'})
+        self.fields['phone'].widget.input_type = 'tel'
