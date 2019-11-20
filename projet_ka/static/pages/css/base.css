@@ -75,7 +75,10 @@ header
 {grid-area: header;}
 
 .corps_page
-{grid-area: main;}
+{
+grid-area: main;
+border: none;
+}
 
 footer
 {grid-area: footer;}

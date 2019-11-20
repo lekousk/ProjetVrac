@@ -8,9 +8,17 @@
     <div class="titcompte">
         <h3>Mon carnet d'adresses</h3>
     </div>
+    {{ user.id }}
+    <div>
+        {% for inform in form_adress %}
+        <article>
+            {{ inform.user }}
+        </article>
+        {% endfor %}
+    </div>
     {{ form_adress }}
     <div class="subcrea">
-        <input type="submit" value="AJOUTER UNE NOUVELLE ADRESSE">
+        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
     </div>
 </div>
 

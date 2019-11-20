@@ -47,6 +47,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     newsletter = models.BooleanField(default=False)
     is_active = models.BooleanField(_('profile actif'), default=True)
     is_staff = models.BooleanField(default=False)
+    adresses = models.ForeignKey('Address', null=True, on_delete=models.SET_NULL)
 
     objects = MyUserManager()
 
@@ -77,7 +78,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
 class Address(models.Model):
-    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name="addresses", related_query_name="address")
     nom = models.CharField(_('Nom'), max_length=30)
     prenom = models.CharField(_('prénom'), max_length=30)
     societe = models.CharField(_("nom de l'entreprise"), max_length=30, null=True, blank=True)
