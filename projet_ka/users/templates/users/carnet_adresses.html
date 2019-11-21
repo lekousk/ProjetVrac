@@ -1,0 +1,25 @@
+{% extends 'users/users_base.html' %}
+
+{% load static %}
+
+{% block users_content %}
+
+<div class="contentcre">
+    <div class="titcompte">
+        <h3>Mon carnet d'adresses</h3>
+    </div>
+    {{ user.id }}
+    <div>
+        {% for inform in form_adress %}
+        <article>
+            {{ inform.user }}
+        </article>
+        {% endfor %}
+    </div>
+    {{ form_adress }}
+    <div class="subcrea">
+        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
+    </div>
+</div>
+
+{% endblock %}

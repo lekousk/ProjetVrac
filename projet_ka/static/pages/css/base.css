@@ -22,6 +22,15 @@ a
 	outline: none;
 }
 
+*:focus{
+outline: none;
+}
+
+textarea
+{
+resize: none;
+}
+
 html
 {
 	margin: 0;
@@ -66,7 +75,10 @@ header
 {grid-area: header;}
 
 .corps_page
-{grid-area: main;}
+{
+grid-area: main;
+border: none;
+}
 
 footer
 {grid-area: footer;}
@@ -584,7 +596,7 @@ footer
 
 	/* Menu: Partie menu */
 
-#nav_bt_burger
+#nav_bt_burger, .btn_burger
 {
 	border-top: 0.22rem solid #5bc7ab;
 	height: 1.8rem;
@@ -597,7 +609,7 @@ footer
 	transition: all 0.3s ease-in;
 }
 
-#nav_bt_burger:before
+#nav_bt_burger:before, .btn_burger:before
 {
 	content:"";
 	display: block;
@@ -611,7 +623,7 @@ footer
 	position: absolute;
 }
 
-#nav_bt_burger:after
+#nav_bt_burger:after, .btn_burger:after
 {
 	content: "";
 	display: block;
@@ -624,18 +636,18 @@ footer
 	transition: all 0.3s ease-in;
 }
 
-.nav_open #nav_bt_burger
+.nav_open #nav_bt_burger, .nav_open .btn_burger
 {
 	border-color: transparent;
 }
 
-.nav_open #nav_bt_burger:before
+.nav_open #nav_bt_burger:before, .nav_open .btn_burger:before
 {
 	transform: rotate(45deg);
 	width: 2.5rem;
 }
 
-.nav_open #nav_bt_burger:after
+.nav_open #nav_bt_burger:after, .nav_open .btn_burger:after
 {
 	transform: rotate(135deg);
 	bottom: 0.7rem;

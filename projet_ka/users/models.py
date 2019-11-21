@@ -39,18 +39,15 @@ class MyUserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField(verbose_name='E-mail', unique=True, )
-    first_name = models.CharField(verbose_name='prénom', max_length=30, blank=True)
-    last_name = models.CharField(verbose_name='nom', max_length=30, blank=True)
-    phone = models.PositiveIntegerField(verbose_name='téléphone', null=True, blank=True)
-    adress = models.CharField(verbose_name='adresse', null=True, max_length=30, blank=True)
-    post_code = models.PositiveIntegerField(verbose_name='code postal', null=True, blank=True)
-    city = models.CharField(verbose_name='ville', max_length=20, blank=True)
-    date_of_birth = models.DateField(verbose_name="date d'anniversaire", null=True, blank=True)
-    other_info = models.CharField(max_length=30, blank=True)
-    date_joined = models.DateTimeField(verbose_name="date d'enregistrement", auto_now_add=True)
-    is_active = models.BooleanField(verbose_name='profile actif', default=True)
+    email = models.EmailField(_('E-mail'), unique=True, )
+    first_name = models.CharField(_('prénom'), max_length=30, blank=True)
+    last_name = models.CharField(_('nom'), max_length=30, blank=True)
+    birth_date = models.DateField(_("date d'anniversaire"), null=True, blank=True)
+    date_joined = models.DateTimeField(_("date d'enregistrement"), auto_now_add=True)
+    newsletter = models.BooleanField(default=False)
+    is_active = models.BooleanField(_('profile actif'), default=True)
     is_staff = models.BooleanField(default=False)
+    adresses = models.ForeignKey('Address', null=True, on_delete=models.SET_NULL)
 
     objects = MyUserManager()
 
@@ -74,8 +71,19 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         '''
         return self.first_name
 
-    """    def email_user(self, subject, message, from_email=None, **kwargs):
+    def email_user(self, subject, message, from_email=None, **kwargs):
         '''
         Sends an email to this User.
         '''
-        send_mail(subject, message, from_email, [self.email], **kwargs)"""
+        send_mail(subject, message, from_email, [self.email], **kwargs)
+
+class Address(models.Model):
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name="addresses", related_query_name="address")
+    nom = models.CharField(_('Nom'), max_length=30)
+    prenom = models.CharField(_('prénom'), max_length=30)
+    societe = models.CharField(_("nom de l'entreprise"), max_length=30, null=True, blank=True)
+    phone = models.PositiveIntegerField(_('téléphone'))
+    numetvoie = models.CharField(_('numéro et nom de la rue'), max_length=50)
+    post_code = models.PositiveIntegerField(_('code postal'))
+    city = models.CharField(_('ville'), max_length=30)
+    other_info = models.CharField(_('informations complémentaires'), max_length=50, null=True, blank=True)

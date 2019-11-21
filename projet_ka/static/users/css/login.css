@@ -21,6 +21,11 @@ max-width: 60rem;
 margin: 2rem auto;
 }
 
+.errormess
+{
+color: red;
+}
+
 .formlogin
 {
 text-align: center;
@@ -66,10 +71,10 @@ transition: 0.4s;}
     transform-origin: 0 0;
 }
 
-.inptext:not(:placeholder-shown)
+/*.inptext:not(:placeholder-shown)
 {
 border: 1px solid #5bc7ab;
-}
+}*/
 
 .sublog input
 {

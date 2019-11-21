@@ -1,42 +1,185 @@
+@media (max-width: 900px)
+{
+    .allcontusers
+    {
+    /*border: 1px solid red;*/
+    }
+
+    .fTrier
+	{
+		/*display: flex;
+		position:fixed;
+		top:0;
+		left: -1000px;
+		z-index: 9999;
+		height: 100%;
+		Width: 100%;
+		flex-shrink: 1;*/
+		Width: 90%;
+		margin: auto;
+		transition: all 0.5s ease-in;
+		border: 1px solid #eaeaea;
+		border-radius: 5px;
+	}
+
+	.fTrier:hover
+	{
+	border: 1px solid #5bc7ab;
+	transition: all 0.5s ease-in;
+	}
+
+	.margeTr
+	{
+	display: grid;
+	justify-content: space-between;
+	/*justify-items: center;*/
+	align-items: center;
+	width: 100%;
+	grid-template-columns: 1fr 4.5rem;
+	grid-template-areas: "tit btn";
+	cursor: pointer;
+	}
+
+	.tit_burger
+	{
+	grid-area: tit;
+	/*border: 1px solid red;*/
+	font-size: 1.3rem;
+	font-weight: bold;
+	justify-self: stretch;
+	text-align: center;
+	}
+
+	.contenant_burger
+    {
+    position: relative;
+    grid-area: btn;
+    /*border: 1px solid red;*/
+    height: 3.2rem;
+    }
+
+    .btn_burger
+    {
+    top: 0.6rem;
+    }
+
+    .corpsTr
+    {
+    display: none;
+    }
+}
+
+
+@media (min-width: 901px)
+{
+    .allcontusers
+    {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+	.notMin
+	{
+		display: none;
+	}
+
+	.fTrier
+	{
+
+	}
+
+	.contenuP
+	{
+		width: 70%;
+		max-width: 50rem;
+	}
+
+		.corpsTr
+	{
+		background: #FFF;
+		margin-top: 2rem;
+	}
+}
+	/*Configuration de la partie filtres */
+
+	.partRayon, .partTrier
+	{
+	}
+
+    .profselect, .profnorm
+    {
+    display: block;
+    padding: 1rem 2rem 1rem 0.5rem;
+    cursor: pointer;
+    }
+
+    .profselect{
+    background-color: rgba(92, 103, 115, 1);
+    color: #FFF;
+    border-radius: 0.5rem;
+    }
+
+    .profnorm
+    {
+    color: grey;
+    }
+
+    .profnorm:hover
+    {
+    color: #5bc7ab;
+    }
 
 .titcompte
 {
 /*border: 1px solid blue;*/
+margin: 0.5rem;
 }
 
 .titcompte h3
 {
-font-size: 1.2rem;
-color: #5bc7ab;
-text-align: center;
+font-size: 1.4rem;
+color: #9098A9;
+text-align: left;
+border-bottom: 2px solid #5bc7ab;
+margin: 0;
 }
 
 .contentcre
 {
 /*border: 1px solid red;*/
-padding: 2rem;
-background: #fafafa;
+padding: 1rem;
+/*background: #fafafa;*/
 width: 100%;
 max-width: 40rem;
-margin: 2rem auto;
+margin: 0rem auto;
 }
 
-.formcre
+.formcrea
 {
-text-align: center;
+margin-top: 1rem;
+}
+
+.inpcomplet
+{
+width: 90%;
+max-width: 50rem;
+margin: auto auto 1rem;
 }
 
 .inplog{
 width: 100%;
-max-width: 50rem;
-margin: 2.5rem auto 0.5rem;
-position: relative;}
+position: relative;
+/*padding-top: 2.5rem;*/
+margin: 0.2rem 0;
+}
 
 .inptext{
 width: 100%;
 border: 1px solid #ccc;
 padding: 0.6rem 1rem;
-transition: 0.4s;}
+transition: 0.4s;
+}
 
 .focus-border:before, .focus-border:after
 {content: ""; position: absolute; top: 0; left: 50%; width: 0; height: 2px; background-color: #5bc7ab; transition: 0.4s;}
@@ -58,12 +201,19 @@ transition: 0.4s;}
 
 .inplabel
  {
-    position: absolute;
+    /*position: absolute;
     top: -1.5rem;
-    left: 0;
+    left: 0;*/
     color: #9098A9;
     font-weight: 500;
     transform-origin: 0 0;
+    padding: 0.5rem;
+}
+
+.helptext
+{
+margin: 0;
+padding: 0.5rem;
 }
 
 /*.inptext:not(:placeholder-shown)
@@ -100,7 +250,9 @@ font-size: 0.9rem;
 .inplogcheck {
     vertical-align: middle;
     text-align: left;
-    margin-top: 1rem;
+    margin: 1rem auto 0;
+    width: 90%;
+    max-width: 50rem;
   }
 
 .inplabelcheck {
@@ -212,3 +364,59 @@ color: red;
           transition: width 150ms ease 100ms;
         }
 
+.chmdp, .supprcmt
+{
+position: relative;
+cursor: pointer;
+}
+
+.supprcmt
+{
+margin-bottom: 2rem;
+}
+
+.arrowTrier:before
+{
+	content:'';
+	position: absolute;
+	right: 10px;
+	bottom: 0.5rem;
+	width: 8px;
+	height: 8px;
+	border-top: 2px solid grey;
+	border-right: 2px solid grey;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+	background: transparent;
+}
+
+.arrowTarget:before
+{
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+
+.affsupprcmt
+{
+justify-self: center;
+}
+
+.btnSupprCompte, .btnnewaddress
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(92, 103, 115, 1);
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	border-radius: 0.3rem;
+	height: 2.5rem;
+	width: 80%;
+	min-width: 26rem;
+	border: none;
+	cursor: pointer;
+	margin: 0rem auto 0.5rem;
+}

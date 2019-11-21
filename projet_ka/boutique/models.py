@@ -5,9 +5,9 @@ from django.utils import timezone
 
 class Produit(models.Model):
 	nom = models.CharField(max_length=40)
-	cat = models.ForeignKey('Categorie_produit', on_delete = models.CASCADE) #Catégorie
+	cat = models.ForeignKey('Categorie_produit', null=True, on_delete=models.SET_NULL) #Catégorie
 	prix_p = models.FloatField(blank = True)
-	type_prix = models.ForeignKey('Type_de_prix', on_delete = models.CASCADE)   #kg ou l ou pce
+	type_prix = models.ForeignKey('Type_de_prix', null=True, on_delete=models.SET_NULL)   #kg ou l ou pce
 	date_saisie = models.DateTimeField(auto_now_add=True, verbose_name = "Date d'enregistrement du produit")
 	date_der_modif = models.DateTimeField(verbose_name = "date de modification", auto_now=True, null = True, blank = True)
 	# null autorise la valeur vide dans la BDD, blank autorise la saisie de vide dans la validation django ou formulaire
@@ -28,7 +28,7 @@ class Produit(models.Model):
 	proteine = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
 	sel = models.DecimalField(null = True, blank = True, max_digits=7, decimal_places=2)
 
-	producteur = models.ForeignKey('Producteur', on_delete = models.CASCADE)
+	producteur = models.ForeignKey('Producteur', null=True, on_delete=models.SET_NULL)
 	image_p = models.ImageField(upload_to="image_produit/")
 
 	class Meta:

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import MyUserCreationForm, MyUserChangeForm
-from .models import MyUser
+from .models import MyUser, Address, BaseUserManager
 
 # Register your models here.
 class CustomUserAdmin(UserAdmin):
@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ('email', 'is_staff', 'is_active',)
     list_filter = ('email', 'is_staff', 'is_active',)
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'first_name')}),
+        (None, {'fields': ('email', 'password', 'first_name', 'adresses')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
@@ -26,3 +26,4 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(MyUser, CustomUserAdmin)
+admin.site.register(Address)
