@@ -3,12 +3,54 @@
   <component name="ChangeListManager">
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0002_auto_20181130_1012.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0003_auto_20181226_1630.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0004_auto_20181226_1812.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0005_auto_20181227_1901.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0006_auto_20181227_1910.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0007_auto_20190103_1929.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0008_auto_20190103_1930.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0009_auto_20190103_1950.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0010_auto_20190103_2000.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0011_emballage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0012_auto_20190226_1515.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0013_auto_20190226_1524.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0014_auto_20191010_1040.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0015_auto_20191014_1234.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/migrations/0016_auto_20191120_1656.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/projet_ka/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0002_myuser_is_staff.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0003_auto_20191015_1001.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0004_auto_20191015_1008.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0005_auto_20191015_1009.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0006_auto_20191015_1012.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0007_auto_20191023_1307.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0008_myuser_newsletter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0009_auto_20191028_1700.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0010_auto_20191028_1702.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0011_auto_20191028_1707.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0012_auto_20191028_1724.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0013_auto_20191106_1711.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0014_auto_20191119_1449.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0015_auto_20191119_1451.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0016_auto_20191119_1454.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0017_auto_20191119_1509.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0018_auto_20191119_1603.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0019_auto_20191119_1604.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0020_myuser_adresses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0021_auto_20191120_1654.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0022_auto_20191120_1723.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/0023_auto_20191120_1731.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/migrations/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/carnet_adresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/carnet_adresses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/registeruser.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/registeruser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/side_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

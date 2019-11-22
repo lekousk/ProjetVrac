@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Authenti
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.hashers import check_password
-from .models import MyUser, Address
+from .models import MyUser, Address, ProfileCustomer
 from django import forms
 
 class DateInput(forms.DateInput):
@@ -28,7 +28,7 @@ class MyUserCreationForm(UserCreationForm):
 
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'email', 'password1', 'password2', 'newsletter')
+        fields = ('last_name', 'first_name', 'email', 'password1', 'password2',)
         field_classes = {'username': UsernameField}
         error_messages = {
             'email': {
@@ -43,31 +43,30 @@ class MyUserCreationForm(UserCreationForm):
         for visible in self.visible_fields():
             visible.field.widget.attrs.update({'class': 'inptext'})
         self.fields['last_name'].widget.attrs.update({'autofocus': True})
-        self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
-
-class MyUserChangeForm(UserChangeForm):
-
-    class Meta(UserChangeForm.Meta):
-        model = MyUser
-        fields = ('email',)
-
-class CustomAuthForm(AuthenticationForm):
-    username = forms.CharField(label=_("E-MAIL"), widget=forms.TextInput(attrs={'autofocus': True, 'class': 'inptext', 'type': 'email', 'placeholder':'Adresse e-mail'}))
-    password = forms.CharField(label=_("MOT DE PASSE"), strip=False, widget=forms.PasswordInput(attrs={'placeholder':'Mot de passe', 'class': 'inptext'}))
+        #self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
 
 class MyUserModifForm(forms.ModelForm):
-    typ_form = 1
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'email', 'birth_date', 'newsletter')
+        fields = ('last_name', 'first_name', 'email',)
         exclude = ('password',)
-        widgets = {
-            'birth_date': DateInput(),
-        }
         error_messages = {
             'email': {
                 'unique': _("Cette adresse e-mail existe déjà"),
             }
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs.update({'class': 'inptext'})
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = ProfileCustomer
+        exclude = ('user', 'adresse_defaut',)
+        widgets = {
+            'birth_date': DateInput(),
         }
 
     def __init__(self, *args, **kwargs):
@@ -79,6 +78,16 @@ class MyUserModifForm(forms.ModelForm):
         self.fields['newsletter'].widget.attrs.update({'class': 'inpcheck'})
         #self.fields['phone'].widget.input_type = 'tel'
         #self.fields['phone'].widget.attrs.update({'minlength': '10'})
+
+class MyUserChangeForm(UserChangeForm):
+
+    class Meta(UserChangeForm.Meta):
+        model = MyUser
+        fields = ('email',)
+
+class CustomAuthForm(AuthenticationForm):
+    username = forms.CharField(label=_("E-MAIL"), widget=forms.TextInput(attrs={'autofocus': True, 'class': 'inptext', 'type': 'email', 'placeholder':'Adresse e-mail'}))
+    password = forms.CharField(label=_("MOT DE PASSE"), strip=False, widget=forms.PasswordInput(attrs={'placeholder':'Mot de passe', 'class': 'inptext'}))
 
 class MyPasswordChangeForm(PasswordChangeForm):
     new_password1 = forms.CharField(

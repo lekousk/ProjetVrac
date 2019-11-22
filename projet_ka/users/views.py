@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from .models import Address, MyUser
 
-from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse, ProfileForm
 
 # Create your views here.
 
@@ -44,22 +44,26 @@ def Registeruser(request):
 @login_required()
 def Profile(request):
 
-    chpass = MyPasswordChangeForm(user=request.user)
+    chpass_form = MyPasswordChangeForm(user=request.user)
     succes_info_form = False
     hidden = True
 
     if request.method == 'POST':
-        myuserf = MyUserModifForm(request.POST, instance=request.user)
+        myuser_form = MyUserModifForm(request.POST, instance=request.user)
+        customer_form = ProfileForm(request.POST, instance=request.user.profile_customer)
 
-        if myuserf.is_valid():
-            myuserf.save()
+        if myuser_form.is_valid() and customer_form.is_valid():
+            myuser_form.save()
+            customer_form.save()
             succes_info_form = True
     else:
-        myuserf = MyUserModifForm(instance=request.user)
+        myuser_form = MyUserModifForm(instance=request.user)
+        customer_form = ProfileForm(instance=request.user.profile_customer)
 
     context = {
-        'form_info': myuserf,
-        'form_mdp' : chpass,
+        'form_myuser': myuser_form,
+        'form_customer': customer_form,
+        'form_mdp': chpass_form,
         'succes_info_form': succes_info_form,
         'cacher_hid': hidden,
     }
@@ -68,20 +72,22 @@ def Profile(request):
 
 @login_required()
 def MyPasswordChange(request):
-    myuserf = MyUserModifForm(instance=request.user)
+    myuser_form = MyUserModifForm(instance=request.user)
+    customer_form = ProfileForm(instance=request.user.profile_customer)
     hidden = False
 
     if request.method == 'POST':
-        chpass = MyPasswordChangeForm(data=request.POST, user=request.user)
-        update_session_auth_hash(request, chpass.user)
-        if chpass.is_valid():
-            chpass.save()
+        chpass_form = MyPasswordChangeForm(data=request.POST, user=request.user)
+        update_session_auth_hash(request, chpass_form.user)
+        if chpass_form.is_valid():
+            chpass_form.save()
     else:
-        chpass = MyPasswordChangeForm(user=request.user)
+        chpass_form = MyPasswordChangeForm(user=request.user)
 
     context = {
-        'form_info': myuserf,
-        'form_mdp' : chpass,
+        'form_myuser': myuser_form,
+        'form_customer': customer_form,
+        'form_mdp' : chpass_form,
         'cacher_hid': hidden,
     }
 
@@ -95,7 +101,7 @@ def Delete_user(request):
         temp = request.POST
 
         if conf_passw.is_valid():
-            temp = 'Profile prêt à être supprimé'
+            temp = 'Votre compte est prêt à être supprimé'
     else:
         conf_passw = ConfirmPasswForm()
 
@@ -109,24 +115,28 @@ def Delete_user(request):
 
 @login_required()
 def New_adresse(request):
-    form_adress = NewAdresse()
+    adress_form = NewAdresse()
     if request.method == 'POST':
-        form_adress = NewAdresse(request.POST)
-        if form_adress.is_valid():
-            adresse_temp = form_adress.save(commit=False)
+        adress_form = NewAdresse(request.POST)
+        if adress_form.is_valid():
+            adresse_temp = adress_form.save(commit=False)
             adresse_temp.user = request.user
             adresse_temp.save()
 
     context = {
-        'form_adress': form_adress,
+        'form_adress': adress_form,
     }
     return render(request, 'users/adresse.html', context)
 
 @login_required()
 def Carnet_adresses(request):
-    Liste_adresse = Address.objects.filter(user__exact=request.user)
+    addressbook = Address.objects.filter(user__exact=request.user)
+    form_adress = True
+    temp = request.user.id
 
     context = {
-        'form_adress': Liste_adresse,
+        'addresses_list': addressbook,
+        'form_adress': form_adress,
+        'temp': temp,
     }
     return render(request, 'users/carnet_adresses.html', context)

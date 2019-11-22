@@ -13,7 +13,21 @@
             {% if succes_info_form %}
             <p>Vos informations ont été mises à jour</p>
             {% endif %}
-            {% for inform in form_info %}
+            {% for inform in form_myuser %}
+            <div class="inpcomplet">
+                <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
+                <div class="inplog">
+                {{ inform }}
+                    <span class="focus-border"></span>
+                    <i></i>
+                </div>
+                {% if inform.help_text %}
+                <p class="helptext">({{ inform.help_text }})</p>
+                {% endif %}
+            </div>
+            {{ inform.errors }}
+            {% endfor %}
+            {% for inform in form_customer %}
             {% if forloop.last is False %}
             <div class="inpcomplet">
                 <label for="{{ inform.id_for_label }}" class="inplabel" >{{ inform.label }} {% if inform.field.required %}*{% endif %}</label>
