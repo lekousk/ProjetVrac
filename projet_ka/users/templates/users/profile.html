@@ -8,7 +8,7 @@
         <div class="titcompte">
             <h3>Vos informations personnelles</h3>
         </div>
-        <form class="formcrea" method="post" action="{% url 'profile' %}">
+        <form class="formcrea large_profile" method="post" action="{% url 'profile' %}">
             {% csrf_token %}
             {% if succes_info_form %}
             <p>Vos informations ont été mises à jour</p>
@@ -61,7 +61,7 @@
         <div class="titcompte chmdp">
             <h3 class="arrowTrier{% if not cacher_hid %} arrowTarget{% endif %}">Changer le mot de passe</h3>
         </div>
-        <form class="formcrea chmdpform" method="post" action="{% url 'my_password_change' %}"{% if cacher_hid %} hidden{% endif %}>
+        <form class="formcrea chmdpform large_profile" method="post" action="{% url 'my_password_change' %}"{% if cacher_hid %} hidden{% endif %}>
             {% csrf_token %}
             {% for inform in form_mdp %}
             <div class="inpcomplet">
@@ -87,7 +87,7 @@
         <div class="titcompte supprcmt">
             <h3 class="arrowTrier">Supprimer mon compte</h3>
         </div>
-        <div class="affsupprcmt" hidden>
+        <div class="affsupprcmt large_profile" hidden>
             <a class="btnSupprCompte" href="{% url 'delete_confirmation' %}">SUPPRIMER MON COMPTE</a>
         </div>
     </div>

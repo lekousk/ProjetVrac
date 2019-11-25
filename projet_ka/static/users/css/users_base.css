@@ -1,3 +1,31 @@
+/* Utilisation particulière pour les media query */
+    /* affichage de la grille de résultat */
+
+    /*@media all and (max-width: 900px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media all and (min-width: 901px) and (max-width: 1250px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(8, 1fr);
+        }
+    }
+
+    @media all and (min-width: 1251px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(12, 1fr);
+        }
+    }*/
+/* fin utilisation particulière */
+
 @media (max-width: 900px)
 {
     .allcontusers
@@ -67,6 +95,11 @@
     {
     display: none;
     }
+
+    .adresse_find
+    {
+        width: 17rem;
+    }
 }
 
 
@@ -92,7 +125,7 @@
 	.contenuP
 	{
 		width: 70%;
-		max-width: 50rem;
+		max-width: 52rem;
 	}
 
 		.corpsTr
@@ -100,8 +133,19 @@
 		background: #FFF;
 		margin-top: 2rem;
 	}
+
+	.resultat_adresses
+	{
+	font-size: 0.9rem;
+	}
+
+	.adresse_find
+    {
+        width: 15rem;
+    }
 }
-	/*Configuration de la partie filtres */
+
+/*Configuration de la partie filtres */
 
 	.partRayon, .partTrier
 	{
@@ -130,6 +174,15 @@
     color: #5bc7ab;
     }
 
+.contentcre
+{
+/*border: 1px solid red;*/
+padding: 1rem;
+/*background: #fafafa;*/
+width: 100%;
+margin: 0rem auto;
+}
+
 .titcompte
 {
 /*border: 1px solid blue;*/
@@ -145,14 +198,10 @@ border-bottom: 2px solid #5bc7ab;
 margin: 0;
 }
 
-.contentcre
+.large_profile
 {
-/*border: 1px solid red;*/
-padding: 1rem;
-/*background: #fafafa;*/
-width: 100%;
-max-width: 40rem;
-margin: 0rem auto;
+max-width: 35rem;
+margin: auto;
 }
 
 .formcrea
@@ -414,9 +463,65 @@ justify-self: center;
 	font-size: 1rem;
 	border-radius: 0.3rem;
 	height: 2.5rem;
-	width: 80%;
-	min-width: 26rem;
+	width: 22rem;
 	border: none;
 	cursor: pointer;
 	margin: 0rem auto 0.5rem;
+}
+
+/* Partie carnet d'adresses */
+
+.resultat_adresses /* font-size | justify-content dans media min-width: 901px */
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0.5rem 1rem;
+	width: 100%;
+}
+
+.adresse_find /* width dans media spécial */
+{
+	background: #FFF;
+	border: 1px solid #F1F1F1;
+	box-shadow: 5px 4px 3px -2px #D8D8D8;
+	margin: 0.5rem;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 10rem;
+	font-style: normal;
+}
+
+.adresse_defaut
+{
+border: 2px solid #5bc7ab;
+}
+
+.adresse_ul
+{
+margin: 0.5rem;
+padding-left: 0.5rem;
+color: #111;
+font-style: normal;
+}
+.adresse_li
+{
+list-style: none;
+margin: 0;
+}
+
+.adresse_span1
+{
+font-weight: 700;
+}
+
+.adresse_span
+{
+font-weight: 200;
+}
+
+.adresse_modif
+{
+padding: 0 0.5rem 0.5rem;
 }

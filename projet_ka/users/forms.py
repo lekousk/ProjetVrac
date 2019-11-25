@@ -28,7 +28,7 @@ class MyUserCreationForm(UserCreationForm):
 
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'email', 'password1', 'password2',)
+        fields = ('genre', 'last_name', 'first_name', 'email', 'password1', 'password2',)
         field_classes = {'username': UsernameField}
         error_messages = {
             'email': {
@@ -48,7 +48,7 @@ class MyUserCreationForm(UserCreationForm):
 class MyUserModifForm(forms.ModelForm):
     class Meta:
         model = MyUser
-        fields = ('last_name', 'first_name', 'email',)
+        fields = ('genre', 'last_name', 'first_name', 'email',)
         exclude = ('password',)
         error_messages = {
             'email': {

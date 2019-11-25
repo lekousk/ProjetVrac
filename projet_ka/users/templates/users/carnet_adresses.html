@@ -8,7 +8,71 @@
     <div class="titcompte">
         <h3>Mon carnet d'adresses</h3>
     </div>
-    {{ temp }}
+    <div class="resultat_adresses">
+        {% if adresse_defaut %}
+        <address class="adresse_find adresse_defaut">
+            <ul class="adresse_ul">
+                <li class="adresse_li">
+                    <span class="adresse_span1">{{ adresse_defaut.prenom|title  }} {{ adresse_defaut.nom|upper }}</span>
+                </li>
+                {% if adresse_defaut.societe %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.societe }}</span>
+                </li>
+                {% endif %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.numetvoie }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.city|upper }}, {{ adresse_defaut.post_code }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">Tel: {{ adresse_defaut.phone }}</span>
+                </li>
+            </ul>
+            <div class="adresse_modif">
+                <a>Modifier</a> | <a>Supprimer</a>
+            </div>
+        </address>
+        {% endif %}
+        {% if addresses_list %}
+        {% for inform in addresses_list %}
+        <address class="adresse_find">
+            <ul class="adresse_ul">
+                <li class="adresse_li">
+                    <span class="adresse_span1">{{ inform.prenom|title  }} {{ inform.nom|upper }}</span>
+                </li>
+                {% if inform.societe %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.societe }}</span>
+                </li>
+                {% endif %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.numetvoie }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.city|upper }}, {{ inform.post_code }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">Tel: {{ inform.phone }}</span>
+                </li>
+            </ul>
+            <div class="adresse_modif">
+                <a>Modifier</a> | <a>Supprimer</a> | <a>Par défaut</a>
+            </div>
+        </address>
+        {% endfor %}
+        </div>
+        {% else %}
+        <div>
+            <p>Aucune adresse ma couille</p>
+        </div>
+    {% endif %}
+
+    <div class="subcrea">
+        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
+    </div>
+    {% comment %}
     <div>
         {% for inform in addresses_list %}
         <article>
@@ -17,9 +81,8 @@
         {% endfor %}
     </div>
     {{ addresses_list }}
-    <div class="subcrea">
-        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
-    </div>
+    </br>{{ temp }}
+    {% endcomment %}
 </div>
 
 {% endblock %}

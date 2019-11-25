@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
-from .models import Address, MyUser
+from .models import Address, ProfileCustomer
 
 from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse, ProfileForm
 
@@ -30,9 +30,9 @@ def Registeruser(request):
                 'user': user,
             })
             mail_subject = "Confirmation de votre inscription Bokalia"
-            user.email_user(mail_subject, message)
-            #email = EmailMessage(mail_subject, message, to=[username])
-            #email.send()
+            """user.email_user(mail_subject, message) A re-selectionner !!!"""
+            #email = EmailMessage(mail_subject, message, to=[username]) A supprimer
+            #email.send() A supprimer
             return redirect('welcome')
 
     else:
@@ -130,12 +130,17 @@ def New_adresse(request):
 
 @login_required()
 def Carnet_adresses(request):
-    addressbook = Address.objects.filter(user__exact=request.user)
+    addressbook = Address.objects.filter(user__id__exact=request.user.id)
+    address_default = ProfileCustomer.objects.get(user__id=request.user.id).adresse_defaut
     form_adress = True
     temp = request.user.id
 
+    if address_default:
+        addressbook = addressbook.exclude(id__exact=address_default.id)
+
     context = {
         'addresses_list': addressbook,
+        'adresse_defaut': address_default,
         'form_adress': form_adress,
         'temp': temp,
     }
