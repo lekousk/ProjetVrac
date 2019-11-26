@@ -9,9 +9,12 @@
         <h3>Mon carnet d'adresses</h3>
     </div>
     <div class="resultat_adresses">
-        {% if adresse_defaut %}
+    {% if adresse_defaut %}
         <address class="adresse_find adresse_defaut">
             <ul class="adresse_ul">
+                <li class="adresse_li adresse_lid">
+                    <span class="adresse_span">Adresse par défaut</span>
+                </li>
                 <li class="adresse_li">
                     <span class="adresse_span1">{{ adresse_defaut.prenom|title  }} {{ adresse_defaut.nom|upper }}</span>
                 </li>
@@ -35,6 +38,8 @@
             </div>
         </address>
         {% endif %}
+    </div>
+    <div class="resultat_adresses">
         {% if addresses_list %}
         {% for inform in addresses_list %}
         <address class="adresse_find">
@@ -62,13 +67,17 @@
             </div>
         </address>
         {% endfor %}
-        </div>
+        <form method="get" hidden>
+            <input name="adt" class="adt_form" value="">
+            <input name="adv" class="adv_form" value="">
+            <input class="btn_appliquer" type="submit" value="Appliquer">
+        </form>
         {% else %}
         <div>
             <p>Aucune adresse ma couille</p>
         </div>
-    {% endif %}
-
+        {% endif %}
+    </div>
     <div class="subcrea">
         <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
     </div>

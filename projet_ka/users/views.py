@@ -130,17 +130,34 @@ def New_adresse(request):
 
 @login_required()
 def Carnet_adresses(request):
+    modif_type = request.GET.get('adt')
+    modif_value = request.GET.get('adv')
     addressbook = Address.objects.filter(user__id__exact=request.user.id)
-    address_default = ProfileCustomer.objects.get(user__id=request.user.id).adresse_defaut
+    profile = ProfileCustomer.objects.get(user__id=request.user.id)
     form_adress = True
     temp = request.user.id
 
-    if address_default:
-        addressbook = addressbook.exclude(id__exact=address_default.id)
+    try:
+        modif_type = int(modif_type)
+        int(modif_value)
+        modif_value = addressbook.get(id__exact=modif_value)
+    except:
+        modif_type = 0
+        modif_value = 0
+
+    if modif_type == 1:
+        temp = modif_type
+    elif modif_type == 3:
+        profile.adresse_defaut = modif_value
+        temp = profile.adresse_defaut.id
+        profile.save()
+
+    if profile.adresse_defaut:
+        addressbook = addressbook.exclude(id__exact=profile.adresse_defaut.id)
 
     context = {
         'addresses_list': addressbook,
-        'adresse_defaut': address_default,
+        'adresse_defaut': profile.adresse_defaut,
         'form_adress': form_adress,
         'temp': temp,
     }
