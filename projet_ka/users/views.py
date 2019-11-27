@@ -114,17 +114,26 @@ def Delete_user(request):
     return render(request, 'users/delete.html', context)
 
 @login_required()
-def New_adresse(request):
-    adress_form = NewAdresse()
+def New_Edit_adresse(request, num=None):
+    succes_info_form = False
+
+    if num is not None:
+        adress = get_object_or_404(Address, user=request.user, id=num)
+    else:
+        adress = Address(user=request.user)
+
     if request.method == 'POST':
-        adress_form = NewAdresse(request.POST)
+        adress_form = NewAdresse(request.POST, instance=adress)
         if adress_form.is_valid():
-            adresse_temp = adress_form.save(commit=False)
-            adresse_temp.user = request.user
-            adresse_temp.save()
+            adress_form.save()
+            succes_info_form = True
+    else:
+        adress_form = NewAdresse(instance=adress)
+    tep = False
 
     context = {
         'form_adress': adress_form,
+        'succes_info_form': succes_info_form,
     }
     return render(request, 'users/adresse.html', context)
 

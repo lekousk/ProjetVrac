@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.urls import path
 from django.conf.urls import url
-from boutique import views
+from . import views
 
 
 urlpatterns = [

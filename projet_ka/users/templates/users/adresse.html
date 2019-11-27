@@ -8,7 +8,7 @@
         <div class="titcompte">
             <h3>Nouvelle adresse</h3>
         </div>
-        <form class="formcrea large_profile" method="POST" action="{% url 'new_adresse' %}">
+        <form class="formcrea large_profile" method="POST" action="">
             {% csrf_token %}
             {% if succes_info_form %}
             <p>Vos informations ont été mises à jour</p>

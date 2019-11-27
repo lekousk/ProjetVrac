@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/users/css/users_base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/carnet_adresses.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/carnet_adresses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/boutique/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/templates/users/adresse.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/templates/users/adresse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
