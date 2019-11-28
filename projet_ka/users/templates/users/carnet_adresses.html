@@ -8,6 +8,9 @@
     <div class="titcompte">
         <h3>Mon carnet d'adresses</h3>
     </div>
+    {% if succes_info_form %}
+    <p>Vos informations ont été mises à jour</p>
+    {% endif %}
     <div class="resultat_adresses">
     {% if adresse_defaut %}
         <address class="adresse_find adresse_defaut">
@@ -34,7 +37,15 @@
                 </li>
             </ul>
             <div class="adresse_modif">
-                <a>Modifier</a> | <a>Supprimer</a>
+                <a href="{% url 'new_adresse' adresse_defaut.id %}">Modifier</a> | <a href="?adt=1&adv={{ adresse_defaut.id }}">Supprimer</a>
+            </div>
+        </address>
+        {% else %}
+        <address class="adresse_find adresse_defaut">
+            <div>
+                <li class="adresse_li adresse_lid">
+                    <span class="adresse_span">Aucune adresse par défaut</span>
+                </li>
             </div>
         </address>
         {% endif %}
@@ -63,7 +74,7 @@
                 </li>
             </ul>
             <div class="adresse_modif">
-                <a>Modifier</a> | <a>Supprimer</a> | <a>Par défaut</a>
+                <a href="{% url 'new_adresse' inform.id %}">Modifier</a> | <a href="?adt=1&adv={{ inform.id }}">Supprimer</a> | <a href="?adt=3&adv={{ inform.id }}">Par défaut</a>
             </div>
         </address>
         {% endfor %}

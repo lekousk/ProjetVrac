@@ -116,6 +116,8 @@ def Delete_user(request):
 @login_required()
 def New_Edit_adresse(request, num=None):
     succes_info_form = False
+    profile = ProfileCustomer.objects.get(user__id=request.user.id)
+    temp = True
 
     if num is not None:
         adress = get_object_or_404(Address, user=request.user, id=num)
@@ -126,14 +128,17 @@ def New_Edit_adresse(request, num=None):
         adress_form = NewAdresse(request.POST, instance=adress)
         if adress_form.is_valid():
             adress_form.save()
-            succes_info_form = True
+            if profile.adresse_defaut is None:
+                profile.adresse_defaut = adress
+                profile.save()
+            return redirect('Carnet_adresses')
     else:
         adress_form = NewAdresse(instance=adress)
-    tep = False
 
     context = {
         'form_adress': adress_form,
         'succes_info_form': succes_info_form,
+        'temp': temp,
     }
     return render(request, 'users/adresse.html', context)
 
@@ -144,7 +149,12 @@ def Carnet_adresses(request):
     addressbook = Address.objects.filter(user__id__exact=request.user.id)
     profile = ProfileCustomer.objects.get(user__id=request.user.id)
     form_adress = True
-    temp = request.user.id
+    temp = 'ard'
+
+    if profile.adresse_defaut:
+        adresse_defaut = True
+    else:
+        adresse_defaut = False
 
     try:
         modif_type = int(modif_type)
@@ -155,18 +165,21 @@ def Carnet_adresses(request):
         modif_value = 0
 
     if modif_type == 1:
-        temp = modif_type
+        if profile.adresse_defaut == modif_value:
+            adresse_defaut = False
+        modif_value.delete()
     elif modif_type == 3:
         profile.adresse_defaut = modif_value
-        temp = profile.adresse_defaut.id
         profile.save()
+        adresse_defaut = True
 
-    if profile.adresse_defaut:
+    if adresse_defaut:
         addressbook = addressbook.exclude(id__exact=profile.adresse_defaut.id)
+        adresse_defaut = profile.adresse_defaut
 
     context = {
         'addresses_list': addressbook,
-        'adresse_defaut': profile.adresse_defaut,
+        'adresse_defaut': adresse_defaut,
         'form_adress': form_adress,
         'temp': temp,
     }
