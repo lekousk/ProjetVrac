@@ -20,9 +20,9 @@ from . import views
 
 
 urlpatterns = [
-    path('edition', views.New_produit_vue, name = 'edition'),
-    path('all_product/', views.Rechercher, name = 'all_products'),
-    path('produit/<int:id>', views.Aff_un_produit, name = 'lire'),
-    path('panier', views.Panier, name = 'panier'),
-    path('add_fast/', views.add_fast, name = 'add_fast'),
+    path('edition', views.NewProduitVue, name='edition'),
+    path('all_product/', views.Rechercher, name='all_products'),
+    path('produit/<int:id>', views.AffUnProduit, name='lire'),
+    path('panier', views.Panier, name='panier'),
+    path('add_fast/', views.AddFast, name='add_fast'),
 ]

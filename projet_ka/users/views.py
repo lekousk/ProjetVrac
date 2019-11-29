@@ -94,7 +94,7 @@ def MyPasswordChange(request):
     return render(request, 'users/profile.html', context)
 
 @login_required()
-def Delete_user(request):
+def DeleteUser(request):
     temp = 0
     if request.method == 'POST':
         conf_passw = ConfirmPasswForm(request.POST, instance=request.user)
@@ -114,7 +114,7 @@ def Delete_user(request):
     return render(request, 'users/delete.html', context)
 
 @login_required()
-def New_Edit_adresse(request, num=None):
+def NewEditAdresse(request, num=None):
     succes_info_form = False
     profile = ProfileCustomer.objects.get(user__id=request.user.id)
     temp = True
@@ -143,7 +143,7 @@ def New_Edit_adresse(request, num=None):
     return render(request, 'users/adresse.html', context)
 
 @login_required()
-def Carnet_adresses(request):
+def CarnetAdresses(request):
     modif_type = request.GET.get('adt')
     modif_value = request.GET.get('adv')
     addressbook = Address.objects.filter(user__id__exact=request.user.id)

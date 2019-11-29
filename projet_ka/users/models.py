@@ -83,7 +83,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
 @receiver(post_save, sender=MyUser)
-def create_profilecustomer(sender, instance, created, **kwargs):
+def CreateProfilecustomer(sender, instance, created, **kwargs):
     if created:
         ProfileCustomer.objects.create(user=instance)
 
