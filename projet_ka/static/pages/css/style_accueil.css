@@ -21,7 +21,8 @@ span
 	color: red;
 }
 
-#interieur
+.img_svg
 {
-fill: red;
+border: 1px solid red;
+cursor: pointer;
 }
