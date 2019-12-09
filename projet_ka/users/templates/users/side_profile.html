@@ -2,7 +2,7 @@
 <section class="fTrier">
 	<div class="margeTr notMin">
 		<div class="tit_burger">
-			{% if form_info %}
+			{% if form_myuser %}
 			Mes informations personnelles
 			{% elif form_adress %}
 			Carnet d'adresses
@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div class="corpsTr">
-		<a class="{% if form_info %}profselect{% else %}profnorm{% endif %}" href="{% url 'profile' %}">Mes informations personnelles</a>
+		<a class="{% if form_myuser %}profselect{% else %}profnorm{% endif %}" href="{% url 'profile' %}">Mes informations personnelles</a>
 		<a class="{% if form_adress %}profselect{% else %}profnorm{% endif %}" href="{% url 'Carnet_adresses' %}">Carnet d'adresses</a>
 		<a class="profnorm">Mes commandes</a>
 		<a class="profnorm">Historique de commandes</a>

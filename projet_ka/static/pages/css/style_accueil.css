@@ -20,3 +20,9 @@ span
 {
 	color: red;
 }
+
+.img_svg
+{
+border: 1px solid red;
+cursor: pointer;
+}

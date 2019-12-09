@@ -8,18 +8,101 @@
     <div class="titcompte">
         <h3>Mon carnet d'adresses</h3>
     </div>
-    {{ user.id }}
+    {% if succes_info_form %}
+    <p>Vos informations ont été mises à jour</p>
+    {% endif %}
+    <div class="resultat_adresses">
+    {% if adresse_defaut %}
+        <address class="adresse_find adresse_defaut">
+            <ul class="adresse_ul">
+                <li class="adresse_li adresse_lid">
+                    <span class="adresse_span">Adresse par défaut</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span1">{{ adresse_defaut.prenom|title  }} {{ adresse_defaut.nom|upper }}</span>
+                </li>
+                {% if adresse_defaut.societe %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.societe }}</span>
+                </li>
+                {% endif %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.numetvoie }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ adresse_defaut.city|upper }}, {{ adresse_defaut.post_code }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">Tel: {{ adresse_defaut.phone }}</span>
+                </li>
+            </ul>
+            <div class="adresse_modif">
+                <a href="{% url 'new_adresse' adresse_defaut.id %}">Modifier</a> | <a href="?adt=1&adv={{ adresse_defaut.id }}">Supprimer</a>
+            </div>
+        </address>
+        {% else %}
+        <address class="adresse_find adresse_defaut">
+            <div>
+                <li class="adresse_li adresse_lid">
+                    <span class="adresse_span">Aucune adresse par défaut</span>
+                </li>
+            </div>
+        </address>
+        {% endif %}
+    </div>
+    <div class="resultat_adresses">
+        {% if addresses_list %}
+        {% for inform in addresses_list %}
+        <address class="adresse_find">
+            <ul class="adresse_ul">
+                <li class="adresse_li">
+                    <span class="adresse_span1">{{ inform.prenom|title  }} {{ inform.nom|upper }}</span>
+                </li>
+                {% if inform.societe %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.societe }}</span>
+                </li>
+                {% endif %}
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.numetvoie }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">{{ inform.city|upper }}, {{ inform.post_code }}</span>
+                </li>
+                <li class="adresse_li">
+                    <span class="adresse_span">Tel: {{ inform.phone }}</span>
+                </li>
+            </ul>
+            <div class="adresse_modif">
+                <a href="{% url 'new_adresse' inform.id %}">Modifier</a> | <a href="?adt=1&adv={{ inform.id }}">Supprimer</a> | <a href="?adt=3&adv={{ inform.id }}">Par défaut</a>
+            </div>
+        </address>
+        {% endfor %}
+        <form method="get" hidden>
+            <input name="adt" class="adt_form" value="">
+            <input name="adv" class="adv_form" value="">
+            <input class="btn_appliquer" type="submit" value="Appliquer">
+        </form>
+        {% else %}
+        <div>
+            <p>Aucune adresse ma couille</p>
+        </div>
+        {% endif %}
+    </div>
+    <div class="subcrea">
+        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
+    </div>
+    {% comment %}
     <div>
-        {% for inform in form_adress %}
+        {% for inform in addresses_list %}
         <article>
             {{ inform.user }}
         </article>
         {% endfor %}
     </div>
-    {{ form_adress }}
-    <div class="subcrea">
-        <a class="btnnewaddress" href="{% url 'new_adresse' %}">AJOUTER UNE NOUVELLE ADRESSE</a>
-    </div>
+    {{ addresses_list }}
+    </br>{{ temp }}
+    {% endcomment %}
 </div>
 
 {% endblock %}

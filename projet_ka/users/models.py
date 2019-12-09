@@ -4,6 +4,8 @@ from django.contrib.auth.models import PermissionsMixin
 
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -40,14 +42,17 @@ class MyUserManager(BaseUserManager):
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('E-mail'), unique=True, )
-    first_name = models.CharField(_('prénom'), max_length=30, blank=True)
-    last_name = models.CharField(_('nom'), max_length=30, blank=True)
-    birth_date = models.DateField(_("date d'anniversaire"), null=True, blank=True)
+    last_name = models.CharField(_('nom'), max_length=30)
+    first_name = models.CharField(_('prénom'), max_length=30)
     date_joined = models.DateTimeField(_("date d'enregistrement"), auto_now_add=True)
-    newsletter = models.BooleanField(default=False)
     is_active = models.BooleanField(_('profile actif'), default=True)
     is_staff = models.BooleanField(default=False)
-    adresses = models.ForeignKey('Address', null=True, on_delete=models.SET_NULL)
+    CATEGORY_CHOICES = (
+        ('M', _('Monsieur')),
+        ('Mme', _('Madame')),
+        ('Mlle', _('Mademoiselle')),
+    )
+    genre = models.CharField(_('Civilité'), max_length=5, choices=CATEGORY_CHOICES)
 
     objects = MyUserManager()
 
@@ -77,6 +82,20 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         '''
         send_mail(subject, message, from_email, [self.email], **kwargs)
 
+@receiver(post_save, sender=MyUser)
+def CreateProfilecustomer(sender, instance, created, **kwargs):
+    if created:
+        ProfileCustomer.objects.create(user=instance)
+
+class ProfileCustomer(models.Model):
+    user = models.OneToOneField(MyUser, on_delete=models.CASCADE, related_name='profile_customer')
+    birth_date = models.DateField(_("date d'anniversaire"), null=True, blank=True)
+    newsletter = models.BooleanField(default=False)
+    adresse_defaut = models.ForeignKey('Address', null=True, on_delete=models.SET_NULL, related_name="selected_address")
+
+    def __str__(self):
+        return self.user.email
+
 class Address(models.Model):
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name="addresses", related_query_name="address")
     nom = models.CharField(_('Nom'), max_length=30)
@@ -87,3 +106,9 @@ class Address(models.Model):
     post_code = models.PositiveIntegerField(_('code postal'))
     city = models.CharField(_('ville'), max_length=30)
     other_info = models.CharField(_('informations complémentaires'), max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return '%s - n°%s' % (self.user, self.id)
+
+    class Meta:
+        ordering = ['user', 'id']

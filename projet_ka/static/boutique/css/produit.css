@@ -697,6 +697,8 @@ color: black;
 	border: none;
 }
 
+/* Création du bouton en forme de croix */
+
 .btnCroix, .btnCroixEff
 {
 	background-color: transparent;

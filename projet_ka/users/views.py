@@ -6,9 +6,9 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash, login, authenticate
-from .models import Address, MyUser
+from .models import Address, ProfileCustomer
 
-from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse
+from .forms import MyUserCreationForm, MyUserModifForm, MyPasswordChangeForm, ConfirmPasswForm, NewAdresse, ProfileForm
 
 # Create your views here.
 
@@ -30,9 +30,9 @@ def Registeruser(request):
                 'user': user,
             })
             mail_subject = "Confirmation de votre inscription Bokalia"
-            user.email_user(mail_subject, message)
-            #email = EmailMessage(mail_subject, message, to=[username])
-            #email.send()
+            """user.email_user(mail_subject, message) A re-selectionner !!!"""
+            #email = EmailMessage(mail_subject, message, to=[username]) A supprimer
+            #email.send() A supprimer
             return redirect('welcome')
 
     else:
@@ -44,22 +44,26 @@ def Registeruser(request):
 @login_required()
 def Profile(request):
 
-    chpass = MyPasswordChangeForm(user=request.user)
+    chpass_form = MyPasswordChangeForm(user=request.user)
     succes_info_form = False
     hidden = True
 
     if request.method == 'POST':
-        myuserf = MyUserModifForm(request.POST, instance=request.user)
+        myuser_form = MyUserModifForm(request.POST, instance=request.user)
+        customer_form = ProfileForm(request.POST, instance=request.user.profile_customer)
 
-        if myuserf.is_valid():
-            myuserf.save()
+        if myuser_form.is_valid() and customer_form.is_valid():
+            myuser_form.save()
+            customer_form.save()
             succes_info_form = True
     else:
-        myuserf = MyUserModifForm(instance=request.user)
+        myuser_form = MyUserModifForm(instance=request.user)
+        customer_form = ProfileForm(instance=request.user.profile_customer)
 
     context = {
-        'form_info': myuserf,
-        'form_mdp' : chpass,
+        'form_myuser': myuser_form,
+        'form_customer': customer_form,
+        'form_mdp': chpass_form,
         'succes_info_form': succes_info_form,
         'cacher_hid': hidden,
     }
@@ -68,34 +72,36 @@ def Profile(request):
 
 @login_required()
 def MyPasswordChange(request):
-    myuserf = MyUserModifForm(instance=request.user)
+    myuser_form = MyUserModifForm(instance=request.user)
+    customer_form = ProfileForm(instance=request.user.profile_customer)
     hidden = False
 
     if request.method == 'POST':
-        chpass = MyPasswordChangeForm(data=request.POST, user=request.user)
-        update_session_auth_hash(request, chpass.user)
-        if chpass.is_valid():
-            chpass.save()
+        chpass_form = MyPasswordChangeForm(data=request.POST, user=request.user)
+        update_session_auth_hash(request, chpass_form.user)
+        if chpass_form.is_valid():
+            chpass_form.save()
     else:
-        chpass = MyPasswordChangeForm(user=request.user)
+        chpass_form = MyPasswordChangeForm(user=request.user)
 
     context = {
-        'form_info': myuserf,
-        'form_mdp' : chpass,
+        'form_myuser': myuser_form,
+        'form_customer': customer_form,
+        'form_mdp' : chpass_form,
         'cacher_hid': hidden,
     }
 
     return render(request, 'users/profile.html', context)
 
 @login_required()
-def Delete_user(request):
+def DeleteUser(request):
     temp = 0
     if request.method == 'POST':
         conf_passw = ConfirmPasswForm(request.POST, instance=request.user)
         temp = request.POST
 
         if conf_passw.is_valid():
-            temp = 'Profile prêt à être supprimé'
+            temp = 'Votre compte est prêt à être supprimé'
     else:
         conf_passw = ConfirmPasswForm()
 
@@ -108,25 +114,73 @@ def Delete_user(request):
     return render(request, 'users/delete.html', context)
 
 @login_required()
-def New_adresse(request):
-    form_adress = NewAdresse()
+def NewEditAdresse(request, num=None):
+    succes_info_form = False
+    profile = ProfileCustomer.objects.get(user__id=request.user.id)
+    temp = True
+
+    if num is not None:
+        adress = get_object_or_404(Address, user=request.user, id=num)
+    else:
+        adress = Address(user=request.user)
+
     if request.method == 'POST':
-        form_adress = NewAdresse(request.POST)
-        if form_adress.is_valid():
-            adresse_temp = form_adress.save(commit=False)
-            adresse_temp.user = request.user
-            adresse_temp.save()
+        adress_form = NewAdresse(request.POST, instance=adress)
+        if adress_form.is_valid():
+            adress_form.save()
+            if profile.adresse_defaut is None:
+                profile.adresse_defaut = adress
+                profile.save()
+            return redirect('Carnet_adresses')
+    else:
+        adress_form = NewAdresse(instance=adress)
 
     context = {
-        'form_adress': form_adress,
+        'form_adress': adress_form,
+        'succes_info_form': succes_info_form,
+        'temp': temp,
     }
     return render(request, 'users/adresse.html', context)
 
 @login_required()
-def Carnet_adresses(request):
-    Liste_adresse = Address.objects.filter(user__exact=request.user)
+def CarnetAdresses(request):
+    modif_type = request.GET.get('adt')
+    modif_value = request.GET.get('adv')
+    addressbook = Address.objects.filter(user__id__exact=request.user.id)
+    profile = ProfileCustomer.objects.get(user__id=request.user.id)
+    form_adress = True
+    temp = 'ard'
+
+    if profile.adresse_defaut:
+        adresse_defaut = True
+    else:
+        adresse_defaut = False
+
+    try:
+        modif_type = int(modif_type)
+        int(modif_value)
+        modif_value = addressbook.get(id__exact=modif_value)
+    except:
+        modif_type = 0
+        modif_value = 0
+
+    if modif_type == 1:
+        if profile.adresse_defaut == modif_value:
+            adresse_defaut = False
+        modif_value.delete()
+    elif modif_type == 3:
+        profile.adresse_defaut = modif_value
+        profile.save()
+        adresse_defaut = True
+
+    if adresse_defaut:
+        addressbook = addressbook.exclude(id__exact=profile.adresse_defaut.id)
+        adresse_defaut = profile.adresse_defaut
 
     context = {
-        'form_adress': Liste_adresse,
+        'addresses_list': addressbook,
+        'adresse_defaut': adresse_defaut,
+        'form_adress': form_adress,
+        'temp': temp,
     }
     return render(request, 'users/carnet_adresses.html', context)

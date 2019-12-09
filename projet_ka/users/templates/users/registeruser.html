@@ -14,7 +14,6 @@
     <form class="formcrea" method="post">
         {% csrf_token %}
         {% for inform in form %}
-        {% if forloop.last is False %}
         <div class="inplog">
             {{ inform }}
             <span class="focus-border"></span>
@@ -23,15 +22,6 @@
         </div>
         {% if inform.help_text %}
         <p>({{ inform.help_text }})</p>
-        {% endif %}
-        {% else %}
-        <div class="inplogcheck">
-            {{ inform }}
-            <label for="{{ inform.id_for_label }}" class="inplabelcheck" >
-                {{ inform.label }}
-                <span></span>
-            </label>
-        </div>
         {% endif %}
         {{ inform.errors }}
         {% endfor %}

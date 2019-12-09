@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'projet_ka.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test2',
+        'NAME': 'test3',
         'USER': 'kous',
         'PASSWORD': 'motdepasse',
         'HOST': 'localhost',

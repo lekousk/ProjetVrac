@@ -4,7 +4,7 @@ from .models import Produit
 class DateInput(forms.DateInput):
     input_type = 'date'
 
-class New_produit_F(forms.ModelForm):
+class NewProduitForm(forms.ModelForm):
 	#error_css_class = 'error'
 	#required_css_class = 'required'
 

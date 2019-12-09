@@ -1,3 +1,47 @@
+/* Utilisation particulière pour les media query */
+    /* affichage de la grille de résultat */
+
+    @media all and (max-width: 500px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(1, 17rem);
+        }
+    }
+
+    @media all and (min-width: 501px) and (max-width: 800px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(2, 17rem);
+        }
+    }
+
+    @media all and (min-width: 801px) and (max-width: 900px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(3, 17rem);
+        }
+    }
+
+    @media all and (min-width: 901px) and (max-width: 1250px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(2, 17rem);
+        }
+    }
+
+    @media all and (min-width: 1251px)
+    {
+        .resultat_adresses
+        {
+            grid-template-columns: repeat(3, 15rem);
+        }
+    }
+/* fin utilisation particulière */
+
 @media (max-width: 900px)
 {
     .allcontusers
@@ -67,6 +111,11 @@
     {
     display: none;
     }
+
+    /*.adresse_find
+    {
+        width: 17rem;
+    }*/
 }
 
 
@@ -92,7 +141,7 @@
 	.contenuP
 	{
 		width: 70%;
-		max-width: 50rem;
+		max-width: 52rem;
 	}
 
 		.corpsTr
@@ -100,35 +149,50 @@
 		background: #FFF;
 		margin-top: 2rem;
 	}
-}
-	/*Configuration de la partie filtres */
 
-	.partRayon, .partTrier
+	.resultat_adresses
 	{
+	font-size: 0.9rem;
 	}
+}
 
-    .profselect, .profnorm
-    {
-    display: block;
-    padding: 1rem 2rem 1rem 0.5rem;
-    cursor: pointer;
-    }
+/*Configuration de la partie filtres */
 
-    .profselect{
-    background-color: rgba(92, 103, 115, 1);
-    color: #FFF;
-    border-radius: 0.5rem;
-    }
+.partRayon, .partTrier
+{
+}
 
-    .profnorm
-    {
-    color: grey;
-    }
+.profselect, .profnorm
+{
+display: block;
+padding: 1rem 2rem 1rem 0.5rem;
+cursor: pointer;
+}
 
-    .profnorm:hover
-    {
-    color: #5bc7ab;
-    }
+.profselect{
+background-color: rgba(92, 103, 115, 1);
+color: #FFF;
+border-radius: 0.5rem;
+}
+
+.profnorm
+{
+color: grey;
+}
+
+.profnorm:hover
+{
+color: #5bc7ab;
+}
+
+.contentcre
+{
+/*border: 1px solid red;*/
+padding: 1rem;
+/*background: #fafafa;*/
+width: 100%;
+margin: 0rem auto;
+}
 
 .titcompte
 {
@@ -145,14 +209,10 @@ border-bottom: 2px solid #5bc7ab;
 margin: 0;
 }
 
-.contentcre
+.large_profile
 {
-/*border: 1px solid red;*/
-padding: 1rem;
-/*background: #fafafa;*/
-width: 100%;
-max-width: 40rem;
-margin: 0rem auto;
+max-width: 35rem;
+margin: auto;
 }
 
 .formcrea
@@ -414,9 +474,79 @@ justify-self: center;
 	font-size: 1rem;
 	border-radius: 0.3rem;
 	height: 2.5rem;
-	width: 80%;
-	min-width: 26rem;
+	width: 22rem;
 	border: none;
 	cursor: pointer;
 	margin: 0rem auto 0.5rem;
+}
+
+/* Partie carnet d'adresses */
+
+.resultat_adresses /* font-size | justify-content dans media max-width: 900px */
+{
+	grid-auto-flow: row dense;
+	display: grid;
+	grid-column-gap: 1rem;
+	grid-row-gap: 0.5rem;
+	justify-content: center;
+	align-items: stretch;
+	justify-items: stretch;
+	margin-bottom: 1rem;
+}
+
+.adresse_find /* width dans media spécial */
+{
+	background: #FFF;
+	border: 1px solid #F1F1F1;
+	box-shadow: 5px 4px 3px -2px #D8D8D8;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Utilisé pour avoir les modifs en bas du bloc */
+	min-height: 10rem;
+	font-style: normal;
+}
+
+.adresse_defaut
+{
+border: 2px solid #5bc7ab;
+margin-top: 1rem;
+}
+
+.adresse_ul
+{
+margin: 0.5rem;
+padding-left: 0.5rem;
+color: #111;
+font-style: normal;
+}
+.adresse_li
+{
+list-style: none;
+margin: 0;
+}
+
+.adresse_lid
+{
+text-align: center;
+color: grey;
+border-bottom: 1px solid #5bc7ab;
+padding-bottom: 0.2rem;
+margin-bottom: 0.3rem;
+}
+
+.adresse_span1
+{
+font-weight: 700;
+}
+
+.adresse_span
+{
+font-weight: 200;
+}
+
+.adresse_modif
+{
+padding: 0 0.5rem 0.5rem;
+text-align: center;
 }
