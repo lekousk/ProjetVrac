@@ -11,10 +11,10 @@
 	{% for produits in produit %}
 	<article class="produit_find">
 		<div class="produit_visuel">
-			<img class="produit_img" src="{{ produits.image_p.url }}" alt="{{ produits.nom }}" onclick="window.location='{% url 'lire' id=produits.id %}'">
+			<img class="produit_img" src="{{ produits.image_p.url }}" alt="{{ produits.nom }}" onclick="window.location='{% url 'produit_solo' id=produits.id %}'">
 		</div>
 		<div class="produit_info">
-			<a class="produit_info_titre" href="{% url 'lire' id=produits.id %}">{{ produits.nom }}</a>
+			<a class="produit_info_titre" href="{% url 'produit_solo' id=produits.id %}">{{ produits.nom }}</a>
 			<a class="produit_info_producteur"  href="">{{ produits.producteur }}</a>
 			<div class="prix_art">
 				<span>{{ produits.prix_p|floatformat:-2 }} €/{{ produits.type_prix }}</span>

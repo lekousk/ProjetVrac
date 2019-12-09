@@ -89,6 +89,9 @@ class Emballage(models.Model):
     diametre = models.DecimalField(null=True, blank=True, max_digits=6, decimal_places=2)
     prix = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
 
+    class Meta:
+        ordering = ['nom',]
+
     def __str__(self):
         return self.nom
 

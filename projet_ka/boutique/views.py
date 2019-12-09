@@ -6,11 +6,22 @@ from django.http import JsonResponse
 from django.template import loader
 
 from .forms import NewProduitForm
-from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere
+from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere, PrixUnite
 from .filters import ProduitFiltrer
 
 
 # Create your views here.
+
+def AffUnProduit(request, id):
+    produit_c = get_object_or_404(Produit, id=id)
+    prix_unite = PrixUnite.objects.filter(produit__id__exact=produit_c.id)
+
+    context = {
+        'produit': produit_c,
+        'prix_u': prix_unite,
+    }
+
+    return render(request, 'boutique/produit_solo.html', context)
 
 def NewProduitVue(request):
     form = NewProduitForm(request.POST or None, request.FILES)
@@ -191,28 +202,6 @@ def Rechercher(request):
         'searchRay': searchRay,
     }
     return render(request, 'boutique/all_products.html', context)
-
-
-def AffUnProduit(request, id):
-    produit_c = get_object_or_404(Produit, id=id)
-    xc = produit_c.type_prix.nom
-    emballage_tout = Emballage.objects.all()
-
-    context = {
-        'produit': produit_c,
-        'emb_tout': emballage_tout,
-    }
-
-    if xc == 'kg':
-        context['kraft_s'] = Emballage.objects.get(nom='kraft_s')
-        context['kraft_m'] = Emballage.objects.get(nom='kraft_m')
-        context['bocal_s'] = Emballage.objects.get(nom='bocal_s')
-        context['bocal_m'] = Emballage.objects.get(nom='bocal_m')
-        context['bocal_l'] = Emballage.objects.get(nom='bocal_l')
-        context['bocal_xl'] = Emballage.objects.get(nom='bocal_xl')
-
-    return render(request, 'boutique/lire.html', context)
-
 
 def Panier(request):
     return render(request, 'boutique/panier.html')

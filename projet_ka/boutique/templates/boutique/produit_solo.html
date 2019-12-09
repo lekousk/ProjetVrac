@@ -1,12 +1,34 @@
 {% extends 'pages/base.html' %}
 
 {% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
 
 {% block title %}{{ produit.nom }} - Bokalia{% endblock %}
 
-{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/lire.css' %}" />{% endblock %}
+{% block extra_head %}<link rel="stylesheet" type="text/css" href="{% static 'boutique/css/produit_solo.css' %}" />{% endblock %}
 
 {% block content %}
+
+{% comment %}
+<h1>{{ produit.nom }}</h1>
+
+<div class="img_produit">
+    <img src="{{ produit.image_p.url }}"/>
+</div>
+
+<div class="consigne_table">
+    {% for p_u in prix_u %}
+    <div>
+        {{ p_u.emballage }}
+        <div>
+            <object class="test_img" data="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.svg" height="100" width="100" type="image/svg+xml" data_modif="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_plein.svg">
+				Le navigateur ne peut lire cette image SVG
+			</object>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endcomment %}
 
 <div class="body_edition">
 
@@ -33,6 +55,25 @@
                     <li id="li_kraft">Sachet kraft</li>
                 </ul>
             </div>
+            <div class="zone_choix">
+                <div class="zone_consigne">
+                    {% for p_u in prix_u %}
+                    <div class="consigne_{{forloop.counter}}">
+                        <object class="img_consigne{{forloop.counter}}" data="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.svg" type="image/svg+xml" data_modif="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_plein.svg">
+                            Le navigateur ne peut lire cette image SVG
+                        </object>
+                        <p class="qte_consigne">
+                            {{ p_u.quantite }}
+                        </p>
+                        <p class="prix_consigne">
+                            {{ p_u.quantite }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% comment %}
             <div class="consigne_forme consigne">
                 <table class="consigne_table">
                     <tr>
@@ -63,7 +104,7 @@
                 </div>
                 <a id="icone_info">?</a>
             </div>
-
+            {% endcomment %}
             <div class="qte_precis consigne">
                 <label>Quantité :</label>
                 <input type="number" name="qte_commande" id="qte_input" step="10" min="0" max="1050"> <!-- Valeur max à mettre à jour via la BDD !! -->
@@ -113,7 +154,7 @@
                     <!--<div class="classArticlePanier"><img src="{% static "boutique/images/leBocalTampon.png" %}"><div class="panier_milieu"><p class="panier_titre"><a href="v.url">v.nom</a><span> - v.prix€/v.typ_pri</span></p><p class="panier_sousTitre">Poids (g) : <span>v.val_qte</span></p><p class="panier_sousTitre">Consigne comprise : <span>v.info_prix_emballage</span></p></div><div class="panier_prixArticle"><p><span>x</span> v.qt</p><p>v.prix_tot</p></div></div>-->
 
                     
-
+{% comment %}
     <section class="desc_sec">
         <div class="titre_desc_prod">
             <ul class="ul_c_k">
@@ -209,9 +250,9 @@
         </article>
         </div>
 
-    </section>
+    </section>{% endcomment %}
 
 </div>
 
 {% endblock %}
-{% block extra_js %}<script type="text/javascript" src="{% static 'boutique/js/lire.js' %}"></script>{% endblock %}
+{% block extra_js %}<script type="text/javascript" src="{% static 'boutique/js/produit_solo.js' %}"></script>{% endblock %}

@@ -22,7 +22,7 @@ from . import views
 urlpatterns = [
     path('edition', views.NewProduitVue, name='edition'),
     path('all_product/', views.Rechercher, name='all_products'),
-    path('produit/<int:id>', views.AffUnProduit, name='lire'),
+    path('produit/<int:id>', views.AffUnProduit, name='produit_solo'),
     path('panier', views.Panier, name='panier'),
     path('add_fast/', views.AddFast, name='add_fast'),
 ]
