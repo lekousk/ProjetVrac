@@ -8,20 +8,20 @@ $(function() {
 
   //Test
 
-  var width = $('.form_achat_produit').width();
+  /*var width = $('.form_achat_produit').width();
   var height = $(window).height();
   var width_w = $(window).width();
  
-     console.log(width + "  hauteur fenetre " + height + "    largeur fenetre " + width_w);
+     console.log(width + "  hauteur fenetre " + height + "    largeur fenetre " + width_w);*/
 
   // Initialisation des données:
-  $('#qte_input').val(0); // init quantité à 0
+  //$('#qte_input').val(0); // init quantité à 0
 
  // Calul du prix suivant la quantité
     // Initialisation des variables
 
-var info_type = $('#prix_produit').attr('info_type_prix');
-var info_prix = parseFloat($('#prix_produit').attr('info_prix_produit').replace(",", "."));
+var info_type = $('.prix_produit').attr('info_type_prix');
+var info_prix = parseFloat($('.prix_produit').attr('info_prix_produit').replace(",", "."));
 
     // Fonction de calcul prix à appeler
 
@@ -32,19 +32,9 @@ function calcul_prix(prix, qte, info_type)
     return parseFloat((prix * qte)/1000);
   }
 
-  else if (info_type == 'l')
-  {
-    return parseFloat(prix * qte);
-  }
-
-  else if (info_type == 'pce')
-  {
-    return parseFloat(prix * qte);
-  }
-
   else
   {
-    alert('problème de type de prix');
+    return parseFloat(prix * qte);
   }
 }
 
@@ -52,17 +42,20 @@ function calcul_prix(prix, qte, info_type)
 
 var cons_ou_kraft = 1;
 
-$('#li_kraft').on({
+$('.li_kraft').on({
   click: function() {
-    $('.consigne_table').hide(200).queue(function(){
+    var height_zc = $('.zone_choix').height();
+    height_zc = height_zc + 'px';
+    $('.zone_choix').css('min-height', height_zc);
+    $('.zone_consigne').hide(200).queue(function(){
       $('.zone_kraft').show(200);
       $(this).dequeue();
     });
 
-    $('#li_cons').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $('.li_cons').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
     $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
     $(this).off("mouseenter mouseleave"); // annuler le hover sur le passage de Kraft. 2e solution ? ($(this).unbind('mouseout mouseover')();)
-    $("#li_cons").hover(function(){
+    $(".li_cons").hover(function(){
       $(this).css("opacity", "1");
       }, 
       function(){
@@ -79,18 +72,18 @@ $('#li_kraft').on({
 
 // Revenir à l'option Consigne pour l'emballage
 
-$('#li_cons').on({
+$('.li_cons').on({
   click: function() {
     $('.zone_kraft').hide(200).queue(function()
       {
-        $('.consigne_table').show(200);
+        $('.zone_consigne').show(200);
         $(this).dequeue();
       }
     );
-    $('#li_kraft').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $('.li_kraft').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
     $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
     $(this).off("mouseenter mouseleave");
-    $("#li_kraft").hover(function()
+    $(".li_kraft").hover(function()
       {
         $(this).css("opacity", "1");
       },

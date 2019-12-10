@@ -1,120 +1,115 @@
+.titre_img_achat
+{
+/*display: grid;
+grid-template-areas:
+        "img tit"
+        "art art";*/
+}
+
+.titre_produit
+{
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	margin: auto;
+	grid-area: tit;
+}
+
+/* Image du produit */
+
+.img_produit
+{
+	text-align: center;
+	margin: 2rem auto;
+	grid-area: img;
+	/*justify-self: center;*/
+	align-self : center;
+}
+
+/* Partie formulaire */
+
+.form_achat_produit
+{
+grid-area: art;
+}
+
+.zone_choix
+{
+width: 100%;
+background-color: #f8f8f8;
+padding: 2rem 0;
+}
 
 .zone_consigne
 {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(4, 20%);
+/*grid-column-gap: 1rem;*/
 justify-content: center;
 margin: auto;
+padding: 2rem 0;
+width: 80%;
 background: #FFF;
-border: 1px solid blue;
+max-width: 550px;
+position: relative;
 }
 
-.consigne_1
+.consigne_column
 {
-border: 1px solid green;
+display: grid;
+grid-template-rows: 1fr auto auto;
+text-align: center;
+}
+
+.qte_consigne
+{
+margin: 0.5rem 0 0;
+color: #5bc7ab
+}
+
+.prix_consigne
+{
+margin: 0;
+}
+
+.consigne_image
+{
+align-self: end;
+justify-self: center;
 }
 
 .img_consigne1
 {
 cursor: pointer;
-height: 5rem;
-width: 5rem;
-border: 1px solid red;
+width: 62%;
 }
 
 .img_consigne2
 {
 cursor: pointer;
-height: 6rem;
-width: 6rem;
-border: 1px solid red;
+width: 70%;
 }
 
 .img_consigne3
 {
 cursor: pointer;
-height: 7rem;
-width: 7rem;
+width: 78%;
 }
 
 .img_consigne4
 {
 cursor: pointer;
-height: 8rem;
-width: 8rem;
-}
-
-.test_para
-{
-border: 1px solid red;
+width: 86%;
 }
 
 @media all and (max-width: 900px)
 {
-	.body_edition
-	{
-		width: 100%;
-		margin: auto;
-		padding-top: 1rem;
-		padding-bottom: 1.5rem;
-	}
 
-	.titre_img_achat
-	{
-		margin: 0;
-	}
-
-	.titre_produit
-	{
-		justify-content: space-between;
-		width: 100%;
-		padding: 0px 5% 15px;
-	}
-
-	/*.img_produit
-	{
-		border: 1px solid red;
-	}*/
-
-	#image_produit
-	{
-		width: 60vw;
-		max-width: 500px;
-	}
-
-	.form_achat_produit
-	{
-		background-color: #f8f8f8;
-		justify-content: center;
-	}
-
-	.consigne
-	{
-		background-color: #FFFFFF;
-	}
-
-	.consigne + .consigne
-	{
-		margin-top: 10px;
-	}
-
-	.consigne_forme
-	{
-		padding: 1rem 0;
-		position: relative;
-		width: 85vw;
-		max-width: 550px;
-		margin: auto;
-		min-height: 12rem;
-	}
-
-	.qte_precis
-	{
-		width: 85vw;
-		max-width: 550px;
-		margin: auto;
-		padding: 0.5rem;
-	}
+    .image_produit
+    {
+        width: 60%;
+        max-width: 500px;
+    }
 
 	.total_prix
 	{
@@ -123,94 +118,24 @@ border: 1px solid red;
 
 }
 
-/*@media all and (max-width: 450px)
-{
-	.img_produit img
-	{
-		width: 40vw;
-	}
-}
-
-@media all and (min-width: 451px) and (max-width: 900px)
-{
-	.img_produit img
-	{
-		width: 40vw;
-	}
-}*/
-
 @media all and (min-width: 901px)/* and (max-width: 1250px)*/
 {
-	.body_edition
-	{
-		width: 100%;
-		margin: auto;
-	}
 
-	.titre_img_achat
-	{
-		padding-top: 2.5rem;
-		/*border:1px solid yellow;*/
-		display: flex;
-		justify-content: space-around;
-		position: relative;
-		flex-wrap: wrap;
-	}
+    .titre_img_achat
+    {
+    display: grid;
+    grid-template-areas:
+            "img tit"
+            "img art";
+    grid-template-columns: 45% 50%;
+    margin-top: 2rem;
+    }
 
-	.titre_produit
-	{
-		/*border:1px solid red;*/
-		padding-left: 45%;
-		width: 100%;
-		/*position: absolute;
-		right: 0;*/
-		justify-content: space-between;
-	}
-
-	/*.titre_et_produ
-	{
-		min-width: 400px;
-	}*/
-
-	.img_produit
-	{
-		
-	}
-
-	#image_produit
-	{
-		width: 28vw;
-		max-width: 500px;
-		/*border:1px solid green;*/
-		vertical-align: middle;
-	}
-
-	.form_achat_produit
-	{
-		width: 35vw;
-		min-width: 400px;
-		max-width: 625px;
-		/*border:1px solid blue;*/
-	}
-
-	.consigne_forme /* fond de la partie cousigne ou kraft */ /* à modifier */
-	{
-		padding: 1rem 0;
-		background-color: #f8f8f8;
-		position: relative;
-		width: 90%;
-		min-height: 15rem;
-		margin: 5% auto 0;
-	}
-
-	.qte_precis
-	{
-		background-color: #f8f8f8;
-		width: 90%;
-		margin: 1rem auto 0.5rem;
-		padding: 0.5rem;
-		height: 3rem;
-	}
+    .image_produit
+    {
+        width: 90%;
+        /*max-width: 500px;*/
+    }
 
 	.total_prix
 	{
@@ -227,19 +152,8 @@ border: 1px solid red;
 
 /* Mise en place 1. Titre 2. Image du produit 3. Achat: (Consigne ou Kraft) */
 
-/*.titre_img_achat
-{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}*/
 
 /* Partie Titre avec désignation et le prix au kg/U/l */
-
-.titre_produit
-{
-	display: flex;
-}
 
 	/* Désignation du produit */
 
@@ -278,27 +192,17 @@ h1
 	z-index: -1;
 }
 
-/* Image du produit */
-
-.img_produit
-{
-	text-align: center;
-}
-
 /* Achat: consigne ou kraft et choix de la quantité avec l'ajout panier */
 
 .form_achat_produit
 {
-	border-bottom: 0.1rem solid #5bc7ab;
-	padding-bottom: 5px;
+
 }
 
 	/* Menu choix consigne ou kraft */
 
 .consigne_kraft
 {
-	padding-top: 1.2rem;
-	position: relative;
 }
 
 .ul_c_k
@@ -322,20 +226,20 @@ h1
 	margin: 0 1rem;
 }
 
-#li_cons
+.li_cons
 {
 	border-bottom: 0.2rem solid #5bc7ab;
 	font-weight: bold;
 }
 
-#li_kraft
+.li_kraft
 {
 	opacity: 0.6;
 	font-weight: bold;
 	border-bottom: 0rem solid #5bc7ab;
 }
 
-#li_kraft:hover
+.li_kraft:hover
 {
 	opacity: 1;
 }
@@ -349,45 +253,7 @@ h1
 
 /* Partie consigne */
 
-.consigne_table
-{
-	text-align: center;
-	border-collapse: collapse;
-	margin: auto;
-	width: 90%;
-	/*display: none;  A supprimer pour faire apparaitre la consigne */
-}
 
-.consigne_table th
-{
-	vertical-align: bottom;
-	padding: 1rem;
-	width: 25%;
-}
-
-#img_s /* Taille des images bocal */
-{
-	width: 50%;
-	cursor: pointer;
-}
-
-#img_m
-{
-	width: 60%;
-	cursor: pointer;
-}
-
-#img_l
-{
-	width: 70%;
-	cursor: pointer;
-}
-
-#img_xl
-{
-	width: 90%;
-	cursor: pointer;
-}
 
 /* Partie Kraft */
 
@@ -406,47 +272,52 @@ h1
 
 /* Bouton info */
 
-#icone_info
+.icone_info
 {
 	position: absolute;
 	display: block;
-	font-size: 1.5rem;
-	background-color: grey;
-	border: 0;
-	color: #FFFFFF;
-	width: 2rem;
-	height: 2rem;
-	text-align: center;
-	border-radius: 20%;
-	font-weight: bold;
-	line-height: 1.8rem;
 	cursor: pointer;
-	top: 0.2rem;
-	right: 0;
+	top: 0.5rem;
+	right: -2.5rem;
 }
 
-#icone_info:hover
+.img_info
 {
-	opacity: 0.8;
+	cursor: pointer;
+	width: 2rem;
+	padding: 0.1rem;
 }
 
 /* Partie Quantité choisie et ajout au panier */
 
 .qte_precis
 {
-	font-size: 1.2rem;
-	/*border:1px solid red;*/
+    background-color: #f8f8f8;
+    width: 100%;
+    margin: 1rem auto 0.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
-.qte_precis input
+.qte_precis label
 {
-	width: 6rem;
+display: inline-block;
+}
+
+#qte_input
+{
+    display: inline-block;
+    margin-left: 1rem;
+    border-radius: 5px;
+    border: 2px solid grey;
+    width: 8rem;
 	font-size: 1rem;
+	padding: 0.2rem 0.5rem;
 }
 
 #error_qte
 {
-	margin-left: 1.5rem;
+	margin: 0.5rem 0  0 1rem;
 	color: red;
 	display: none;
 }
@@ -487,6 +358,13 @@ h1
 .total_prix input:hover
 {
 	opacity: 0.8;
+}
+
+.bordure_bas
+{
+    border-bottom: 0.2rem solid #5bc7ab;
+    width: 90%;
+    margin: auto;
 }
 
 	/* Afficher / cacher le prix de l'emballage + adapter l'écriture */

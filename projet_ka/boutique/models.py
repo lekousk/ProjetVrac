@@ -101,6 +101,7 @@ class PrixUnite(models.Model):
     ordre_p = models.IntegerField(_('Order du produit'))
     emballage = models.ForeignKey(Emballage, on_delete=models.CASCADE, related_name='emballage')
     quantite = models.IntegerField(_('Quantité du contenant'))
+    unite = models.CharField(max_length=5, null=True, blank=True)
 
     class Meta:
         ordering = ['produit', 'ordre_p']
