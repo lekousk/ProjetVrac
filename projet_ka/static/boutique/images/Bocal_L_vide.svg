@@ -9,9 +9,9 @@
 
 		.txt_int
 		{
-		font-size:180px;
-		fill:#1d1d1b;
-		font-weight:500;
+		font-size:140px;
+		fill:#5bc7ab;
+		font-weight:bold;
 		}
 
 		.test
@@ -45,6 +45,6 @@
 		<path class="interieur" d="M335.393,281.948c0,30.444-8.732,59.967-25.254,85.373c-15.666,24.106-37.519,43.38-63.293,55.872
 		H110.216c-25.774-12.492-47.627-31.766-63.304-55.872c-16.511-25.406-25.244-54.929-25.244-85.373
 		c0-42.372,17.324-83.174,47.67-112.61h218.373C318.069,198.774,335.393,239.575,335.393,281.948z "/>
-		<text class="txt_int" transform="translate(120 360)">L</text>
+		<text class="txt_int" transform="translate(129 370)">L</text>
 	</g>
 </svg>

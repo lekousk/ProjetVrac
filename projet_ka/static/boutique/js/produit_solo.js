@@ -20,135 +20,46 @@ $(function() {
  // Calul du prix suivant la quantité
     // Initialisation des variables
 
-var info_type = $('.prix_produit').attr('info_type_prix');
-var info_prix = parseFloat($('.prix_produit').attr('info_prix_produit').replace(",", "."));
+var type_prix_article = $('.prix_produit').attr('info_type_prix');
+var prix_article = parseFloat($('.prix_produit').attr('info_prix_produit').replace(",", "."));
 
-    // Fonction de calcul prix à appeler
+    // Initialisation du prix de l'article pour les calcules
 
-function calcul_prix(prix, qte, info_type)
+function calcul_prix(prix, type)
 {
-  if (info_type == 'kg')
+  if (type == 'kg')
   {
-    return parseFloat((prix * qte)/1000);
+    prix = parseFloat(prix / 1000);
+    return prix;
   }
 
   else
   {
-    return parseFloat(prix * qte);
+    return prix;
   }
 }
 
-// afficher l'option Kraft pour l'emballage
+/* début calcul du prix des consignes */
 
-var cons_ou_kraft = 1;
+var val_init = true;
+var cste_qte, cste_prix;
 
-$('.li_kraft').on({
-  click: function() {
-    var height_zc = $('.zone_choix').height();
-    height_zc = height_zc + 'px';
-    $('.zone_choix').css('min-height', height_zc);
-    $('.zone_consigne').hide(200).queue(function(){
-      $('.zone_kraft').show(200);
-      $(this).dequeue();
+if (val_init)
+{
+    prix_article = calcul_prix(prix_article, type_prix_article);
+
+    $('.qte_consigne').each(function(cste_qte, cste_prix){
+        cste_qte = parseFloat($(this).attr('data_qte_c'));
+        cste_prix = parseFloat(cste_qte * prix_article).toFixed(2).replace(".", ",");
+        $(this).next("p").children("span").text(cste_prix);
     });
 
-    $('.li_cons').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
-    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
-    $(this).off("mouseenter mouseleave"); // annuler le hover sur le passage de Kraft. 2e solution ? ($(this).unbind('mouseout mouseover')();)
-    $(".li_cons").hover(function(){
-      $(this).css("opacity", "1");
-      }, 
-      function(){
-      $(this).css("opacity", "0.6");
-      }
-    );
+    val_init = false;
+}
 
-    cons_ou_kraft = 2;
+/* Fin du calcul du prix des consignes */
 
-    $('#qte_input').trigger("change"); // adapter le prix de l'emballage kraft lors de la selection en kraft
-  }
-});
-
-
-// Revenir à l'option Consigne pour l'emballage
-
-$('.li_cons').on({
-  click: function() {
-    $('.zone_kraft').hide(200).queue(function()
-      {
-        $('.zone_consigne').show(200);
-        $(this).dequeue();
-      }
-    );
-    $('.li_kraft').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
-    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
-    $(this).off("mouseenter mouseleave");
-    $(".li_kraft").hover(function()
-      {
-        $(this).css("opacity", "1");
-      },
-      function()
-      {
-        $(this).css("opacity", "0.6");
-      }
-    );
-
-    cons_ou_kraft = 1;
-    $('#qte_input').trigger("change"); // adapter la taille du local suivant la valeur choisie pendant la position de l'onglet en kraft
-  }
-});
-
-// Afficher la description du producteur
-
-$('#li_prod').on({
-  click: function() {
-    $('.art_desc').hide(200).queue(function()
-      {
-        $('.art_prod').show(200);
-        $(this).dequeue();
-      }
-    );
-    $('#li_desc').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
-    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
-    $(this).off("mouseenter mouseleave");
-    $("#li_desc").hover(function()
-      {
-        $(this).css("opacity", "1");
-      },
-      function()
-      {
-        $(this).css("opacity", "0.6");
-      }
-    );
-  }
-});
-
-// Revenir à la description du produit
-
-$('#li_desc').on({
-  click: function() {
-    $('.art_prod').hide(200).queue(function()
-      {
-        $('.art_desc').show(200);
-        $(this).dequeue();
-      }
-    );
-    $('#li_prod').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
-    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
-    $(this).off("mouseenter mouseleave");
-    $("#li_prod").hover(function()
-      {
-        $(this).css("opacity", "1");
-      },
-      function()
-      {
-        $(this).css("opacity", "0.6");
-      }
-    );
-  }
-});
-
-// Initialisation selection du prix de l'emballage
+// Début prix de l'emballage
 
 var array_emballage=[];
 
@@ -226,6 +137,118 @@ function cache_emballage(taille_kraft, taille_bocal)
     $('.emballage_div').show();
   }
 }
+
+// Fin prix emballage
+
+// afficher l'option Kraft pour l'emballage
+
+var cons_ou_kraft = 1;
+
+$('.li_kraft').on({
+  click: function() {
+    var height_zc = $('.zone_choix').height();
+    height_zc = height_zc + 'px';
+    $('.zone_choix').css('min-height', height_zc);
+    $('.zone_consigne').hide(200).queue(function(){
+      $('.zone_kraft').show(200);
+      $(this).dequeue();
+    });
+
+    $('.li_cons').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
+    $(this).off("mouseenter mouseleave"); // annuler le hover sur le passage de Kraft. 2e solution ? ($(this).unbind('mouseout mouseover')();)
+    $(".li_cons").hover(function(){
+      $(this).css("opacity", "1");
+      }, 
+      function(){
+      $(this).css("opacity", "0.6");
+      }
+    );
+
+    cons_ou_kraft = 2;
+
+    //$('#qte_input').trigger("change"); // adapter le prix de l'emballage kraft lors de la selection en kraft
+  }
+});
+
+
+// Revenir à l'option Consigne pour l'emballage
+
+$('.li_cons').on({
+  click: function() {
+    $('.zone_kraft').hide(200).queue(function()
+      {
+        $('.zone_consigne').show(200);
+        $(this).dequeue();
+      }
+    );
+    $('.li_kraft').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
+    $(this).off("mouseenter mouseleave");
+    $(".li_kraft").hover(function()
+      {
+        $(this).css("opacity", "1");
+      },
+      function()
+      {
+        $(this).css("opacity", "0.6");
+      }
+    );
+
+    cons_ou_kraft = 1;
+    //$('#qte_input').trigger("change"); // adapter la taille du local suivant la valeur choisie pendant la position de l'onglet en kraft
+  }
+});
+
+// Afficher la description du producteur
+
+$('#li_prod').on({
+  click: function() {
+    $('.art_desc').hide(200).queue(function()
+      {
+        $('.art_prod').show(200);
+        $(this).dequeue();
+      }
+    );
+    $('#li_desc').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
+    $(this).off("mouseenter mouseleave");
+    $("#li_desc").hover(function()
+      {
+        $(this).css("opacity", "1");
+      },
+      function()
+      {
+        $(this).css("opacity", "0.6");
+      }
+    );
+  }
+});
+
+// Revenir à la description du produit
+
+$('#li_desc').on({
+  click: function() {
+    $('.art_prod').hide(200).queue(function()
+      {
+        $('.art_desc').show(200);
+        $(this).dequeue();
+      }
+    );
+    $('#li_prod').animate({'border-bottom-width': '0px', 'opacity': '0.6'}, 100);
+    $(this).animate({'border-bottom-width': "3px", 'opacity': '1'}, 100);
+    $(this).off("mouseenter mouseleave");
+    $("#li_prod").hover(function()
+      {
+        $(this).css("opacity", "1");
+      },
+      function()
+      {
+        $(this).css("opacity", "0.6");
+      }
+    );
+  }
+});
 
 // Initialisation taille Kraft
 

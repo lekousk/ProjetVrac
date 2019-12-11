@@ -4,29 +4,19 @@
 	<style type="text/css">
 		.interieur
 		{
-		fill: #FFF;
+		fill: #5bc7ab;
 		}
 
 		.txt_int
 		{
 		font-size:140px;
-		fill:#5bc7ab;
+		fill:#FFF;
 		font-weight:bold;
 		}
 
 		.test
 		{
 		cursor: pointer;
-		}
-
-		.test:hover .txt_int
-		{
-		fill:#FFF;
-		}
-
-		.test:hover .interieur
-		{
-		fill: #5bc7ab;
 		}
 	</style>
 	<g class="test">
