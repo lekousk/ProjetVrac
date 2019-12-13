@@ -4,13 +4,6 @@
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/produit_solo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/produit_solo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/css/produit_solo.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/css/produit_solo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_L_vide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_L_vide.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_M_plein.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_M_plein.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_M_vide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_M_vide.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_S_plein.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_S_plein.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_S_vide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_S_vide.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_XL_vide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/images/Bocal_XL_vide.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/js/produit_solo.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/js/produit_solo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

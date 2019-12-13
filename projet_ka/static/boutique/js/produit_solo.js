@@ -39,25 +39,152 @@ function calcul_prix(prix, type)
   }
 }
 
-/* début calcul du prix des consignes */
+/* début calcul du prix des consignes - INITIALISATION */
 
 var val_init = true;
-var cste_qte, cste_prix;
+var cste_qte, cste_prix, qte_max;
 
 if (val_init)
 {
     prix_article = calcul_prix(prix_article, type_prix_article);
 
+    // Calcul des prix de bocaux
     $('.qte_consigne').each(function(cste_qte, cste_prix){
         cste_qte = parseFloat($(this).attr('data_qte_c'));
         cste_prix = parseFloat(cste_qte * prix_article).toFixed(2).replace(".", ",");
         $(this).next("p").children("span").text(cste_prix);
     });
 
+    qte_max = $('.qte_max').attr('data_qte_max');
+    $('#qte_input').attr('max', qte_max);
+
+    // valeurs initiales des prix emballages et des paliers pour le changement de bocal
+
+    var tab_consigne=[];
+
+    $('.consigne_column').each(function(i){
+      i = $(this).attr('id_consigne');
+      tab_consigne[i] = $(this).children('.qte_consigne').attr('data_qte_c');
+    });
+
     val_init = false;
 }
 
-/* Fin du calcul du prix des consignes */
+/* Fin du calcul du prix des consignes - INITIALISATION */
+
+/* Début changement d'image du bocal en survole */
+
+var cste_init, cste_vide, cste_plein;
+
+$('.consigne_image').on({
+    mouseenter: function(){
+        cste_plein = $(this).attr('data_plein');
+        cste_init = $(this).attr('src');
+        $(this).attr('src', cste_plein);
+    },
+    mouseleave: function(){
+        $(this).attr('src', cste_init);
+    },
+    click: function(){
+        var cste_local = $(this).next('.qte_consigne').attr('data_qte_c');
+        var cste_local2 = $(this).parent().attr('id_consigne');
+        ChangeIcone(cste_local2);
+        $('#qte_input').val(cste_local);
+        $('#qte_input').trigger('change');
+        cste_init = cste_plein;
+    },
+});
+
+    // Changement de l'icone consigne suivant la valeur de qte_input
+
+function ChangeIcone(x){
+    var cste_local = $('.consigne_column[id_consigne='+ x +']');
+    if(cste_local.hasClass('consigne_active')){
+    }
+    else{
+        var val = $('.consigne_active').children('.consigne_image').attr('data_vide');
+        $('.consigne_active').removeClass("consigne_active").children('.consigne_image').attr('src', val);
+        cste_local.addClass("consigne_active");
+        val = cste_local.children('.consigne_image').attr('data_plein');
+        cste_local.children('.consigne_image').attr('src', val);
+    }
+}
+
+/* Fin changement d'image du bocal en survole */
+
+/* début changement de consigne suivant la quantité qte_input choisie */
+
+function IdConsigne(x){
+    //console.log(tab_consigne.length);
+    for(var key in tab_consigne){
+        //console.log(key);
+        //console.log(tab_consigne[key]);
+
+        if(x <= tab_consigne[key]){
+            //console.log(key);
+            //console.log(tab_consigne[key]);
+            return key;
+        }
+    }
+}
+
+/* Fin changement de consigne suivant la quantité qte_input choisie */
+
+/* début mise à jour du prix qte_input */
+
+$('#qte_input').on({
+  change: function()
+    {
+      // changement des images bocal consigné
+
+      var val_qte = parseInt($(this).val().replace(",", ".")); // quantité précise saisie
+      //if(val_qte)
+      /*change_qte(val_qte, val_s_max, val_m_max, val_l_max, val_xl_max);*/
+
+      // Mise à jour du prix total
+
+      var calc = parseFloat(val_qte * prix_article).toFixed(2);
+
+      // Vérification de la valeur dans input
+      if(isNaN(val_qte)){
+        // $('#error_qte').show(200);
+        $('#prix_cal').text('-');
+      }
+      else{
+        $('#prix_cal').text(calc.replace(".", ","));
+      }
+
+      // Mise à jour du prix de l'emballage
+      /*change_kraft(val_qte);
+      afficer_prix_emballage();
+      cache_emballage(taille_kraft, taille_bocal);*/
+
+    }
+  });
+
+/*$('#qte_input').on({
+  change: function()
+    {
+      // changement des images bocal consigné
+
+      var val_qte = parseInt($(this).val()); // quantité précise saisie
+      change_qte(val_qte, val_s_max, val_m_max, val_l_max, val_xl_max);
+
+      // Mise à jour du prix total
+
+      var calc = calcul_prix(info_prix, val_qte, info_type).toFixed(2);
+
+      $('#prix_cal').text(calc);
+
+      // Mise à jour du prix de l'emballage
+      change_kraft(val_qte);
+      afficer_prix_emballage();
+      cache_emballage(taille_kraft, taille_bocal);
+
+    }
+  });*/
+
+/* début mise à jour du prix qte_input */
 
 // Début prix de l'emballage
 
@@ -285,7 +412,7 @@ var val_l_max = parseInt($('#val_l_max').text()); // quantité de la valeur plei
 
 var val_xl_max = parseInt($('#val_xl_max').text()); // quantité de la valeur pleine du contenant XL
 
-$('#img_s').on({
+/*$('#img_s').on({
   click: function()
     {
       $('#qte_input').val(val_s_max);
@@ -320,28 +447,6 @@ $('#img_xl').on({
       $('#qte_input').trigger("change");
     }
 });
-
-$('#qte_input').on({
-  change: function()
-    {
-      // changement des images bocal consigné
-
-      var val_qte = parseInt($(this).val()); // quantité précise saisie
-      change_qte(val_qte, val_s_max, val_m_max, val_l_max, val_xl_max);
-
-      // Mise à jour du prix total
-
-      var calc = calcul_prix(info_prix, val_qte, info_type).toFixed(2);
-
-      $('#prix_cal').text(calc);
-
-      // Mise à jour du prix de l'emballage
-      change_kraft(val_qte);
-      afficer_prix_emballage();
-      cache_emballage(taille_kraft, taille_bocal);
-
-    }
-  });
 
 function change_qte(val_qte, val_s_max, val_m_max, val_l_max, val_xl_max)
 {
@@ -400,6 +505,7 @@ function change_qte(val_qte, val_s_max, val_m_max, val_l_max, val_xl_max)
     taille_bocal = 0;
   }
 }
+*/
 
 // Gestion des cookies
 
