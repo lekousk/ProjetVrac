@@ -4,7 +4,10 @@
     <list default="true" id="969810c5-155d-4a22-b3e2-df8e0988289a" name="Default Changelist" comment="Ajout achat rapide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/produit_solo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/boutique/templates/boutique/produit_solo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/css/produit_solo.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/css/produit_solo.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_ka/static/boutique/js/produit_solo.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/boutique/js/produit_solo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ka/static/pages/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ka/static/pages/js/base.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,5 +127,9 @@
       <screen x="0" y="27" width="1918" height="901" />
     </state>
     <state x="554" y="139" width="800" height="684" key="#Intentions/0.27.1918.901@0.27.1918.901" timestamp="1575890008902" />
+    <state x="655" y="205" width="672" height="678" key="search.everywhere.popup" timestamp="1576520720663">
+      <screen x="0" y="27" width="1918" height="901" />
+    </state>
+    <state x="655" y="205" width="672" height="678" key="search.everywhere.popup/0.27.1918.901@0.27.1918.901" timestamp="1576520720663" />
   </component>
 </project>

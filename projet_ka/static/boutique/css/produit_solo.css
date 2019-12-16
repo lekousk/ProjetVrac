@@ -327,6 +327,23 @@ display: inline-block;
 	display: none;
 }
 
+.stock
+{
+position: relative;
+right: 0;
+}
+
+.stock span
+{
+color: green;
+font-size: 3rem;
+}
+
+.dispo
+{
+display: inline-block;
+}
+
 .total_prix
 {
 	display: flex;
