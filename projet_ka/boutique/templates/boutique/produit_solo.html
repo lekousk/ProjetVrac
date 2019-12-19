@@ -27,7 +27,7 @@
             <img src="{{ produit.image_p.url }}" class="image_produit"/>
         </div>
 
-        <form class="form_achat_produit" action="" method="get"><!-- <form class="form_achat_produit" action="" method="get" enctype="multipart/form-data"> -->
+        <div class="form_achat_produit">
             <div class="consigne_kraft">
                 <ul class="ul_c_k">
                     <li class="li_cons">Bocaux consignés</li>
@@ -38,7 +38,8 @@
                 <div class="zone_consigne">
                     {% for p_u in prix_u %}
                     <div class="consigne_{{forloop.counter}} consigne_column" id_consigne="{{ p_u.id }}" data_prix_consigne="{{ p_u.emballage.prix }}" data_unite="{{ p_u.unite }}">
-                        <img class="img_consigne{{forloop.counter}} consigne_image" src="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.png" data_vide="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.png" data_plein="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_plein.png">
+                        <img class="img_consigne{{forloop.counter}} consigne_image" src="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.png"
+                             data_vide="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_vide.png" data_plein="{{ STATIC_PREFIX }}/static/boutique/images/{{ p_u.emballage }}_plein.png">
                         <p class="qte_consigne {% if forloop.last %}qte_max{% endif %}" data_qte_c="{{ p_u.quantite }}" {% if forloop.last %}data_qte_max="{{ p_u.quantite }}"{% endif %}>
                             {{ p_u.quantite }} {{ p_u.unite }}
                         </p>
@@ -76,13 +77,15 @@
 
             <div class="qte_precis">
                 <label>Quantité précise: </label>
-                <input type="number" name="qte_commande" id="qte_input" step="10" min="0" placeholder="0"> <!-- Valeur max à mettre à jour via la BDD !! -->
+                <input type="number" name="qte_commande" id="qte_input" step="10" min="0" placeholder="0">
                 <span>g</span>
                 <div id="error_qte">Entrez une quantité valide !</div>
             </div>
 
             <div class="stock">
-                <span class="available">•</span>
+                    <svg class="available" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" class="cercle"/>
+                    </svg>
                 <div class="dispo">Disponible</div>
             </div>
 
@@ -94,20 +97,19 @@
                         <span>€</span>
                     </div>
                     <div class="emballage_div" hidden>
-                        Emballage : <span>+</span>
+                        Consigne : <span>+</span>
                         <span id="affiche_prix_emballage" class="prix_emballage" data_emballage="sans"></span>
-                            {% for i in emb_tout %}
-                                <span class="prix_emballage" data_emballage="{{ i.nom }}" hidden>{{ i.prix }}</span>
-                            {% endfor %}
                         <span>€</span>
                     </div>
                 </div>
                 <div>
-                    <input type="submit" value="Ajouter au panier" id="ajout_panier" data_id="{{ produit.id }}" data_type_prix="{{ produit.prix_p|floatformat:-2 }} €/{{ produit.type_prix }}" data_nom="{{ produit.nom }}" data_url="{{ produit.id }}"/>
+                    <a class="ajout_panier" data_produit="{{ produit.id }}">
+                        Ajouter au panier
+                    </a>
                 </div>
             </div>
             <div class="bordure_bas"></div>
-        </form>
+        </div>
     </section>
                    <!-- <div class="classArticlePanier">
                         <img src="{% static "boutique/images/leBocalTampon.png" %}">
@@ -127,7 +129,17 @@
                         
                     </div> -->
 
-                    <!--<div class="classArticlePanier"><img src="{% static "boutique/images/leBocalTampon.png" %}"><div class="panier_milieu"><p class="panier_titre"><a href="v.url">v.nom</a><span> - v.prix€/v.typ_pri</span></p><p class="panier_sousTitre">Poids (g) : <span>v.val_qte</span></p><p class="panier_sousTitre">Consigne comprise : <span>v.info_prix_emballage</span></p></div><div class="panier_prixArticle"><p><span>x</span> v.qt</p><p>v.prix_tot</p></div></div>-->
+                    <!--<div class="classArticlePanier">
+                    <img src="{% static "boutique/images/leBocalTampon.png" %}">
+                    <div class="panier_milieu">
+                    <p class="panier_titre"><a href="v.url">v.nom</a><span> - v.prix€/v.typ_pri</span></p>
+                    <p class="panier_sousTitre">Poids (g) : <span>v.val_qte</span></p>
+                    <p class="panier_sousTitre">Consigne comprise : <span>v.info_prix_emballage</span></p>
+                    </div>
+                    <div class="panier_prixArticle">
+                    <p><span>x</span> v.qt</p>
+                    <p>v.prix_tot</p></div>
+                    </div>-->
 
     <section class="desc_sec">
         <div class="titre_desc_prod">

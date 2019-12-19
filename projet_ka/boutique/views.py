@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.template import loader
 
 from .forms import NewProduitForm
-from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere, PrixUnite
+from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere, PrixUnite, Panier
 from .filters import ProduitFiltrer
 
 
@@ -22,6 +22,50 @@ def AffUnProduit(request, id):
     }
 
     return render(request, 'boutique/produit_solo.html', context)
+
+def AddPanier(request):
+    addpanier_html = 'init'
+
+    if request.method == 'POST':
+        addpanier_html = request.POST
+        data_produit = request.POST.get('data_produit')
+        data_consigne = request.POST.get('data_consigne')
+        qte_input = request.POST.get('qte_input')
+
+        #produit = Produit.objects.get(id=int(data_produit))
+        prix_unite = PrixUnite.objects.filter(Q(produit__id=int(data_produit)) & Q(quantite__gte=int(qte_input))).first()
+
+        """try:
+            panier = Panier.objects.get(user= request.user)
+
+        try:
+            len(qte_input)
+            len(data_consigne)
+            len(data_produit)
+        except:
+            pr = "aa" """
+
+
+    output_data = {
+        'addpanier_html': str(prix_unite),
+    }
+
+    return JsonResponse(output_data)
+
+"""def AddFast(request):
+    link = request.GET.get('link')
+    prod_ch = get_object_or_404(Produit, id=link)
+
+    addfast_html = loader.render_to_string(
+        'boutique/add_rapid.html',
+        {'prod_ch': prod_ch}
+    )
+    # package output data and return it as a JSON object
+    output_data = {
+        'addfast_html': addfast_html,
+    }
+
+    return JsonResponse(output_data)"""
 
 def NewProduitVue(request):
     form = NewProduitForm(request.POST or None, request.FILES)
@@ -202,10 +246,6 @@ def Rechercher(request):
         'searchRay': searchRay,
     }
     return render(request, 'boutique/all_products.html', context)
-
-def Panier(request):
-    return render(request, 'boutique/panier.html')
-
 
 def AddFast(request):
     link = request.GET.get('link')

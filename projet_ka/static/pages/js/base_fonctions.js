@@ -58,7 +58,7 @@ $.ajaxSetup({
 });
 
 /* Gestion générale du panier */
-
+/*
 // Variable pour stocker le nombre d'articles
 
 var nbrArticleDansPanier;
@@ -88,5 +88,5 @@ function panier_vide_toggle() {
 		$('#nbr_article_dans_panier').addClass('hidden');
 	}
 }
-
+*/
 /* Gestion affichage list ou mosaic des produits */

@@ -55,12 +55,15 @@ if (val_init)
 
     // valeurs initiales des prix emballages et des paliers pour le changement de bocal
 
-    var tab_consigne=[];
+    var tab_consigne= new Array();
 
     $('.consigne_column').each(function(i){
       i = $(this).attr('id_consigne');
       tab_consigne[i] = $(this).children('.qte_consigne').attr('data_qte_c');
     });
+
+    // Initialisation: option 1: Consigne
+    var cons_kraft = 1;
 
     val_init = false;
 }
@@ -155,7 +158,7 @@ $('#qte_input').on({
 
       // Correspondance entre la valeur qte_input et la consigne concernée
 
-      if(cons_ou_kraft == 1){
+      if(cons_kraft == 1){
         var local_id = IdConsigne(val_qte);
         var local_prix;
         ChangeIcone(local_id);
@@ -172,8 +175,6 @@ $('#qte_input').on({
 /* Début choix entre Consigne ou Kraft*/
 
     // afficher l'option Kraft pour l'emballage
-
-    var cons_ou_kraft = 1;
 
     $('.li_kraft').on({
       click: function() {
@@ -196,7 +197,7 @@ $('#qte_input').on({
           }
         );
 
-        cons_ou_kraft = 2;
+        cons_kraft = 2; // option 2: Kraft choisie - Initialisation au début
 
         $('#qte_input').trigger("input"); // adapter le prix de l'emballage kraft lors de la selection en kraft
       }
@@ -226,7 +227,7 @@ $('#qte_input').on({
           }
         );
 
-        cons_ou_kraft = 1;
+        cons_kraft = 1;// option 1: Consigne choisie - Initialisation au début
         $('#qte_input').trigger("input"); // adapter la taille du local suivant la valeur choisie pendant la position de l'onglet en kraft
       }
     });
@@ -287,8 +288,61 @@ $('#qte_input').on({
 
 /* Fin choix entre Description ou Producteur*/
 
-/* Début Gestion des cookies */
 
+/*
+//data_panier['data_produit']= $(".data_produit").val();
+//data_panier['data_consigne']= $(".data_consigne").val();
+
+console.log(JSON.stringify(data_panier));
+var link = $('.form_achat_produit').serialize();
+var data_produit = $(".data_produit").val();
+	var data_consigne = $(".data_consigne").val();
+*/
+
+/* Début Pop up add_rapid : création de l'ajax pour ajouter au panier */
+	$('.ajout_panier').on({
+	click: function(){
+	//var link = $('.form_achat_produit').serialize();
+	//var data_panier = {};
+	var data_panier = {
+        data_produit: $(this).attr('data_produit'),
+        data_consigne: cons_kraft,
+        qte_input: $("#qte_input").val()
+    };
+	//console.log(data_panier);
+
+	$.ajax({
+	    type: 'POST',
+	    url: '/boutique/panier',
+	    data: data_panier,/*{
+	        'data_produit': data_produit,
+	        'data_consigne': data_consigne,
+	        'qte_input': qte_input,
+	        },*/
+
+	        success: function(data) {
+	        // if there are still more pages to load,
+	        // add 1 to the "Load More Posts" link's page data attribute
+	        // else hide the link
+	        /*if (data.has_next) {
+	            link.data('page', page+1);
+	            } else {
+	            link.hide();
+	            }*/
+	        $('.bordure_bas').append('data : ' + data.addpanier_html);
+	        },
+
+	        error: function(xhr, status, error) {
+	            // shit happens friends!
+	        }
+	    });
+	}
+	});
+
+/* Fin Pop up add_rapid : création de l'ajax pour ajouter au panier */
+
+/* Début Gestion des cookies */
+/*
     // Récupérer les informations dans les cookies
 
     nbrArticleDansPanier = parseInt(getCookie('nbrArticleDansPanier') ? getCookie('nbrArticleDansPanier') : 0);
@@ -351,7 +405,7 @@ $('#qte_input').on({
       // affiche le contenu du panier si c'est le premier article -> fonction dans le fichier base_fonctions.js
       panier_vide_toggle();
     });
-
+*/
 /* Fin Gestion des cookies */
 
 });

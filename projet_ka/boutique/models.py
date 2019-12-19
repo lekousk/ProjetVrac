@@ -108,3 +108,10 @@ class PrixUnite(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.produit, self.emballage)
+
+class Panier(models.Model):
+    user = models.ForeignKey('users.MyUser', on_delete=models.CASCADE)
+    produit = models.ForeignKey(Produit, on_delete=models.CASCADE)
+    emballage = models.ForeignKey(Emballage, on_delete=models.CASCADE)
+    quantite = models.DecimalField(_('Quantité'), max_digits=7, decimal_places=2)
+    prix = models.FloatField(_('Prix'))

@@ -235,23 +235,7 @@ $(function() {
 		});
 	}
 
-	/*$('.header_nav').on('mouseenter', function(){
-		var n_href;
-		if(false)
-		{
-		$('.navigation a').each(function(i){
-			console.log(i + ':' + $(this).attr('_href'));
-			n_href = $(this).attr('_href');
-
-			if (n_href)
-			{
-				$(this).attr('href', n_href);
-			}
-		});
-		}
-	});*/
-
-
+/*
 	// Récupérer les informations dans les cookies
 
 	nbrArticleDansPanier = parseInt(getCookie('nbrArticleDansPanier') ? getCookie('nbrArticleDansPanier') : 0);
@@ -270,6 +254,6 @@ $(function() {
 
 	// Ajout des items dans le panier ul
 	$('.ajout_dans_panier').prepend(items);
-
+*/
 });
 //fin
