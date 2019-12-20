@@ -1,6 +1,6 @@
 from django.contrib import admin
 #from pages.models import Categorie, Article
-from .models import Produit, Producteur, CategorieProduit, Emballage, CategorieMere, PrixUnite
+from .models import Produit, Producteur, CategorieProduit, Emballage, CategorieMere, PrixUnite, Panier
 
 admin.site.register(Produit)
 admin.site.register(Producteur)
@@ -8,6 +8,7 @@ admin.site.register(CategorieProduit)
 admin.site.register(Emballage)
 admin.site.register(CategorieMere)
 admin.site.register(PrixUnite)
+admin.site.register(Panier)
 
 # Register your models here.
 

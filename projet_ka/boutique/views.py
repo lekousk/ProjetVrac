@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from django.db.models import Q, Count
 from django.http import JsonResponse
 from django.template import loader
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from .forms import NewProduitForm
 from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere, PrixUnite, Panier
@@ -11,10 +12,11 @@ from .filters import ProduitFiltrer
 
 
 # Create your views here.
-
+@ensure_csrf_cookie
 def AffUnProduit(request, id):
     produit_c = get_object_or_404(Produit, id=id)
     prix_unite = PrixUnite.objects.filter(produit__id__exact=produit_c.id)
+    #request.session['ok'] = True
 
     context = {
         'produit': produit_c,
@@ -32,8 +34,24 @@ def AddPanier(request):
         data_consigne = request.POST.get('data_consigne')
         qte_input = request.POST.get('qte_input')
 
-        #produit = Produit.objects.get(id=int(data_produit))
-        prix_unite = PrixUnite.objects.filter(Q(produit__id=int(data_produit)) & Q(quantite__gte=int(qte_input))).first()
+        if data_consigne == '1':
+            prix_unite = PrixUnite.objects.filter(Q(produit__id=int(data_produit)) & Q(quantite__gte=int(qte_input))).first()
+            consigne = prix_unite.emballage
+        elif data_consigne == '2':
+            consigne = Emballage.objects.get(nom = 'aucun')
+        else:
+            consigne = 'marde'
+
+        obj, panier = Panier.objects.get_or_created(
+            user = request.user,
+            produit__id = int(data_produit),
+            emballage = consigne,
+            quantite = int(qte_input),
+            defaults = {'nb': 1},
+        )
+
+        if not obj: #obj à True si le panier est créé, donc on incrémente
+            panier.nb += 1
 
         """try:
             panier = Panier.objects.get(user= request.user)
@@ -47,7 +65,7 @@ def AddPanier(request):
 
 
     output_data = {
-        'addpanier_html': str(prix_unite),
+        'addpanier_html': str(consigne),
     }
 
     return JsonResponse(output_data)
@@ -86,7 +104,6 @@ def NewProduitVue(request):
 
     # return render(request, 'boutique/edition.html', locals())
     return render(request, 'boutique/edition.html', {'form': form})
-
 
 def Rechercher(request):
     paginate = False
@@ -247,6 +264,7 @@ def Rechercher(request):
     }
     return render(request, 'boutique/all_products.html', context)
 
+@ensure_csrf_cookie
 def AddFast(request):
     link = request.GET.get('link')
     prod_ch = get_object_or_404(Produit, id=link)
