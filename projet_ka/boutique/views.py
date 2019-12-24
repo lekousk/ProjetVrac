@@ -28,6 +28,21 @@ def AffUnProduit(request, id):
 def AddPanier(request):
     addpanier_html = 'init'
 
+    """exemple:
+
+    @csrf_exempt
+    def check_auth(request):
+        if request.method == 'POST':
+            print(request.user)
+            if request.user.is_authenticated():
+                content = {'message': 'Authenticated'}
+                response = JsonResponse(content, status=200)
+                return response
+            else:
+                content = {'message': 'Unauthenticated'}
+                response = JsonResponse(content, status=401)
+                return response"""
+
     if request.method == 'POST':
         addpanier_html = request.POST
         data_produit = request.POST.get('data_produit')
@@ -42,16 +57,19 @@ def AddPanier(request):
         else:
             consigne = 'marde'
 
-        obj, panier = Panier.objects.get_or_created(
+        test = Produit.objects.get(id = int(data_produit))
+
+        panier, obj = Panier.objects.get_or_create(
             user = request.user,
-            produit__id = int(data_produit),
+            produit = Produit.objects.get(id = int(data_produit)),
             emballage = consigne,
             quantite = int(qte_input),
             defaults = {'nb': 1},
         )
 
-        if not obj: #obj à True si le panier est créé, donc on incrémente
+        if not obj: #obj à True si le panier est créé, donc on incrémente si False
             panier.nb += 1
+            panier.save()
 
         """try:
             panier = Panier.objects.get(user= request.user)
@@ -65,7 +83,7 @@ def AddPanier(request):
 
 
     output_data = {
-        'addpanier_html': str(consigne),
+        'addpanier_html': str(panier.nb),
     }
 
     return JsonResponse(output_data)
