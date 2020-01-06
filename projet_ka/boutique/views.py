@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import ListView
 from django.db.models import Q, Count
 from django.http import JsonResponse
 from django.template import loader
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core.serializers import serialize, deserialize
+import json
 
 from .forms import NewProduitForm
 from .models import Produit, Producteur, Emballage, CategorieProduit, CategorieMere, PrixUnite, Panier
@@ -26,7 +28,7 @@ def AffUnProduit(request, id):
     return render(request, 'boutique/produit_solo.html', context)
 
 def AddPanier(request):
-    addpanier_html = 'init'
+    #addpanier_html = 'init'
 
     """exemple:
 
@@ -43,8 +45,8 @@ def AddPanier(request):
                 response = JsonResponse(content, status=401)
                 return response"""
 
-    if request.method == 'POST':
-        addpanier_html = request.POST
+    if request.user.is_authenticated and request.method == 'POST':
+        #addpanier_html = request.POST
         data_produit = request.POST.get('data_produit')
         data_consigne = request.POST.get('data_consigne')
         qte_input = request.POST.get('qte_input')
@@ -57,8 +59,7 @@ def AddPanier(request):
         else:
             consigne = 'marde'
 
-        test = Produit.objects.get(id = int(data_produit))
-
+        #test = Produit.objects.get(id = int(data_produit))
         panier, obj = Panier.objects.get_or_create(
             user = request.user,
             produit = Produit.objects.get(id = int(data_produit)),
@@ -71,22 +72,40 @@ def AddPanier(request):
             panier.nb += 1
             panier.save()
 
-        """try:
-            panier = Panier.objects.get(user= request.user)
-
-        try:
-            len(qte_input)
-            len(data_consigne)
-            len(data_produit)
-        except:
-            pr = "aa" """
-
-
-    output_data = {
-        'addpanier_html': str(panier.nb),
-    }
+        output_data = {
+            'addpanier_html': str(panier),
+        }
+    else:
+        output_data = {
+            'addpanier_html': 'pas authentifié',
+        }
 
     return JsonResponse(output_data)
+
+"""cookie = request.COOKIES
+list_cookie = []
+
+for key in cookie:
+    if 'basket' in key:
+        list_cookie.append(key)
+
+val_panier = {
+    'pro': int(data_produit),
+    'emb': int(data_consigne),
+    'qte': int(qte_input),
+    'nb': 1,
+}
+panier = json.dumps(val_panier)
+output_data = {
+    'addpanier_html': panier,
+}
+response = JsonResponse(output_data)
+response.set_cookie('Basket' + '1', value=panier)
+#panier = json.loads(panier)
+#panier = panier['emballage']
+#panier = panier.content
+
+return response"""
 
 """def AddFast(request):
     link = request.GET.get('link')
