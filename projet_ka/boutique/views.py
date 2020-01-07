@@ -18,7 +18,7 @@ from .filters import ProduitFiltrer
 def AffUnProduit(request, id):
     produit_c = get_object_or_404(Produit, id=id)
     prix_unite = PrixUnite.objects.filter(produit__id__exact=produit_c.id)
-    #request.session['ok'] = True
+    # request.session['ok'] = True
 
     context = {
         'produit': produit_c,
@@ -27,8 +27,9 @@ def AffUnProduit(request, id):
 
     return render(request, 'boutique/produit_solo.html', context)
 
+
 def AddPanier(request):
-    #addpanier_html = 'init'
+    # addpanier_html = 'init'
 
     """exemple:
 
@@ -45,42 +46,86 @@ def AddPanier(request):
                 response = JsonResponse(content, status=401)
                 return response"""
 
-    if request.user.is_authenticated and request.method == 'POST':
-        #addpanier_html = request.POST
-        data_produit = request.POST.get('data_produit')
-        data_consigne = request.POST.get('data_consigne')
-        qte_input = request.POST.get('qte_input')
+    if request.method == 'POST':
+        # addpanier_html = request.POST
+        try:
+            data_produit = int(request.POST.get('data_produit'))
+            data_consigne = int(request.POST.get('data_consigne'))
+            qte_input = int(request.POST.get('qte_input'))
+            nb_article = int(request.POST.get('nb_article'))
+            same = False
+        except:
+            output_data = {
+                'val_qte': 'qte_input',
+                'nb_qte': 'nb_qte',
+                'nb_article': 'nb_article',
+                'same': same,
+            }
+            return JsonResponse(output_data)
 
-        if data_consigne == '1':
-            prix_unite = PrixUnite.objects.filter(Q(produit__id=int(data_produit)) & Q(quantite__gte=int(qte_input))).first()
-            consigne = prix_unite.emballage
-        elif data_consigne == '2':
-            consigne = Emballage.objects.get(nom = 'aucun')
+        if request.user.is_authenticated:
+            if data_consigne == '1':
+                prix_unite = PrixUnite.objects.filter(
+                    Q(produit__id=data_produit) & Q(quantite__gte=qte_input)).first()
+                consigne = prix_unite.emballage
+            elif data_consigne == '2':
+                consigne = Emballage.objects.get(nom='aucun')
+            else:
+                consigne = 'marde'
+
+            # test = Produit.objects.get(id = int(data_produit))
+            panier, obj = Panier.objects.get_or_create(
+                user=request.user,
+                produit=Produit.objects.get(id=data_produit),
+                emballage=consigne,
+                quantite=qte_input,
+                defaults={'nb': 1},
+            )
+
+            if not obj:  # obj à True si le panier est créé, donc on incrémente si False
+                panier.nb += 1
+                panier.save()
+                same = True
+
+            nb_article += 1
+
+            request.session.modified = True
+
+            output_data = {
+                'val_qte': qte_input,
+                'nb_qte': panier.nb,
+                'nb_article': nb_article,
+                'same': same,
+            }
         else:
-            consigne = 'marde'
+            titre_basket = 'basket' + str(data_produit) + '&' + str(data_consigne) + '&' + str(qte_input)
 
-        #test = Produit.objects.get(id = int(data_produit))
-        panier, obj = Panier.objects.get_or_create(
-            user = request.user,
-            produit = Produit.objects.get(id = int(data_produit)),
-            emballage = consigne,
-            quantite = int(qte_input),
-            defaults = {'nb': 1},
-        )
+            # request.session.clear()
+            # nb_article = 'ds'
+            if request.session.get(titre_basket):
+                request.session[titre_basket] += 1
+                same = True
+            else:
+                request.session[titre_basket] = 1
 
-        if not obj: #obj à True si le panier est créé, donc on incrémente si False
-            panier.nb += 1
-            panier.save()
+            nb_article += 1
+            request.session['nb_article'] = nb_article
 
-        output_data = {
-            'addpanier_html': str(panier),
-        }
-    else:
-        output_data = {
-            'addpanier_html': 'pas authentifié',
-        }
+            nb_qte = request.session[titre_basket]
+            sessionqte = request.session['nb_article']
+            sessionqte = nb_qte
+
+            output_data = {
+                'val_qte': qte_input,
+                'nb_qte': nb_qte,
+                'nb_article': nb_article,
+                'sessionqte': sessionqte,
+                'same': same,
+            }
+            # request.session.clear()
 
     return JsonResponse(output_data)
+
 
 """cookie = request.COOKIES
 list_cookie = []
@@ -122,6 +167,7 @@ return response"""
 
     return JsonResponse(output_data)"""
 
+
 def NewProduitVue(request):
     form = NewProduitForm(request.POST or None, request.FILES)
 
@@ -141,6 +187,7 @@ def NewProduitVue(request):
 
     # return render(request, 'boutique/edition.html', locals())
     return render(request, 'boutique/edition.html', {'form': form})
+
 
 def Rechercher(request):
     paginate = False
@@ -300,6 +347,7 @@ def Rechercher(request):
         'searchRay': searchRay,
     }
     return render(request, 'boutique/all_products.html', context)
+
 
 @ensure_csrf_cookie
 def AddFast(request):

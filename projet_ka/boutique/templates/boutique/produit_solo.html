@@ -15,7 +15,7 @@
 
         <div class="titre_produit">
             <div class="titre_et_produ">
-                <h1>{{ produit.nom }}</h1>
+                <h1 class="titre_article">{{ produit.nom }}</h1>
                 <em>de {{ produit.producteur }}</em>
             </div>
             <div class="prix_produit" info_type_prix="{{ produit.type_prix }}" info_prix_produit="{{ produit.prix_p|floatformat:-2 }}">
@@ -120,7 +120,7 @@
                         </div>
                         <div class="panier_prixArticle">
                             <p>
-                                <span>x</span> v.qt
+                                <span>x</span><span class="ajax_nb">' + data.nb_qte + '</span>
                             </p>
                             <p>
                                 v.prix_tot

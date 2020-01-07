@@ -168,6 +168,7 @@ $('#qte_input').on({
       }
       else{
         $('.emballage_div').hide();
+        $('#affiche_prix_emballage').text('-');
       }
     }
   });
@@ -298,7 +299,7 @@ var link = $('.form_achat_produit').serialize();
 var data_produit = $(".data_produit").val();
 	var data_consigne = $(".data_consigne").val();
 */
-
+console.log(window.location.href);
 /* Début Pop up add_rapid : création de l'ajax pour ajouter au panier */
 	$('.ajout_panier').on({
 	click: function(){
@@ -307,7 +308,8 @@ var data_produit = $(".data_produit").val();
 	var data_panier = {
         data_produit: $(this).attr('data_produit'),
         data_consigne: cons_kraft,
-        qte_input: $("#qte_input").val()
+        qte_input: $("#qte_input").val(),
+        nb_article: $('#nbr_article_dans_panier').text(),
     };
 	//console.log(data_panier);
 
@@ -329,7 +331,18 @@ var data_produit = $(".data_produit").val();
 	            } else {
 	            link.hide();
 	            }*/
-	        $('.bordure_bas').append('data : ' + data.addpanier_html);
+	        $('.bordure_bas').append('data : ' + data.sessionqte + '   data2: ' + data.nb_article);
+	        $('#nbr_article_dans_panier').text(data.nb_article);
+	        if(data.same){
+	            var cste = $('.ajout_panier').attr('data_produit');
+	            $('.ajax_nb_' + cste + '').text(data.nb_qte);
+	            // console.log(data.nb_qte);
+	            // $('.consigne_column[id_consigne='+ local_id +']').attr('data_prix_consigne');
+	            }
+	        else{
+	            $('.panier_vide_msg').hide();
+                $('.ajout_dans_panier').prepend('<div class="classArticlePanier"' + $('.ajout_panier').attr('data_produit') + '"><img src="' + $('.image_produit').attr('src') + '"><div class="panier_milieu"><p class="panier_titre"><a href="' + window.location.pathname + '">' + $('.titre_article').text() + '</a><span> - ' + $('.prix_produit').text() + '</span></p><p class="panier_sousTitre">Poids (g) : <span>' + data.val_qte + '</span></p><p class="panier_sousTitre">Consigne comprise : <span>' + $('#affiche_prix_emballage').text() + '</span></p></div><div class="panier_prixArticle"><p><span>x </span><span class="ajax_nb_' + $('.ajout_panier').attr('data_produit') + '">' + data.nb_qte + '</span></p><p>' + $('#prix_cal').text() + '€</p></div></div>');
+                }
 	        },
 
 	        error: function(xhr, status, error) {
