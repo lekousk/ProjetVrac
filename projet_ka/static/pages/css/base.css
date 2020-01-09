@@ -344,6 +344,7 @@ footer
         padding-top: 0.5rem;
         /*border: 1px solid red;*/
         height: 4.5rem;
+        position: relative;
     }
 
     .nav_mobile_header
@@ -658,6 +659,44 @@ footer
 	width: 2.5rem;
 }
 
+/* Création du bouton en forme de croix _ identique CSS recherche l700 environ */
+
+.btnCroix, .btnCroixEff
+{
+	background-color: transparent;
+	border: none;
+	height: 2.5rem;
+	width: 2.5rem;
+	position: relative;
+	cursor: pointer;
+}
+
+.btnCroix:before, .btnCroixEff:before
+{
+	content: '';
+	position: absolute;
+	background: grey;
+	top: 1.14rem;
+	left: 0.45rem;
+	width: 1.5rem;
+	height: 0.22rem;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.btnCroix:after, .btnCroixEff:after
+{
+	content: '';
+	position: absolute;
+	background: grey;
+	top: 1.14rem;
+	left: 0.45rem;
+	width: 1.5rem;
+	height: 0.22rem;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
 	/* Menu: Partie Logo */
 
 .nav_mobile_logo
@@ -773,7 +812,7 @@ footer
 	position: relative;
 }
 
-.panier_reduit
+/*.panier_reduit // test
 {
 	position: absolute;
 	display: none;
@@ -783,25 +822,91 @@ footer
 	top: 3.8rem;
 	right: 5px;
 	z-index: 22;
+}*/
+
+.panier_aff
+{
+    position: relative;
+}
+
+.panier_reduit
+{
+	position: absolute;
+	border: 0;
+	background-color: white;
+	box-shadow: 0 0 0.3rem grey;
+	top: 0;
+	right: 1rem;
+	z-index: 22;
+}
+
+.panier_tete
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem;
+    background-color: #f8f8f8;
+    align-items: center;
+}
+
+.panier_nom
+{
+    font-weight: bold;
+}
+
+.panier_nb_tot
+{
+    font-size: 0.9rem;
+    color: #5bc7ab;
+}
+
+.panier_nb_art
+{
+    padding-left: 0.6rem;
 }
 
 .ajout_dans_panier
 {
-	margin: 5px;
+	margin: 0.5rem;
+}
+
+.pan_qte
+{
+    border-right: 2px solid #5bc7ab;
+    align-self: center;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    margin-right: 0.5rem;
+    color: grey;
+    font-weight: bold;
+}
+
+.pan_suppr
+{
+    /*border: 2px solid #5bc7ab;*/
+    align-self: center;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    margin: 0 0.5rem 0 1rem;
+    color: grey;
+    font-weight: bold;
+}
+
+.img_trash
+{
 }
 
 .classArticlePanier
 {
-	height: 70px;
-	padding-bottom: 5px;
 	border-bottom: 1px solid grey;
+	padding-bottom: 0.5rem;
 	display: flex;
+	flex-wrap: nowrap;
 	justify-content: center;
+	/*border: 1px solid red;*/
 }
 
 .classArticlePanier + .classArticlePanier
 {
-	margin-top: 5px;
+	margin-top: 0.5rem;
 }
 
 .classArticlePanier img
@@ -811,9 +916,9 @@ footer
 
 .panier_milieu
 {
-	flex: 0.9;
-	padding: 2px 5px;
+	padding: 0.2rem 0.5rem;
 	color: grey;
+	flex: auto;
 }
 
 .panier_milieu p
@@ -824,9 +929,8 @@ footer
 
 .panier_titre
 {
-	padding-top: 5px;
 	font-weight: bold;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 }
 
 .panier_titre a
@@ -837,18 +941,35 @@ footer
 
 .panier_sousTitre
 {
-	font-size: 0.6rem;
+	font-size: 0.8rem;
 }
 
 .panier_prixArticle
 {
-	font-size: 0.75rem;
+	font-size: 0.9rem;
 	color: #5bc7ab;
+	align-self: flex-end;
+	margin: 0 1rem;
+}
+
+.panier_prixArticle p
+{
+	margin: 0;
 }
 
 .panier_prixArticle span
 {
-	font-weight: bold;
+	/*font-weight: bold;*/
+}
+
+.voir_panier
+{
+    display: flex;
+}
+
+.voir_panier p
+{
+    margin: 0;
 }
 
 #voir_panier

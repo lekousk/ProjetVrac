@@ -699,7 +699,7 @@ color: black;
 
 /* Création du bouton en forme de croix */
 
-.btnCroix, .btnCroixEff
+/*.btnCroix, .btnCroixEff
 {
 	background-color: transparent;
 	border: none;
@@ -733,7 +733,7 @@ color: black;
 	height: 0.22rem;
 	-webkit-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-}
+}*/
 
 .btnEff
 {

@@ -74,17 +74,118 @@
 								<div id="nbr_article_dans_panier">0</div>
 							</div>
 						</a>
-						<div class="panier_reduit">
+						<!--<div class="panier_reduit">
 							<div class="ajout_dans_panier">
+
+								<div class="classArticlePanier">
+									<div class="pan_qte ajax_nb_1">
+										1x
+									</div>
+									<img src="{{ produit.image_p.url }}">
+									<div class="panier_milieu">
+										<p class="panier_titre">
+											<a>{{ produit.nom }}</a>
+										</p>
+										<p class="panier_sousTitre">
+											Avec consigne
+										</p>
+										<p class="panier_sousTitre">
+											Quantité : <span>450</span><span>g</span>
+										</p>
+									</div>
+
+									<div class="panier_prixArticle">
+										<p>
+											<span class="pan_prix_prod">12,45</span><span>€</span>
+										</p>
+										<p>
+											<span>+ </span><span class="pan_prix_cons">5,30</span><span>€</span>
+										</p>
+									</div>
+									<div class="pan_suppr">
+										X
+									</div>
+								</div>
+
 								<div class="panier_vide_msg" ><a>Votre panier est vide</a></div>
 							</div>
 
 							<div class="voir_panier">
+								<div>
+									<p>
+										Total : <span>12,40</span><span>€</span>
+									</p>
+									<p>
+										Total consigne : + <span>12,40</span><span>€</span>
+									</p>
+								</div>
+								<a  id="voir_panier">Voir le panier</a>
+							</div>
+						</div>-->
+					</div>
+				</div>
+				<div class="panier_aff bloc_principaux">
+						<div class="panier_reduit">
+							<div class="panier_tete">
+								<div>
+									<span class="panier_nom">Panier</span>
+									<span class="panier_nb_tot">
+										<span class="panier_nb_art">4</span>
+										articles
+									</span>
+								</div>
+								<div>
+									<div class="btnCroix"></div>
+								</div>
+							</div>
+							<div class="ajout_dans_panier">
+
+								<div class="classArticlePanier">
+									<div class="pan_qte ajax_nb_1">
+										1x
+									</div>
+									<img src="{{ produit.image_p.url }}">
+									<div class="panier_milieu">
+										<p class="panier_titre">
+											<a>{{ produit.nom }}</a>
+										</p>
+										<p class="panier_sousTitre">
+											Avec consigne
+										</p>
+										<p class="panier_sousTitre">
+											Quantité : <span>450</span><span>g</span>
+										</p>
+									</div>
+
+									<div class="panier_prixArticle">
+										<p>
+											<span class="pan_prix_prod">12,45</span><span>€</span>
+										</p>
+										<p>
+											<span>+ </span><span class="pan_prix_cons">5,30</span><span>€</span>
+										</p>
+									</div>
+									<div class="pan_suppr">
+										<img class="img_trash" src="{% static 'pages/images/trash_petit.png' %}" alt="icone poubelle">
+									</div>
+								</div>
+
+								<!--<div class="panier_vide_msg" ><a>Votre panier est vide</a></div>-->
+							</div>
+
+							<div class="voir_panier">
+								<div>
+									<p>
+										Sous-Total : <span>12,40</span><span>€</span>
+									</p>
+									<p>
+										Total consigne : + <span>12,40</span><span>€</span>
+									</p>
+								</div>
 								<a  id="voir_panier">Voir le panier</a> <!-- Ajouter href="/panier/" une fois fini-->
 							</div>
 						</div>
 					</div>
-				</div>
 
 				<div class="bandeau_fond bf_mobile">
 					<div class="bandeau_menu">
