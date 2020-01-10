@@ -169,14 +169,6 @@
 	border-left: 1px solid #FFF;
 }
 
-.supprScroll
-{
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
 /* Panneau TRIER */
 
 @media (max-width: 900px)

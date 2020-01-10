@@ -178,13 +178,30 @@ $(function() {
 		}
 	}
 
+/* TEste 1 */
+	// Gestion des évènements quand le pointer est coarse (tactile) ET la taille de l'écran petite
+
+    $('.basket').on('click', function(){
+        $('.back_fond').show('fast');
+        $('.panier_aff').show('slow');
+        $('html').addClass("supprScroll");
+    });
+
+		// Click hors des éléments, avec pointer coarse, gestion des évènements :
+	$('.back_fond, .close_panier').on('click', function(){
+			$('.back_fond').hide('fast');
+			$('.panier_aff').hide('slow');
+			$('html').removeClass("supprScroll");
+	});
+
+
+/* TEst 1
 	// Gestion des évènements quand le pointer est coarse (tactile) ET la taille de l'écran petite
 
 
 	if(is_coarse && taille_p){
 		$('.panier').on('click', function(){
 			$('.panier_reduit').slideToggle('slow');
-			$(".basket").toggleClass("active");
 		});
 
 		// Click hors des éléments, avec pointer coarse, gestion des évènements :
@@ -223,6 +240,7 @@ $(function() {
 				$('.panier_reduit').hide();
 			}
 		});
+*/
 
 		// Scroll up + A mettre dans la partie media queries > 1030px
 		$(window).scroll(function (){
@@ -233,7 +251,6 @@ $(function() {
 				$('#scrollUp').hide( 'slow' );
 			}
 		});
-	}
 
 /*
 	// Récupérer les informations dans les cookies
