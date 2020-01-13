@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<div id="body_edition">
+<div class="body_edition">
 
     <section>
         <h1>PANIER</h1>
@@ -20,20 +20,56 @@
         </p>
     </section>
 
-    <section id="table_panier">
-        <table>
-            <thead>
+    <section>
+        <table class="table_panier">
+            <thead class="pan_entete">
                 <tr>
-                    <th>Article</th>
-                    <th>Unité</th>
-                    <th>Prix</th>
+                    <th>Produit</th>
+                    <th>Format</th>
+                    <th>Prix Unitaire</th>
                     <th>Quantité</th>
                     <th>Total</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
-                
+                <tr>
+                    <td class="table_produit">
+                        <img src="{{ produit.image_p.url }}" class="image_produit"/>
+                        <div>
+                            {{ produit.nom }} - {{ produit.prix_p|floatformat:-2 }} €/{{ produit.type_prix }}<br>
+                            <em>de {{ produit.producteur }}</em>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="">
+                            <label>Quantité précise: </label>
+                            <input type="number" name="" id="" step="10" min="0" placeholder="0">
+                            <span>g</span>
+                            <div id="">Quantité maximale 1200g</div>
+                        </div>
+                        <div>
+                            <label for="emb_select">Emballage :</label>
+                            <select id="emb_select">
+                                <option>Bocal</option>
+                                <option>Sachet</option>
+                            </select>
+                        </div>
+                        <img src="{% static 'boutique/images/Bocal_S_vide.png' %}" class=""/>
+                    </td>
+                    <td>12,60€</td>
+                    <td class="QtePanier">
+                        <button class="QteMoins">-</button>
+                        <input type="number" name="" class="inputQte" id="" step="10" min="0" placeholder="0">
+                        <button class="QtePlus">+</button>
+                    </td>
+                    <td>12,60€</td>
+                    <td>
+                        <img class="img_trash" src="{% static 'pages/images/trash.png' %}" alt="icone poubelle">
+                    </td>
+                </tr>
             </tbody>
+            <tfoot></tfoot>
         </table>
     </section>
 

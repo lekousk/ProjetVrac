@@ -1,13 +1,82 @@
 
 /* Section de la page */
 
-#body_edition
+.body_edition
 {
-	width: 1000px;
-	margin: auto;
-	padding-top: 30px;
-	padding-bottom: 20px;
-	font-size: 0.8em;
+}
+
+.table_panier
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+    font-size: 1rem;
+    margin: auto;
+}
+
+.pan_entete
+{
+    #background-color: #5bc7ab;
+    background: linear-gradient(to top, #5bc7ab, #73F8D5);
+    color: #FFF;
+}
+
+.pan_entete th:first-child
+{
+    border-top-left-radius: 0.5rem;
+}
+
+.pan_entete th:last-child
+{
+    border-top-right-radius: 0.5rem;
+}
+
+.pan_entete th
+{
+    padding: 0.5rem 1rem;
+}
+
+.table_produit
+{
+    display: flex;
+}
+
+.image_produit
+{
+    width: 8rem;
+}
+
+.QtePanier
+{
+    display: flex;
+}
+
+.QteMoins, .QtePlus
+{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+    border-radius: 25%;
+    text-align: center;
+    border: 1px solid #b6b8c1;
+}
+
+.QteMoins:before,
+{
+    display: block;
+    content: 'gs';
+    color: red;
+    font-size: 3rem;
+    margin-top: 5px;
+}
+
+.inputQte
+{
+    border-radius: 1rem;
+    width: 3rem;
+    text-align: center;
+    border: solid 1px #bcbcbc;
 }
 
 /* Fin */

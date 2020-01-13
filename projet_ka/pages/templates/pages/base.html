@@ -28,7 +28,7 @@
 						<div>
 							<span class="panier_nom">Panier</span>
 							<span class="panier_nb_tot">
-								<span class="panier_nb_art">4</span>
+								<span class="panier_nb_art">0</span>
 								articles
 							</span>
 						</div>
@@ -36,39 +36,8 @@
 							<div class="btnCroix close_panier"></div>
 						</div>
 					</div>
-					<div class="ajout_dans_panier">
+					<div class="ajout_dans_panier" data_imgc="{% static 'pages/images/copyright.png' %}" data_trash="{% static 'pages/images/trash.png' %}">
 
-						<div class="classArticlePanier">
-							<div class="pan_qte ajax_nb_1">
-								1x
-							</div>
-							<img src="{{ produit.image_p.url }}" class="panier_img">
-							<div class="panier_milieu">
-								<p class="panier_titre">
-									<a>{{ produit.nom }}</a>
-								</p>
-								<p class="panier_sousTitre">
-									Avec consigne
-								</p>
-								<p class="panier_sousTitre panier_qte">
-									Quantité : <span>450</span><span>g</span>
-								</p>
-							</div>
-
-							<div class="panier_prixArticle">
-								<p>
-									<span class="pan_prix_prod">12,45</span><span>€</span>
-								</p>
-								<div class="pa_art_cons">
-									<img class="img_c" src="{% static 'pages/images/copyright.png' %}" alt="icone consigne C">
-									<p>
-										+<span class="pan_prix_cons">5,30</span>€
-									</p>
-								</div>
-							</div>
-
-							<img class="img_trash" src="{% static 'pages/images/trash.png' %}" alt="icone poubelle">
-						</div>
 						<div class="classArticlePanier">
 							<div class="pan_qte ajax_nb_1">
 								1x
@@ -111,11 +80,11 @@
 								<span>Total consigne :</span>
 							</p>
 							<p class="tot_color">
-								<span class=""><span>31,50</span>€</span><br>
-								<span class="">+<span>12,40</span>€</span>
+								<span><span class="pan_tot_prod">100,00</span>€</span><br>
+								<span>+<span class="pan_tot_cons">1000,00</span>€</span>
 							</p>
 						</div>
-						<a  id="voir_panier">Voir le panier</a> <!-- Ajouter href="/panier/" une fois fini-->
+						<a href="{% url 'panier' %}" id="voir_panier">Voir le panier</a> <!-- Ajouter href="/panier/" une fois fini-->
 					</div>
 
 				</div>

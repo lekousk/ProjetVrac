@@ -27,6 +27,13 @@ def AffUnProduit(request, id):
 
     return render(request, 'boutique/produit_solo.html', context)
 
+def Panier(request):
+    temp = get_object_or_404(Produit, id=1)
+    context = {
+        'produit': temp,
+    }
+
+    return render(request, 'boutique/panier.html', context)
 
 def AddPanier(request):
     # addpanier_html = 'init'
@@ -63,6 +70,8 @@ def AddPanier(request):
             }
             return JsonResponse(output_data)
 
+        titre_choix = 'basket' + str(data_produit) + '_' + str(data_consigne) + '_' + str(qte_input)
+
         if request.user.is_authenticated:
             if data_consigne == '1':
                 prix_unite = PrixUnite.objects.filter(
@@ -95,31 +104,29 @@ def AddPanier(request):
                 'val_qte': qte_input,
                 'nb_qte': panier.nb,
                 'nb_article': nb_article,
+                'titre_choix': titre_choix,
                 'same': same,
             }
         else:
-            titre_basket = 'basket' + str(data_produit) + '&' + str(data_consigne) + '&' + str(qte_input)
 
             # request.session.clear()
             # nb_article = 'ds'
-            if request.session.get(titre_basket):
-                request.session[titre_basket] += 1
+            if request.session.get(titre_choix):
+                request.session[titre_choix] += 1
                 same = True
             else:
-                request.session[titre_basket] = 1
+                request.session[titre_choix] = 1
 
             nb_article += 1
             request.session['nb_article'] = nb_article
 
-            nb_qte = request.session[titre_basket]
-            sessionqte = request.session['nb_article']
-            sessionqte = nb_qte
+            nb_qte = request.session[titre_choix]
 
             output_data = {
                 'val_qte': qte_input,
                 'nb_qte': nb_qte,
                 'nb_article': nb_article,
-                'sessionqte': sessionqte,
+                'titre_choix': titre_choix,
                 'same': same,
             }
             # request.session.clear()
