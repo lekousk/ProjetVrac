@@ -1,2 +1,4 @@
 # ProjetVrac
-Version propre _ creer branche
+Création d'un site web de vente en ligne de produits en Vrac
+
+Status: en pause
